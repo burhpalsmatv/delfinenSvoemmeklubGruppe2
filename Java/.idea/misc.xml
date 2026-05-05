@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="62d96a11-b4f0-4ec1-a3b9-69c6f2d1fbbc" />
+  </component>
   <component name="ProjectRootManager" version="2" languageLevel="JDK_25" default="true" project-jdk-name="temurin-25" project-jdk-type="JavaSDK">
-    <output url="file://$PROJECT_DIR$/Java" />
+    <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>
