@@ -16,7 +16,7 @@ public class Member {
 
     static ArrayList<Member> listOfMembers = new ArrayList<>();
 
-    public Member(String name, MedlemsType medlemsType, String phone){
+    public Member(String name, MemberType memberType, String phone){
         this.name = name;
         this.memberType = memberType;
         this.phone = phone;
@@ -126,16 +126,16 @@ public class Member {
         listOfMembers.get(i).gender = gender;
     }
 
-    public void setBetalingsStatusAt(int i, boolean betalingsStatus) {
-        listOfMembers.get(i).betalingsStatus = betalingsStatus;
+    public void setPaidAt(int i, boolean isPaid) {
+        listOfMembers.get(i).isPaid = isPaid;
     }
 
-    public void setMedlemstypeAt(int i, MedlemsType medlemstype) {
-        listOfMembers.get(i).medlemstype = medlemstype;
+    public void setMedlemstypeAt(int i, MemberType memberType) {
+        listOfMembers.get(i).memberType = memberType;
     }
 
-    public void setSeniorRabatAt(int i, boolean seniorRabat) {
-        listOfMembers.get(i).seniorRabat = seniorRabat;
+    public void setSeniorRabatAt(int i, boolean seniorDiscount) {
+        listOfMembers.get(i).seniorDiscount = seniorDiscount;
     }
 
     // Other methods
