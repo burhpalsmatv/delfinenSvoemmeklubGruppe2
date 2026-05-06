@@ -19,11 +19,13 @@ public class Main {
 
         System.out.println(PaymentManager.getMembersInArrear(theGang).toString());
         Competitor madsComp = new Competitor(mads);
-        SwimmingCategory crawl = new SwimmingCategory();
-        Trainer mattie = new Trainer("Mattie", crawl);
-        madsComp.addTrainer(mattie);
+        SwimmingCategory crawl = new SwimmingCategory("crawl");
+        Trainer mattie1 = new Trainer("Mattie", crawl);
+        madsComp.addTrainer(mattie1);
 
         System.out.println(madsComp);
+
+        System.out.println(mads);
 
     }
 }

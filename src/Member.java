@@ -7,12 +7,12 @@ public class Member {
     private String email;
     private Gender gender;
     private boolean isPaid;
-    private MedlemsType medlemstype;
-    private boolean seniorRabat;
+    private MemberType memberType;
+    private boolean seniorDiscount;
 
-    public Member(String name, MedlemsType medlemsType, String phone){
+    public Member(String name, MemberType memberType, String phone){
         this.name = name;
-        this.medlemstype = medlemsType;
+        this.memberType = memberType;
         this.phone = phone;
         this.isPaid = false;
     }
@@ -20,8 +20,23 @@ public class Member {
     public Member (){
 
     }
-
-
+    
+    public String toString(){
+        return String.format("""
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                Navn: %s
+                Alder: %d
+                Addresse: %s
+                Postkode: %s
+                Telefon: %s
+                Email: %s
+                Køn: %s
+                Betalingsstatus: %b
+                Medlemstype: %s
+                ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                """, this.name, this.age, this.address,this.postcode,this.phone,this.email,
+                this.gender, this.isPaid, this.memberType);
+    }
     //SETTERS BELOW:
 
     public void setName(String name) {
@@ -56,12 +71,12 @@ public class Member {
         this.isPaid = true;
     }
 
-    public void setMedlemstype(MedlemsType medlemstype) {
-        this.medlemstype = medlemstype;
+    public void setMemberType(MemberType memberType) {
+        this.memberType = memberType;
     }
 
-    public void setSeniorRabat(boolean seniorRabat) {
-        this.seniorRabat = seniorRabat;
+    public void setSeniorDiscount(boolean seniorDiscount) {
+        this.seniorDiscount = seniorDiscount;
     }
 
     //GETTERS BELOW:
