@@ -6,7 +6,7 @@ public class Member {
     private String phone;
     private String email;
     private Gender gender;
-    private boolean betalingsStatus;
+    private boolean isPaid;
     private MedlemsType medlemstype;
     private boolean seniorRabat;
 
@@ -14,6 +14,7 @@ public class Member {
         this.name = name;
         this.medlemstype = medlemsType;
         this.phone = phone;
+        this.isPaid = false;
     }
 
     public Member (){
@@ -51,8 +52,8 @@ public class Member {
         this.gender = gender;
     }
 
-    public void setBetalingsStatus(boolean betalingsStatus) {
-        this.betalingsStatus = betalingsStatus;
+    public void setPaid() {
+        this.isPaid = true;
     }
 
     public void setMedlemstype(MedlemsType medlemstype) {
@@ -61,5 +62,12 @@ public class Member {
 
     public void setSeniorRabat(boolean seniorRabat) {
         this.seniorRabat = seniorRabat;
+    }
+
+    //GETTERS BELOW:
+
+
+    public boolean isPaid() {
+        return isPaid;
     }
 }
