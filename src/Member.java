@@ -20,6 +20,9 @@ public class Member {
 
     }
 
+
+    //SETTERS BELOW:
+
     public void setName(String name) {
         this.name = name;
     }

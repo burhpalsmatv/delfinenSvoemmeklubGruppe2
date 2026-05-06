@@ -1,8 +1,8 @@
 public class Trainer {
     private String name;
     private int age;
-    private String adress;
-    private String postalcode;
+    private String address;
+    private String postalCode;
     private String phone;
     private String email;
     private Gender gender;
