@@ -9,9 +9,9 @@ public class Main {
         Member valdemar = new Member("Valdemar", MedlemsType.JUNIOR, "00000001");
 
         Competitor madsComp = new Competitor(mads);
-        SwimmingCategory crawl = new SwimmingCategory();
-        Trainer mattie = new Trainer("Mattie", crawl);
-        madsComp.addTrainer(mattie);
+        SwimmingCategory crawl = new SwimmingCategory("Lars svømning");
+        Trainer mattie1 = new Trainer("Mattie", crawl);
+        madsComp.addTrainer(mattie1);
 
         System.out.println(madsComp);
 
