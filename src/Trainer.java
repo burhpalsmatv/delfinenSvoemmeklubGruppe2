@@ -8,5 +8,9 @@ public class Trainer {
     private Gender gender;
     private SwimmingCategory swimmingCategory;
 
-    
+    public Trainer(String name, SwimmingCategory swimmingCategory){
+        this.name = name;
+        this.swimmingCategory = swimmingCategory;
+    }
+
 }
