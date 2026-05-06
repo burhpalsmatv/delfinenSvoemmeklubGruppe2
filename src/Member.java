@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Member {
     private String name;
     private int age;
@@ -86,7 +88,15 @@ public class Member {
     //GETTERS BELOW:
 
 
+    public MemberType getMemberType() {
+        return memberType;
+    }
+
     public boolean isPaid() {
         return isPaid;
+    }
+
+    public boolean hasSeniorDiscount() {
+        return seniorDiscount;
     }
 }

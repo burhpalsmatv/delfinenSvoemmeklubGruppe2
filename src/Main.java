@@ -11,6 +11,7 @@ public class Main {
         Member valdemar = new Member("Valdemar", MemberType.JUNIOR, "00000001");
 
         mads.setPaid();
+        mads.setSeniorDiscount(true);
 
         theGang.add(mads);
         theGang.add(emma);
