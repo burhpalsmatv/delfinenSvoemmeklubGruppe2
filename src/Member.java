@@ -20,7 +20,11 @@ public class Member {
     public Member (){
 
     }
-    
+
+    public String getName(){
+        return this.name;
+    }
+
     public String toString(){
         return String.format("""
                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~

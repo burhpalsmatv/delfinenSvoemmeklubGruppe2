@@ -13,4 +13,7 @@ public class Trainer {
         this.swimmingCategory = swimmingCategory;
     }
 
+    public void setSwimmingCategory(SwimmingCategory swimmingCategory) {
+        this.swimmingCategory = swimmingCategory;
+    }
 }
