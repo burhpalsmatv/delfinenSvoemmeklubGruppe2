@@ -14,6 +14,7 @@ public class Member {
         this.name = name;
         this.memberType = memberType;
         this.phone = phone;
+        this.isPaid = false;
     }
 
     public Member (){
@@ -66,8 +67,8 @@ public class Member {
         this.gender = gender;
     }
 
-    public void setIsPaid(boolean isPaid) {
-        this.isPaid = isPaid;
+    public void setPaid() {
+        this.isPaid = true;
     }
 
     public void setMemberType(MemberType memberType) {
@@ -76,5 +77,12 @@ public class Member {
 
     public void setSeniorDiscount(boolean seniorDiscount) {
         this.seniorDiscount = seniorDiscount;
+    }
+
+    //GETTERS BELOW:
+
+
+    public boolean isPaid() {
+        return isPaid;
     }
 }
