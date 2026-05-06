@@ -7,4 +7,13 @@ public class Competition {
     public String title;
     public String prize;
     public boolean ended;
+
+    public Competition(ArrayList<SwimmingCategory> swimmingCategories, String title, String date
+            , String prize) {
+        this.swimmingCategories = swimmingCategories;
+        this.title = title;
+        this.date = date;
+        this.prize = prize;
+        this.ended = false;
+    }
 }
