@@ -1,8 +1,6 @@
-public class Main {
-<<<<<<< Updated upstream
-    public static void main (String[] args){
+import java.util.Scanner;
 
-=======
+public class Main {
 
     public static void main(String[] args) {
 
@@ -12,6 +10,6 @@ public class Main {
         Member mattie = new Member("Mattie", MedlemsType.PASSIVE, "80081350");
         Member valdemar = new Member("Valdemar", MedlemsType.JUNIOR, "00000001");
 
->>>>>>> Stashed changes
+
     }
 }

@@ -20,8 +20,6 @@ public class Member {
 
     }
 
-<<<<<<< Updated upstream
-=======
 
     //SETTERS BELOW:
 
@@ -64,11 +62,4 @@ public class Member {
     public void setSeniorRabat(boolean seniorRabat) {
         this.seniorRabat = seniorRabat;
     }
-
-    //GETTERS BELOW:
-
-    public String getName() {
-        return this.name;
-    }
->>>>>>> Stashed changes
 }
