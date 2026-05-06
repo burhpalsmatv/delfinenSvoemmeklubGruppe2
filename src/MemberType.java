@@ -1,3 +1,3 @@
-public enum MedlemsType {
+public enum MemberType {
     JUNIOR, SENIOR, PASSIVE;
 }
