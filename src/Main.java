@@ -18,7 +18,23 @@ public class Main {
         theGang.add(mattie);
         theGang.add(valdemar);
 
-        System.out.println(PaymentManager.getExpectedQuota(theGang));
+        System.out.println(PaymentManager.getMembersInArrear(theGang).toString());
 
+        Competitor madsComp = new Competitor(mads);
+        Competitor mattieComp = new Competitor(mattie);
+        Competitor emmaComp = new Competitor(emma);
+        Competitor valdemarComp = new Competitor(valdemar);
+
+        SwimmingCategory crawl = new SwimmingCategory("crawl");
+        Trainer svendBent = new Trainer("Svend Bent", crawl);
+        madsComp.addTrainer(svendBent);
+        mattieComp.addTrainer(svendBent);
+        emmaComp.addTrainer(svendBent);
+        valdemarComp.addTrainer(svendBent);
+
+
+        Competition usopen = new Competition("Us Open", "10.07.26", madsComp, mattieComp, emmaComp, valdemarComp);
+
+        System.out.println(usopen);
     }
 }
