@@ -82,7 +82,15 @@ public class Member {
     //GETTERS BELOW:
 
 
+    public MemberType getMemberType() {
+        return memberType;
+    }
+
     public boolean isPaid() {
         return isPaid;
+    }
+
+    public boolean hasSeniorDiscount() {
+        return seniorDiscount;
     }
 }
