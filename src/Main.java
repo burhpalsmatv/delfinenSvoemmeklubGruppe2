@@ -15,12 +15,23 @@ public class Main {
         theGang.add(mattie);
         theGang.add(valdemar);
 
+        SwimmingCategory swimtest1 = new SwimmingCategory("Lars Henrik");
+        Trainer tester1 = new Trainer("Poul", swimtest1);
 
         Member.setNameAt(0, "Morten");
         Member.removeMemberAt(0);
+        Trainer.deleteTrainer(0);
+
         System.out.println(Member.listOfMembers);
+        PricingManager.changeMembershipPrice(MemberType.JUNIOR, 1200);
 
-        System.out.println(usopen);
+        Competitor comptest1 = new Competitor(emma);
+        Competition stævne1 = new Competition("Title1", "idag", comptest1);
 
+        System.out.println(comptest1);
+        System.out.println(stævne1);
+
+
+        mads.setIsPaid();
     }
 }
