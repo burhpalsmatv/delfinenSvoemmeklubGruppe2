@@ -29,4 +29,22 @@ public class PaymentManager {
         return expectedQuota;
     }
 
+    public static int getQuota(ArrayList<Member> members) {
+        int quota = 0;
+
+        for (Member member: members) {
+
+            if (member.hasSeniorDiscount() && member.getMemberType() != MemberType.PASSIVE &&
+            member.isPaid()) {
+                int discount = member.getMemberType().getPrice()/100 * 25;
+                quota += member.getMemberType().getPrice() - discount;
+            }
+            else if (member.isPaid()) {
+                quota += member.getMemberType().getPrice();
+            }
+        }
+
+        return quota;
+    }
+
 }
