@@ -1,14 +1,13 @@
 import java.util.ArrayList;
-import java.util.Scanner;
 
 public class Main {
     public static void main (String[] args){
 
         ArrayList<Member> theGang = new ArrayList<Member>();
-        Member mads = new Member("Mads", MemberType.SENIOR, "22334455");
-        Member emma = new Member("Emma", MemberType.JUNIOR, "99999999");
-        Member mattie = new Member("Mattie", MemberType.PASSIVE, "80081350");
-        Member valdemar = new Member("Valdemar", MemberType.JUNIOR, "00000001");
+        Member mads = new Member("Mads", Membership.SENIOR, "22334455");
+        Member emma = new Member("Emma", Membership.JUNIOR, "99999999");
+        Member mattie = new Member("Mattie", Membership.PASSIVE, "80081350");
+        Member valdemar = new Member("Valdemar", Membership.JUNIOR, "00000001");
 
         mads.setIsPaid();
 
@@ -24,13 +23,10 @@ public class Main {
 
 
 
-        Competition usopen = new Competition("Us Open", "10.07.26", madsComp, mattieComp, emmaComp, valdemarComp);
-
 
         Member.setNameAt(0, "Morten");
         System.out.println(Member.listOfMembers);
 
-        System.out.println(usopen);
 
     }
 }
