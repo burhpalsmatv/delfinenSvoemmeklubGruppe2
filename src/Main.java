@@ -10,7 +10,7 @@ public class Main {
         Member mattie = new Member("Mattie", MemberType.PASSIVE, "80081350");
         Member valdemar = new Member("Valdemar", MemberType.JUNIOR, "00000001");
 
-        mads.setPaid();
+        mads.setIsPaid();
 
         theGang.add(mads);
         theGang.add(emma);
@@ -26,6 +26,10 @@ public class Main {
         System.out.println(madsComp);
 
         System.out.println(mads);
+
+
+        Member.setNameAt(0, "Morten");
+        System.out.println(Member.listOfMembers);
 
     }
 }
