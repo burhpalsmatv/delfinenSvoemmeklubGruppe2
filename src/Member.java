@@ -12,20 +12,22 @@ public class Member {
     private MemberType memberType;
     private boolean seniorDiscount;
 
+    //
+
+    static ArrayList<Member> listOfMembers = new ArrayList<>();
+
     public Member(String name, MemberType memberType, String phone){
         this.name = name;
         this.memberType = memberType;
         this.phone = phone;
         this.isPaid = false;
+
+        //
+
+        listOfMembers.add(this);
     }
 
-    public Member (){
-
-    }
-
-    public String getName(){
-        return this.name;
-    }
+    public Member (){}
 
     public String toString(){
         return String.format("""
@@ -87,11 +89,45 @@ public class Member {
 
     //GETTERS BELOW:
 
+    public String getName() {
+        return this.name;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public String getPostcode() {
+        return postcode;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public Gender getGender() {
+        return gender;
+    }
+
+    public MemberType getMemberType() {
+        return memberType;
+    }
+
+    public boolean isSeniorDiscount() {
+        return seniorDiscount;
+    }
+
     public boolean isPaid() {
         return isPaid;
     }
-
-
 
     // DEFAULT SETTERS ABOVE ^^^^^
 

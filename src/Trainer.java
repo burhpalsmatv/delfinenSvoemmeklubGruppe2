@@ -11,7 +11,7 @@ public class Trainer {
     private SwimmingCategory swimmingCategory;
 
     //
-    private static ArrayList<Trainer> listOfTrainers = new ArrayList<>();
+    static ArrayList<Trainer> listOfTrainers = new ArrayList<>();
     //
 
     public Trainer(String name, SwimmingCategory swimmingCategory){
@@ -148,7 +148,4 @@ public class Trainer {
     return text;
     }
 
-    public void setSwimmingCategory(SwimmingCategory swimmingCategory) {
-        this.swimmingCategory = swimmingCategory;
-    }
 }
