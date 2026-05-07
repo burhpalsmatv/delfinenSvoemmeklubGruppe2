@@ -19,7 +19,7 @@ public class PaymentManager {
 
         for (Member member: members) {
 
-            if (member.hasSeniorDiscount() && member.getMemberType() != MemberType.PASSIVE) {
+            if (member.hasSeniorDiscount() && member.getMemberType() != Membership.PASSIVE) {
                 int discount = member.getMemberType().getPrice()/100 * 25;
                 expectedQuota += member.getMemberType().getPrice() - discount;
             }
@@ -34,7 +34,7 @@ public class PaymentManager {
 
         for (Member member: members) {
 
-            if (member.hasSeniorDiscount() && member.getMemberType() != MemberType.PASSIVE &&
+            if (member.hasSeniorDiscount() && member.getMemberType() != Membership.PASSIVE &&
             member.isPaid()) {
                 int discount = member.getMemberType().getPrice()/100 * 25;
                 quota += member.getMemberType().getPrice() - discount;
