@@ -5,6 +5,12 @@ public class Competitor extends Member {
     private double speed;
     private int result;
     private String name;
+    private Medals medal;
+    private Competition competition;
+    private String time;
+    private double pr;
+    private String timeForCategory;
+
 
     public Competitor(Member member) {
         super();
