@@ -9,8 +9,6 @@ public class Main {
         Member mattie = new Member("Mattie", Membership.PASSIVE, "80081350");
         Member valdemar = new Member("Valdemar", Membership.JUNIOR, "00000001");
 
-        mads.setIsPaid();
-
         theGang.add(mads);
         theGang.add(emma);
         theGang.add(mattie);
@@ -25,6 +23,7 @@ public class Main {
 
 
         Member.setNameAt(0, "Morten");
+        Member.removeMemberAt(0);
         System.out.println(Member.listOfMembers);
 
 

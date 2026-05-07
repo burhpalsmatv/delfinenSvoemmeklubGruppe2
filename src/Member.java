@@ -45,6 +45,7 @@ public class Member {
                 """, this.name, this.age, this.address,this.postcode,this.phone,this.email,
                 this.gender, this.isPaid, this.membership);
     }
+
     //SETTERS BELOW:
 
     public void setName(String name) {
@@ -86,6 +87,8 @@ public class Member {
     public void setSeniorDiscount(boolean seniorDiscount) {
         this.seniorDiscount = seniorDiscount;
     }
+
+    //
 
     //GETTERS BELOW:
 
@@ -171,6 +174,10 @@ public class Member {
 
     public static void setSeniorRabatAt(int i, boolean seniorDiscount) {
         listOfMembers.get(i).seniorDiscount = seniorDiscount;
+    }
+
+    public static void removeMemberAt(int i) {
+        listOfMembers.remove(i);
     }
 
     public boolean hasSeniorDiscount() {
