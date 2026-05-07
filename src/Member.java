@@ -9,16 +9,16 @@ public class Member {
     private String email;
     private Gender gender;
     private boolean isPaid;
-    private MemberType memberType;
+    private Membership membership;
     private boolean seniorDiscount;
 
     //
 
     static ArrayList<Member> listOfMembers = new ArrayList<>();
 
-    public Member(String name, MemberType memberType, String phone){
+    public Member(String name, Membership membership, String phone){
         this.name = name;
-        this.memberType = memberType;
+        this.membership = membership;
         this.phone = phone;
         this.isPaid = false;
 
@@ -43,8 +43,9 @@ public class Member {
                 Medlemstype: %s
                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
                 """, this.name, this.age, this.address,this.postcode,this.phone,this.email,
-                this.gender, this.isPaid, this.memberType);
+                this.gender, this.isPaid, this.membership);
     }
+
     //SETTERS BELOW:
 
     public void setName(String name) {
@@ -79,13 +80,15 @@ public class Member {
         this.isPaid = true;
     }
 
-    public void setMemberType(MemberType memberType) {
-        this.memberType = memberType;
+    public void setMemberType(Membership membership) {
+        this.membership = membership;
     }
 
     public void setSeniorDiscount(boolean seniorDiscount) {
         this.seniorDiscount = seniorDiscount;
     }
+
+    //
 
     //GETTERS BELOW:
 
@@ -117,8 +120,8 @@ public class Member {
         return gender;
     }
 
-    public MemberType getMemberType() {
-        return memberType;
+    public Membership getMemberType() {
+        return membership;
     }
 
     public boolean isSeniorDiscount() {
@@ -165,12 +168,16 @@ public class Member {
         listOfMembers.get(i).isPaid = isPaid;
     }
 
-    public static void setMedlemstypeAt(int i, MemberType memberType) {
-        listOfMembers.get(i).memberType = memberType;
+    public static void setMedlemstypeAt(int i, Membership membership) {
+        listOfMembers.get(i).membership = membership;
     }
 
     public static void setSeniorRabatAt(int i, boolean seniorDiscount) {
         listOfMembers.get(i).seniorDiscount = seniorDiscount;
+    }
+
+    public static void removeMemberAt(int i) {
+        listOfMembers.remove(i);
     }
 
     public boolean hasSeniorDiscount() {

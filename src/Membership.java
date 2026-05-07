@@ -1,9 +1,9 @@
-public enum MemberType {
+public enum Membership {
     JUNIOR(1000), SENIOR(1600), PASSIVE(500);
 
     private int price;
 
-    private MemberType(int price) {
+    private Membership(int price) {
         this.price = price;
     }
 
