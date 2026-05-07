@@ -12,24 +12,21 @@ public class Member {
     private MemberType memberType;
     private boolean seniorDiscount;
 
-    //
-
-    static ArrayList<Member> listOfMembers = new ArrayList<>();
-
     public Member(String name, MemberType memberType, String phone){
         this.name = name;
         this.memberType = memberType;
         this.phone = phone;
-
-        //
-
-        listOfMembers.add(this);
+        this.isPaid = false;
     }
 
     public Member (){
 
     }
-    
+
+    public String getName(){
+        return this.name;
+    }
+
     public String toString(){
         return String.format("""
                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -140,11 +137,7 @@ public class Member {
         listOfMembers.get(i).seniorDiscount = seniorDiscount;
     }
 
-    // Other methods
-    public void deleteMember(int i) {
-        // Delete member at index # of arraylist "listOfMembers"
-
-        listOfMembers.remove(i);
+    public boolean hasSeniorDiscount() {
+        return seniorDiscount;
     }
-
 }

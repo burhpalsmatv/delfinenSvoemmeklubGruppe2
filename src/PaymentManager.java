@@ -1,9 +1,6 @@
 import java.util.ArrayList;
 
 public class PaymentManager {
-    private ArrayList<Receipt> receipts;
-    private ArrayList<Member> members;
-
 
     public static ArrayList<Member> getMembersInArrear(ArrayList<Member> members) {
         ArrayList<Member> membersInArrear = new ArrayList<Member>();
@@ -15,4 +12,21 @@ public class PaymentManager {
         }
         return membersInArrear;
     }
+
+
+    public static int getExpectedQuota(ArrayList<Member> members) {
+    int expectedQuota = 0;
+
+        for (Member member: members) {
+
+            if (member.hasSeniorDiscount() && member.getMemberType() != MemberType.PASSIVE) {
+                int discount = member.getMemberType().getPrice()/100 * 25;
+                expectedQuota += member.getMemberType().getPrice() - discount;
+            }
+            else expectedQuota += member.getMemberType().getPrice();
+        }
+
+        return expectedQuota;
+    }
+
 }

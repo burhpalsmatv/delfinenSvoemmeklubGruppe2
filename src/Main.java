@@ -18,14 +18,21 @@ public class Main {
         theGang.add(valdemar);
 
         System.out.println(PaymentManager.getMembersInArrear(theGang).toString());
+
         Competitor madsComp = new Competitor(mads);
+        Competitor mattieComp = new Competitor(mattie);
+        Competitor emmaComp = new Competitor(emma);
+        Competitor valdemarComp = new Competitor(valdemar);
+
         SwimmingCategory crawl = new SwimmingCategory("crawl");
-        Trainer mattie1 = new Trainer("Mattie", crawl);
-        madsComp.addTrainer(mattie1);
+        Trainer svendBent = new Trainer("Svend Bent", crawl);
+        madsComp.addTrainer(svendBent);
+        mattieComp.addTrainer(svendBent);
+        emmaComp.addTrainer(svendBent);
+        valdemarComp.addTrainer(svendBent);
 
-        System.out.println(madsComp);
 
-        System.out.println(mads);
+        Competition usopen = new Competition("Us Open", "10.07.26", madsComp, mattieComp, emmaComp, valdemarComp);
 
 
         Member.setNameAt(0, "Morten");
