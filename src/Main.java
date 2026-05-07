@@ -10,24 +10,14 @@ public class Main {
         Member mattie = new Member("Mattie", MemberType.PASSIVE, "80081350");
         Member valdemar = new Member("Valdemar", MemberType.JUNIOR, "00000001");
 
-        mads.setIsPaid();
-
         theGang.add(mads);
         theGang.add(emma);
         theGang.add(mattie);
         theGang.add(valdemar);
 
-        System.out.println(PaymentManager.getMembersInArrear(theGang).toString());
-
-        System.out.println(PaymentManager.getExpectedQuota(theGang));
-        System.out.println(PaymentManager.getQuota(theGang));
-
-
-
-        Competition usopen = new Competition("Us Open", "10.07.26", madsComp, mattieComp, emmaComp, valdemarComp);
-
 
         Member.setNameAt(0, "Morten");
+        Member.removeMemberAt(0);
         System.out.println(Member.listOfMembers);
 
         System.out.println(usopen);
