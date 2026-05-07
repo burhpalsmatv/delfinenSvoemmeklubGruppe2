@@ -148,7 +148,8 @@ public class Trainer {
     return text;
     }
 
+    /*
     public void setSwimmingCategory(SwimmingCategory swimmingCategory) {
         this.swimmingCategory = swimmingCategory;
-    }
+    }*/
 }
