@@ -126,7 +126,7 @@ public class Trainer {
         return swimmingCategory;
     }
 
-    public void deleteTrainer(int i) {
+    public static void deleteTrainer(int i) {
         // Delete member at index # of arraylist "listOfMembers"
 
         listOfTrainers.remove(i);
