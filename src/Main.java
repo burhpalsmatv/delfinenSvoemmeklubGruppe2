@@ -23,14 +23,5 @@ public class Main {
         System.out.println(PaymentManager.getQuota(theGang));
 
 
-
-        Competition usopen = new Competition("Us Open", "10.07.26", madsComp, mattieComp, emmaComp, valdemarComp);
-
-
-        Member.setNameAt(0, "Morten");
-        System.out.println(Member.listOfMembers);
-
-        System.out.println(usopen);
-
     }
 }
