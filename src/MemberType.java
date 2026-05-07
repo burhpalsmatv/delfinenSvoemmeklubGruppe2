@@ -12,4 +12,10 @@ public enum MemberType {
     public int getPrice() {
         return price;
     }
+
+    //SETTERS:
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
 }
