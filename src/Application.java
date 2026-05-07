@@ -1,6 +1,7 @@
 import java.util.Scanner;
 
 public class Application {
+
     public static void main(String[] args) {
 
     Boolean applicationRunning = true;
@@ -8,8 +9,6 @@ public class Application {
     while (applicationRunning) {
 
         System.out.println("Vælg menu: 1 for admin login, 2 for træner, 3 for kassér, 4 for log ud");
-
-        Scanner scanner = new Scanner(System.in);
 
         while (!scanner.hasNextInt()) {
             System.out.println("indtast et tal");
@@ -35,7 +34,9 @@ switch (input) {
 applicationRunning = false;
 }
 
-
         }
     }
+
+    //My best friend the scanner
+    public static final Scanner scanner = new Scanner(System.in);
 }
