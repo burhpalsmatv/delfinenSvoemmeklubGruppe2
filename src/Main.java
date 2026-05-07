@@ -10,8 +10,7 @@ public class Main {
         Member mattie = new Member("Mattie", MemberType.PASSIVE, "80081350");
         Member valdemar = new Member("Valdemar", MemberType.JUNIOR, "00000001");
 
-        mads.setPaid();
-        mads.setSeniorDiscount(true);
+        mads.setIsPaid();
 
         theGang.add(mads);
         theGang.add(emma);
@@ -35,6 +34,9 @@ public class Main {
 
         Competition usopen = new Competition("Us Open", "10.07.26", madsComp, mattieComp, emmaComp, valdemarComp);
 
-        System.out.println(usopen);
+
+        Member.setNameAt(0, "Morten");
+        System.out.println(Member.listOfMembers);
+
     }
 }
