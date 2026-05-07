@@ -3,10 +3,10 @@ import java.util.ArrayList;
 public class Competition {
 
     private ArrayList<Competitor> competitors;
-    public String date;
-    public String title;
-    public String prize;
-    public boolean ended;
+    private String date;
+    private String title;
+    private String prize;
+    private boolean ended;
 
     public Competition(String title, String date
             , Competitor... competitors) {
@@ -23,8 +23,12 @@ public class Competition {
 
     public String toString(){
         return String.format("""
+                -------------------
+                STÆVNE INFO
                 Titel: %s
                 Dato: %s
-                Deltagere: %s""", this.title, this.date, this.competitors);
+                Deltagere: %s
+                Præmie: %s
+                -------------------""", this.title, this.date, this.competitors, this.prize);
     }
 }
