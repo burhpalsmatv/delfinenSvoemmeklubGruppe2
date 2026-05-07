@@ -3,9 +3,12 @@ public class Competitor extends Member {
     private SwimmingCategory swimmingCategory;
     private Trainer trainer;
     private double speed;
+    private int result;
+    private String name;
 
     public Competitor(Member member) {
         super();
+        this.name = member.getName();
 
     }
 
@@ -15,8 +18,9 @@ public class Competitor extends Member {
 
     public String toString(){
         return String.format("""
+                Navn: %s
                 Kategori: %s
                 Træner: %s
-                """, this.swimmingCategory, this.trainer);
+                """, this.name, this.swimmingCategory, this.trainer);
     }
 }
