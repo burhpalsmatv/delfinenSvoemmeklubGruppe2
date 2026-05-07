@@ -38,5 +38,7 @@ public class Main {
         Member.setNameAt(0, "Morten");
         System.out.println(Member.listOfMembers);
 
+        System.out.println(usopen);
+
     }
 }
