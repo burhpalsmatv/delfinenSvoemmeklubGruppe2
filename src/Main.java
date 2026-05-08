@@ -32,7 +32,7 @@ public class Main {
         System.out.println(comptest1);
         System.out.println(stævne1);
 
-        TreasurerScreen.treasurerScreen();
+        TrainerScreen.trainerScreen();
 
 
         mads.setIsPaid();
