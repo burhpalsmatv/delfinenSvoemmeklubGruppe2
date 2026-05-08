@@ -22,8 +22,7 @@ public class Main {
         Member.removeMemberAt(0);
         Trainer.deleteTrainer(0);
 
-        System.out.println(Member.listOfMembers);
-        PricingManager.changeMembershipPrice(MemberType.JUNIOR, 1200);
+        PricingManager.changeMembershipPrice(Membership.JUNIOR, 1200);
 
         Competitor comptest1 = new Competitor(emma);
         Competition stævne1 = new Competition("Title1", "idag", comptest1);
