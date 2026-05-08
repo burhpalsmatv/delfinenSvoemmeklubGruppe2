@@ -11,16 +11,13 @@ public class Trainer {
     private SwimmingCategory swimmingCategory;
 
     //
-    static ArrayList<Trainer> listOfTrainers = new ArrayList<>();
-    //
 
     public Trainer(String name, SwimmingCategory swimmingCategory){
         this.name = name;
         this.swimmingCategory = swimmingCategory;
 
         //
-        listOfTrainers.add(this);
-        //
+        Register.listOfTrainers.add(this);
     }
 
     // DEFAULT SETTERS BELOW
@@ -61,35 +58,35 @@ public class Trainer {
     // Setters for specific trainers at index i
 
     public void setNameAt(int i, String name) {
-        listOfTrainers.get(i).name = name;
+        Register.listOfTrainers.get(i).name = name;
     }
 
     public void setAgeAt(int i, int age) {
-        listOfTrainers.get(i).age = age;
+        Register.listOfTrainers.get(i).age = age;
     }
 
     public void setAddressAt(int i, String address) {
-        listOfTrainers.get(i).address = address;
+        Register.listOfTrainers.get(i).address = address;
     }
 
     public void setPostalCodeAt(int i, String postalCode) {
-        listOfTrainers.get(i).postalCode = postalCode;
+        Register.listOfTrainers.get(i).postalCode = postalCode;
     }
 
     public void setPhoneAt(int i, String phone) {
-        listOfTrainers.get(i).phone = phone;
+        Register.listOfTrainers.get(i).phone = phone;
     }
 
     public void setEmailAt(int i, String email) {
-        listOfTrainers.get(i).email = email;
+        Register.listOfTrainers.get(i).email = email;
     }
 
     public void setGenderAt(int i, Gender gender) {
-        listOfTrainers.get(i).gender = gender;
+        Register.listOfTrainers.get(i).gender = gender;
     }
 
     public void setSwimmingCategoryAt(int i, SwimmingCategory swimmingCategory) {
-        listOfTrainers.get(i).swimmingCategory = swimmingCategory;
+        Register.listOfTrainers.get(i).swimmingCategory = swimmingCategory;
     }
 
     // Getters
@@ -129,7 +126,7 @@ public class Trainer {
     public static void deleteTrainer(int i) {
         // Delete member at index # of arraylist "listOfMembers"
 
-        listOfTrainers.remove(i);
+        Register.listOfTrainers.remove(i);
     }
 
     public String toString() {
