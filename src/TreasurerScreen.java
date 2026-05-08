@@ -26,15 +26,15 @@ public class TreasurerScreen {
                     //Insert method that returns list of members and their payment status
 
                 case 2:
-                    System.out.println(PaymentManager.getMembersInArrear(Member.listOfMembers));
+                    System.out.println(PaymentManager.getMembersInArrear(Register.listOfMembers));
 
 
                 case 3:
-                    System.out.println(PaymentManager.getExpectedQuota(Member.listOfMembers));
+                    System.out.println(PaymentManager.getExpectedQuota(Register.listOfMembers));
 
 
                 case 4:
-                    System.out.println(PaymentManager.getQuota(Member.listOfMembers));
+                    System.out.println(PaymentManager.getQuota(Register.listOfMembers));
 
                 case 5:
                     treasurerLoggedIn = false;
