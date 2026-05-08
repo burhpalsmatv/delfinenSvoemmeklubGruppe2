@@ -14,9 +14,9 @@ public class TreasurerScreen {
             System.out.println("Kassérer menu");
             System.out.println("1. Vis medlemmers betalingsstatus");
             System.out.println("2. Vis medlemmer i restance");
-            System.out.println("3. Forventet årsopgørelse");
-            System.out.println("4. Aktuel årsopgørelse");
-            System.out.println("5. Log ud");
+            System.out.println("3. Priser");
+            System.out.println("4. Årsopgørelse");
+            System.out.println("0. Log ud");
 
             int input = Application.scanner.nextInt();
 
