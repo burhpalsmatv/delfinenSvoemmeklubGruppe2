@@ -178,6 +178,9 @@ public class Member {
     }
 
     public boolean hasSeniorDiscount() {
-        return seniorDiscount;
+        if (age >= 60){
+            return true;
+        }
+        else return false;
     }
 }
