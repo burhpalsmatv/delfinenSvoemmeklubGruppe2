@@ -2,6 +2,13 @@ import java.util.ArrayList;
 
 public class PaymentManager {
 
+    private double discount;
+
+    public void setDiscount(double discount){
+        this.discount = discount;
+    }
+
+
     public static ArrayList<Member> getMembersInArrear(ArrayList<Member> members) {
         ArrayList<Member> membersInArrear = new ArrayList<Member>();
 
@@ -20,8 +27,8 @@ public class PaymentManager {
         for (Member member: members) {
 
             if (member.hasSeniorDiscount() && member.getMemberType() != Membership.PASSIVE) {
-                int discount = member.getMemberType().getPrice()/100 * 25;
-                expectedQuota += member.getMemberType().getPrice() - discount;
+                int discount = 25;
+                expectedQuota += ((member.getMemberType().getPrice())/100) * (discount);
             }
             else expectedQuota += member.getMemberType().getPrice();
         }
@@ -29,22 +36,23 @@ public class PaymentManager {
         return expectedQuota;
     }
 
-    public static int getQuota(ArrayList<Member> members) {
-        int quota = 0;
+    public static int getActualQuota(ArrayList<Member> members) {
+        int actualQuota = 0;
 
         for (Member member: members) {
 
             if (member.hasSeniorDiscount() && member.getMemberType() != Membership.PASSIVE &&
             member.isPaid()) {
-                int discount = member.getMemberType().getPrice()/100 * 25;
-                quota += member.getMemberType().getPrice() - discount;
+                int discount = 25;
+                actualQuota += ((member.getMemberType().getPrice())/(100)) * (discount);
             }
             else if (member.isPaid()) {
-                quota += member.getMemberType().getPrice();
+                actualQuota += member.getMemberType().getPrice();
             }
         }
 
-        return quota;
+        return actualQuota;
     }
+
 
 }

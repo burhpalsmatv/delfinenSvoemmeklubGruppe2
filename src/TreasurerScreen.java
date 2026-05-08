@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 public class TreasurerScreen {
     //FOR METHODS RELATING TO THE TREASURER SCREEN
 
