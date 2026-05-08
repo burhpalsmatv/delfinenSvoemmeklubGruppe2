@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -25,7 +26,8 @@ public class Main {
         PricingManager.changeMembershipPrice(Membership.JUNIOR, 1200);
 
         Competitor comptest1 = new Competitor(emma);
-        Competition stævne1 = new Competition("Title1", "idag", comptest1);
+        Competition stævne1 = new Competition("Title1", LocalDate.of(2002,12,12), comptest1);
+
 
         System.out.println(comptest1);
         System.out.println(stævne1);
