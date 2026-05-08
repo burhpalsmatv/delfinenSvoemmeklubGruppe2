@@ -22,17 +22,26 @@ public class Main {
         Member.setNameAt(0, "Morten");
         Member.removeMemberAt(0);
         Trainer.deleteTrainer(0);
+        Member.setAgeAt(0, 75);
+        Member.setAgeAt(1, 74);
+        Member.setAgeAt(2, 73);
+        valdemar.setAge(73);
+
 
         PricingManager.changeMembershipPrice(Membership.JUNIOR, 1200);
 
         Competitor comptest1 = new Competitor(emma);
         Competition stævne1 = new Competition("Title1", LocalDate.of(2002,12,12), comptest1);
 
+        mads.setIsPaid();
+        mattie.setIsPaid();
+        valdemar.setIsPaid();
 
         System.out.println(comptest1);
         System.out.println(stævne1);
 
+        System.out.println("her er expected quota\n" + PaymentManager.getExpectedQuota(theGang)+"\n");
+        System.out.println("her er actual quota\n" + PaymentManager.getActualQuota(theGang)+"\n");
 
-        mads.setIsPaid();
     }
 }

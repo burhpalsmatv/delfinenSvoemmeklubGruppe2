@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 public class TreasurerScreen {
     //FOR METHODS RELATING TO THE TREASURER SCREEN
 
@@ -34,7 +32,7 @@ public class TreasurerScreen {
 
 
                 case 4:
-                    System.out.println(PaymentManager.getQuota(Register.listOfMembers));
+                    System.out.println(PaymentManager.getActualQuota(Register.listOfMembers));
 
                 case 5:
                     treasurerLoggedIn = false;
