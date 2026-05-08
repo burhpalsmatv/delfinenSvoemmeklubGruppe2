@@ -12,9 +12,6 @@ public class Member {
     private Membership membership;
     private boolean seniorDiscount;
 
-    //
-
-    static ArrayList<Member> listOfMembers = new ArrayList<>();
 
     public Member(String name, Membership membership, String phone){
         this.name = name;
@@ -24,7 +21,7 @@ public class Member {
 
         //
 
-        listOfMembers.add(this);
+        Register.listOfMembers.add(this);
     }
 
     public Member (){}
@@ -137,47 +134,47 @@ public class Member {
     // Setters for specific members at index i
 
     public static void setNameAt(int i, String name) {
-         listOfMembers.get(i).name = name;
+         Register.listOfMembers.get(i).name = name;
     }
 
     public static void setAgeAt(int i, int age) {
-        listOfMembers.get(i).age = age;
+        Register.listOfMembers.get(i).age = age;
     }
 
     public static void setAddressAt(int i, String address) {
-        listOfMembers.get(i).address = address;
+        Register.listOfMembers.get(i).address = address;
     }
 
     public static void setPostcodeAt(int i, String postcode) {
-        listOfMembers.get(i).postcode = postcode;
+        Register.listOfMembers.get(i).postcode = postcode;
     }
 
     public static void setPhoneAt(int i, String phone) {
-        listOfMembers.get(i).phone = phone;
+        Register.listOfMembers.get(i).phone = phone;
     }
 
     public static void setEmailAt(int i, String email) {
-        listOfMembers.get(i).email = email;
+        Register.listOfMembers.get(i).email = email;
     }
 
     public static void setGenderAt(int i, Gender gender) {
-        listOfMembers.get(i).gender = gender;
+        Register.listOfMembers.get(i).gender = gender;
     }
 
     public static void setPaidAt(int i, boolean isPaid) {
-        listOfMembers.get(i).isPaid = isPaid;
+        Register.listOfMembers.get(i).isPaid = isPaid;
     }
 
     public static void setMedlemstypeAt(int i, Membership membership) {
-        listOfMembers.get(i).membership = membership;
+        Register.listOfMembers.get(i).membership = membership;
     }
 
     public static void setSeniorRabatAt(int i, boolean seniorDiscount) {
-        listOfMembers.get(i).seniorDiscount = seniorDiscount;
+        Register.listOfMembers.get(i).seniorDiscount = seniorDiscount;
     }
 
     public static void removeMemberAt(int i) {
-        listOfMembers.remove(i);
+        Register.listOfMembers.remove(i);
     }
 
     public boolean hasSeniorDiscount() {

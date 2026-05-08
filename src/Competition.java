@@ -18,8 +18,11 @@ public class Competition {
 
         for(Competitor competitor : competitors){
             this.competitors.add(competitor);
-
         }
+
+        //
+
+        Register.listOfCompetitions.add(this);
     }
 
     public String toString(){

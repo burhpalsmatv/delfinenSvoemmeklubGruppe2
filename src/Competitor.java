@@ -17,6 +17,8 @@ public class Competitor extends Member {
         super();
         this.name = member.getName();
 
+        Register.listOfCompetitors.add(this);
+
     }
 
     public void addTrainer(Trainer  trainer){
