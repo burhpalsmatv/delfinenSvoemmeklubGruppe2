@@ -32,7 +32,7 @@ public class TreasurerScreen {
                     break;
 
                 //LOGOUT
-                case 5:
+                case 0:
                     treasurerLoggedIn = false;
             }
 
