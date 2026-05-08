@@ -1,34 +1,34 @@
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Main {
     public static void main (String[] args){
 
-        File.readTest();
+        ArrayList<Member> theGang = new ArrayList<Member>();
+        Member mads = new Member("Mads", Membership.SENIOR, "22334455");
+        Member emma = new Member("Emma", Membership.JUNIOR, "99999999");
+        Member mattie = new Member("Mattie", Membership.PASSIVE, "80081350");
+        Member valdemar = new Member("Valdemar", Membership.JUNIOR, "00000001");
 
-        SwimmingCategory categoryTest1 = new SwimmingCategory("Brystsvømning");
+        theGang.add(mads);
+        theGang.add(emma);
+        theGang.add(mattie);
+        theGang.add(valdemar);
 
-        Member testMember1 = new Member("Peter Elev", Membership.JUNIOR, "12345678");
-        Trainer testTrainer1 = new Trainer("Thomas Træner", categoryTest1);
-        Competitor testCompetitor1 = new Competitor(testMember1);
-        Competition testCompetition1 = new Competition("Stævne 1", "I dag", testCompetitor1);
+        SwimmingCategory swimtest1 = new SwimmingCategory("Lars Henrik");
+        Trainer tester1 = new Trainer("Poul", swimtest1);
 
-        // Når system stoppes så gemmes alle filer
-        File.writeFileMembers();
-        File.writeFileTrainers();
-        File.writeFileCompetitors();
-        File.writeFileCompetition();
+        Member.setNameAt(0, "Morten");
+        Member.removeMemberAt(0);
+        Trainer.deleteTrainer(0);
 
+        PricingManager.changeMembershipPrice(Membership.JUNIOR, 1200);
 
         Competitor comptest1 = new Competitor(emma);
-        Competition stævne1 = new Competition("Title1", LocalDate.of(2002,12,12), comptest1);
-
+        Competition stævne1 = new Competition("Title1", "idag", comptest1);
 
         System.out.println(comptest1);
         System.out.println(stævne1);
-
-        TrainerScreen.trainerScreen();
 
 
         mads.setIsPaid();

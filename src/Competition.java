@@ -1,5 +1,6 @@
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Competition {
 
@@ -7,7 +8,7 @@ public class Competition {
     private LocalDate date;
     private String title;
     private String prize;
-    private boolean ended;
+    private boolean ended = false;
 
     public Competition(String title, LocalDate date
             , Competitor... competitors) {
@@ -23,6 +24,31 @@ public class Competition {
         //
 
         Register.listOfCompetitions.add(this);
+    }
+
+    public void competitionEnded() {
+        this.ended = true;
+        System.out.println("Konkurrencen: " + title + ", er nu markeret som afsluttet");
+
+    }
+
+    public  void enterResults() {
+        Scanner scanner = new Scanner(System.in);
+
+        for (Competitor competitor : competitors) {
+            System.out.println("Indtast resultat for: " + competitor.getName());
+
+            while(!scanner.hasNextDouble()) {
+                System.out.println("Udyldigt! Indtast et tal");
+                scanner.nextLine();
+            }
+
+            int result = scanner.nextInt();
+            competitor.setResult(result);
+        }
+
+        System.out.println("Alle resultater er nu gemt");
+
     }
 
     public String toString(){
