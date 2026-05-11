@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class AdminScreen {
     //FOR METHODS RELATING TO THE ADMINISTRATORS SCREEN
 
@@ -159,6 +161,8 @@ public class AdminScreen {
                 //DELETE MEMBER
                 case 3:
                     //ADD CODE HERE
+                    printSimplifiedMemberList();
+                    deleteMember();
 
                 //SHOW MEMBERS
                 case 4:
@@ -227,4 +231,22 @@ public class AdminScreen {
                 0. Tilbage til menu
                 """);
     }
+
+    public static void printSimplifiedMemberList() {
+        for (int i = 0; i < Register.listOfMembers.size(); i++) {
+            System.out.println(i + " " + Register.listOfMembers.get(i).getName());
+        }
+
+    }
+
+    public static void deleteMember() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Delete member at: ");
+        int deleteAtIndex = Integer.parseInt(scanner.nextLine());
+        Member.removeMemberAt(deleteAtIndex);
+    }
+
+
+
 }
