@@ -79,10 +79,12 @@ public class TreasurerScreen {
                 //VIS FORVENTEDE ÅRSOPGØRELSE
                 case 1:
                     System.out.println("Den forventede årsopgørelse er: " + PaymentManager.getExpectedQuota(Register.listOfMembers) + " kr.");
+                    break;
 
                 //VIS FAKTISKE ÅRSOPGØRELSE
                 case 2:
                     System.out.println("Den faktiske årsopgørelse er: " + PaymentManager.getActualQuota(Register.listOfMembers) + " kr.");
+                    break;
 
                 //Tilbage til menu
                 case 0:
