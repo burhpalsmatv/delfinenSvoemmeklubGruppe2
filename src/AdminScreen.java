@@ -91,7 +91,7 @@ public class AdminScreen {
 
                 //ADD CATEGORY
                 case 1:
-                    //ADD CODE HERE
+                    createCategory();
 
                 //DELETE CATEGORY
                 case 2:
@@ -176,6 +176,18 @@ public class AdminScreen {
 
             }
         }
+    }
+
+    public static void createCategory() {
+        //LOAD BEARING SCANNER NEXTLINE
+        Application.scanner.nextLine();
+
+        System.out.println("OPRET SVØMMEDISCIPLIN:");
+        System.out.println("------------------------------");
+        System.out.println("Indtast navn på disciplin:");
+
+        String title = Application.scanner.nextLine();
+        SwimmingCategory swimmingCategory = new SwimmingCategory(title);
     }
 
     public static void createMember() {

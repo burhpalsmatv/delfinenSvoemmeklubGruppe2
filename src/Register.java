@@ -5,6 +5,10 @@ public class Register {
     static ArrayList<Trainer> listOfTrainers = new ArrayList<>();
     static ArrayList<Competitor> listOfCompetitors = new ArrayList<>();
     static ArrayList<Competition> listOfCompetitions = new ArrayList<>();
+    static ArrayList<SwimmingCategory> listOfCategories = new ArrayList<>();
+    static ArrayList<Receipt> listOfReceipts = new ArrayList<>();
+
+
 
     public Register () {}
 
