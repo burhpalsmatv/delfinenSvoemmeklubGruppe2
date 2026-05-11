@@ -83,7 +83,7 @@ public class Trainer implements Serializable {
         Register.listOfTrainers.get(i).email = email;
     }
 
-    public void setGenderAt(int i, Gender gender) {
+    public static void setGenderAt(int i, Gender gender) {
         Register.listOfTrainers.get(i).gender = gender;
     }
 

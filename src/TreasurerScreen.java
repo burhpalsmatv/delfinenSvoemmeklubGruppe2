@@ -1,19 +1,16 @@
-import java.util.Scanner;
-
 public class TreasurerScreen {
     //FOR METHODS RELATING TO THE TREASURER SCREEN
-
 
     public static void treasurerScreen() {
 
         boolean treasurerLoggedIn = true;
 
         while (treasurerLoggedIn) {
-            System.out.println(treasurerScreenString());
 
+            System.out.println(treasurerScreenString());
             int input = Application.scanner.nextInt();
 
-            switch(input){
+            switch(input) {
 
                 //SHOW MEMBERS PAYMENT STATUS
                 case 1:
@@ -26,30 +23,7 @@ public class TreasurerScreen {
 
                 //PRICES
                 case 3:
-
-                    boolean inPricingMenu = true;
-                    System.out.println(pricesMenuString());
-
-                    while(inPricingMenu) {
-                        int priceInput = Application.scanner.nextInt();
-
-                        switch (priceInput) {
-
-                            //CURRENT PRICES
-                            case 1: //INSERT METHOD
-
-                                //CHANGE PRICES
-                            case 2: //INSERT METHOD
-
-                                //CHANGE DISCOUNT
-                            case 3: //INSERT METHOD
-
-                                //LOG OUT
-                            case 0:
-                                inPricingMenu = false;
-                        }
-                    }
-
+                    pricingMenu();
                     break;
 
                 //QUOTA
@@ -58,7 +32,7 @@ public class TreasurerScreen {
                     break;
 
                 //LOGOUT
-                case 5:
+                case 0:
                     treasurerLoggedIn = false;
             }
 
@@ -66,7 +40,32 @@ public class TreasurerScreen {
     }
 
 
+//METHODS BELOW:
 
+    public static void pricingMenu() {
+        boolean inPricingMenu = true;
+        System.out.println(pricesMenuString());
+
+        while(inPricingMenu) {
+            int priceInput = Application.scanner.nextInt();
+
+            switch (priceInput) {
+
+                //CURRENT PRICES
+                case 1: //INSERT METHOD
+
+                    //CHANGE PRICES
+                case 2: //INSERT METHOD
+
+                    //CHANGE DISCOUNT
+                case 3: //INSERT METHOD
+
+                    //LOG OUT
+                case 0:
+                    inPricingMenu = false;
+            }
+        }
+    }
 
     //STRINGS BELOW:
 

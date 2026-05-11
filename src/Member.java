@@ -189,6 +189,9 @@ public class Member implements Serializable {
     }
 
     public boolean hasSeniorDiscount() {
-        return seniorDiscount;
+        if (age >= 60){
+            return true;
+        }
+        else return false;
     }
 }

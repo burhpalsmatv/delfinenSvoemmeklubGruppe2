@@ -8,7 +8,7 @@ public class Application {
 
     while (applicationRunning) {
 
-        System.out.println("Vælg menu: 1 for admin login, 2 for træner, 3 for kassér, 4 for log ud");
+        System.out.println("Vælg menu: 1 for admin login, 2 for træner, 3 for kassér, 0 for log ud");
 
         while (!scanner.hasNextInt()) {
             System.out.println("indtast et tal");
@@ -30,7 +30,7 @@ switch (input) {
         TreasurerScreen.treasurerScreen();
         break;
 
-    case 4:
+    case 0:
 applicationRunning = false;
 }
 
