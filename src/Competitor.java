@@ -1,4 +1,4 @@
-public class Competitor extends Member {
+public class Competitor extends Member implements Comparable<Competitor>{
 
     private SwimmingCategory swimmingCategory;
     private Trainer trainer;
@@ -7,7 +7,6 @@ public class Competitor extends Member {
     private String name;
     private Medals medals;
     private int amtOfMedals;
-    private Competition competition;
     private String time;
     private double pr;
     private String timeForCategory;
@@ -34,12 +33,10 @@ public class Competitor extends Member {
                 Navn: %s
                 Kategori: %s
                 Træner: %s
-                Konkurrencer: &s
-                Mængden af medaljer: %d
-                PR: %d
+                Resultat: %s
                 ---------------------
                 
-                """, this.name, this.swimmingCategory, this.swimmingCategory, this.trainer, this.amtOfMedals, this.pr);
+                """, this.name, this.swimmingCategory, this.trainer, this.result);
     }
 
 
@@ -66,10 +63,6 @@ public class Competitor extends Member {
 
     public Medals getMedals() {
         return medals;
-    }
-
-    public Competition getCompetition() {
-        return competition;
     }
 
     public String getTime() {
@@ -105,10 +98,6 @@ public class Competitor extends Member {
         this.medals = medals;
     }
 
-    public void setCompetition(Competition competition) {
-        this.competition = competition;
-    }
-
     public void setTime(String time) {
         this.time = time;
     }
@@ -123,5 +112,10 @@ public class Competitor extends Member {
 
     public void setAmtOfMedals(int amtOfMedals) {
         this.amtOfMedals = amtOfMedals;
+    }
+
+    @Override
+    public int compareTo(Competitor competitor) {
+        return Integer.compare(this.result, competitor.result);
     }
 }
