@@ -16,7 +16,5 @@ public class PricingManager {
             string.append("Prisen for " + type + " medlemskab er: " + type.getPrice() + " kr.\n");
         }
         System.out.println(string);
-
-
     }
 }
