@@ -27,8 +27,9 @@ public class Competition{
         Register.listOfCompetitions.add(this);
     }
 
-    public void sortCompetitors(){
+    public void sortCompetitors() {
         Collections.sort(competitors);
+    }
     public void competitionEnded() {
         this.ended = true;
         System.out.println("Konkurrencen: " + title + ", er nu markeret som afsluttet");
