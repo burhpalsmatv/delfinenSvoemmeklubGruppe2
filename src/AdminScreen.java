@@ -157,6 +157,7 @@ public class AdminScreen {
                 //ADD MEMBER
                 case 1:
                     createMember();
+                    break;
 
                 //EDIT MEMBER INFO
                 case 2:
@@ -167,6 +168,7 @@ public class AdminScreen {
                     //ADD CODE HERE
                     printSimplifiedMemberList();
                     deleteMember();
+                    break;
 
                 //SHOW MEMBERS
                 case 4:
