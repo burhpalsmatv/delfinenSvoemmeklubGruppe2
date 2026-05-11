@@ -8,12 +8,13 @@ public class Main {
         // LoadFiles siger "something went wrong" første gange man kører program
         // Det er fordi der ikke er gemt nogen fil endnu
         // Ik tænk over det
-        File.loadFiles();
 
-        Member newMember = new Member(getName(), getAge());
-        System.out.println(Register.listOfMembers);
+        /* File.loadFiles(); // NIKS PILLE
 
-        File.saveFiles();
+//        Member newMember = new Member(getName(), getAge()); // NIKS PILLE
+//        System.out.println(Register.listOfMembers); // NIKS PILLE
+
+        // File.saveFiles(); // NIKS PILLE */
 
         Member mads = new Member("Mads", Membership.SENIOR, "22334455");
         Member valdemar = new Member("Valdemar", Membership.SENIOR, "33445566");
@@ -22,21 +23,26 @@ public class Main {
 
         Competitor mattieComp = new Competitor(mattie);
         Competitor madsComp = new Competitor(mads);
-        Competitor valdemarComp = new Competitor(valdemar);
+        // Competitor valdemarComp = new Competitor(valdemar);
         Competitor jensComp = new Competitor(jens);
         mattieComp.setResult(123);
         madsComp.setResult(124);
-        valdemarComp.setResult(122);
+        // valdemarComp.setResult(122);
         jensComp.setResult(24);
 
-        Competition cphSwim = new Competition("CPH Swim", "10.05.26",
-                mattieComp, madsComp, valdemarComp, jensComp);
+        System.out.println(jensComp.getMemberType());
+        System.out.println(Register.listOfMembers);
+        // System.out.println(Register.listOfCompetitors);
 
-        cphSwim.sortCompetitors();
-        System.out.println(cphSwim);
+        // Competition cphSwim = new Competition("CPH Swim", "10.05.26",
+               // mattieComp, madsComp, valdemarComp, jensComp);
+
+        // cphSwim.sortCompetitors();
+        // System.out.println(cphSwim);
     }
 
-    public static String getName() {
+    // NIKS PILLE
+    public static String getName() { // Dont remove
         Scanner scanner = new Scanner(System.in);
         System.out.print("Name: ");
 
@@ -45,7 +51,7 @@ public class Main {
         return name;
     }
 
-    public static int getAge() {
+    public static int getAge() { // Dont remove
         Scanner scanner = new Scanner(System.in);
         System.out.print("Age: ");
 
