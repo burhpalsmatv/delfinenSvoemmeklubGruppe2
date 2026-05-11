@@ -1,4 +1,7 @@
-public class Competitor extends Member {
+import java.io.Serializable;
+
+public class Competitor extends Member implements Serializable {
+    private static final long serialVersionUID = 3L;
 
     private SwimmingCategory swimmingCategory;
     private Trainer trainer;

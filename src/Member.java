@@ -1,6 +1,8 @@
-import java.util.ArrayList;
+import java.io.Serializable;
 
-public class Member {
+public class Member implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     private String name;
     private int age;
     private String address;
@@ -12,6 +14,15 @@ public class Member {
     private Membership membership;
     private boolean seniorDiscount;
 
+    public Member(String name, int age) { // Midlertidig constructor med kun name og age
+        this.name = name;
+        this.age = age;
+
+        //
+
+        Register.listOfMembers.add(this);
+
+    }
 
     public Member(String name, Membership membership, String phone){
         this.name = name;

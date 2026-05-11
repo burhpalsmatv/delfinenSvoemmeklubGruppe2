@@ -1,6 +1,8 @@
-import java.util.ArrayList;
+import java.io.Serializable;
 
-public class Trainer {
+public class Trainer implements Serializable {
+    private static final long serialVersionUID = 2L;
+
     private String name;
     private int age;
     private String address;

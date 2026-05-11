@@ -48,10 +48,10 @@ public class AdminScreen {
 
     public static void competitionScreen(){
 
-        boolean inCompetitorScreen = true;
+        boolean inCompetitionScreen = true;
         System.out.println(competitionScreenString());
 
-        while (inCompetitorScreen) {
+        while (inCompetitionScreen) {
 
             int compInput = Application.scanner.nextInt();
             switch(compInput) {
@@ -70,7 +70,7 @@ public class AdminScreen {
 
                 //LOGOUT
                 case 0:
-                    inCompetitorScreen = false;
+                    inCompetitionScreen = false;
             }
         }
     }
