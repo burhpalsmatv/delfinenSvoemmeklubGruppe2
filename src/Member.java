@@ -3,23 +3,22 @@ import java.io.Serializable;
 public class Member implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    private String name;
-    private int age;
-    private String address;
-    private String postcode;
-    private String phone;
-    private String email;
-    private Gender gender;
-    private boolean isPaid;
-    private Membership membership;
-    private boolean seniorDiscount;
+    protected String name;
+    protected int age;
+    protected String address;
+    protected String postcode;
+    protected String phone;
+    protected String email;
+    protected Gender gender;
+    protected boolean isPaid;
+    protected Membership membership;
+    protected boolean seniorDiscount;
 
     public Member(String name, int age) { // Midlertidig constructor med kun name og age
         this.name = name;
         this.age = age;
 
         //
-
         Register.listOfMembers.add(this);
 
     }
@@ -31,7 +30,6 @@ public class Member implements Serializable {
         this.isPaid = false;
 
         //
-
         Register.listOfMembers.add(this);
     }
 
