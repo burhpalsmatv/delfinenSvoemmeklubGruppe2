@@ -1,6 +1,8 @@
-import java.util.ArrayList;
+import java.io.Serializable;
 
-public class Trainer {
+public class Trainer implements Serializable {
+    private static final long serialVersionUID = 2L;
+
     private String name;
     private int age;
     private String address;
@@ -81,7 +83,7 @@ public class Trainer {
         Register.listOfTrainers.get(i).email = email;
     }
 
-    public void setGenderAt(int i, Gender gender) {
+    public static void setGenderAt(int i, Gender gender) {
         Register.listOfTrainers.get(i).gender = gender;
     }
 
