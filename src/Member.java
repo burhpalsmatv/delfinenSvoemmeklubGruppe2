@@ -129,6 +129,9 @@ public class Member {
         return isPaid;
     }
 
+    public String getPaymentStatusAsText() {
+        return isPaid ? "Betalt" : "ikke betalt";
+    }
     // DEFAULT SETTERS ABOVE ^^^^^
 
     // Setters for specific members at index i
