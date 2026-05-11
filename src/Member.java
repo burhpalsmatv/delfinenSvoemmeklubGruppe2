@@ -22,7 +22,7 @@ public class Member implements Serializable {
         Register.listOfMembers.add(this);
     }
 
-    public Member(String name, Membership membership, int age) { // Midlertidig constructor med kun name og age
+    public Member(String name, Membership membership, int age) { // Midlertidig constructor med kun name og age og membership
         this.name = name;
         this.age = age;
         this.membership = membership;
@@ -47,7 +47,7 @@ public class Member implements Serializable {
         Register.listOfMembers.add(this);
     }
 
-    public Member (){}
+    public Member () {}
 
     public String toString(){
         return String.format("""
