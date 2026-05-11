@@ -8,6 +8,13 @@ public class Register {
 
     public Register () {}
 
-
-
+    public static void showListOfMembers() {
+        if (listOfMembers.isEmpty()) {
+            System.out.println("Listen er tom");
+        }else {
+            for (Member member : listOfMembers) {
+                System.out.println(member);
+            }
+        }
+    }
 }
