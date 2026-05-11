@@ -34,31 +34,5 @@ public class Main {
         System.out.println(Register.listOfTrainers);
 
         Application.mainApp();
-
-        // System.out.println(Register.listOfCompetitors);
-
-        // Competition cphSwim = new Competition("CPH Swim", "10.05.26",
-               // mattieComp, madsComp, valdemarComp, jensComp);
-
-        // cphSwim.sortCompetitors();
-        // System.out.println(cphSwim);
-    }
-
-    // NIKS PILLE
-    public static String getName() { // Dont remove
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Name: ");
-
-        String name = "";
-        name += scanner.nextLine();
-        return name;
-    }
-
-    public static int getAge() { // Dont remove
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Age: ");
-
-        int age = scanner.nextInt();
-        return age;
     }
 }
