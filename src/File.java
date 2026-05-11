@@ -1,72 +1,53 @@
-import javax.annotation.processing.Filer;
 import java.io.*;
+import java.util.ArrayList;
 
 public class File {
 
-    static BufferedWriter writer;
-    static BufferedReader reader;
+    public File() {}
 
-    public static void readTest() {
-            try {
-
-                BufferedReader reader = new BufferedReader(new FileReader("Members.txt"));
-
-                String line;
-                while ((line = reader.readLine()) != null) {
-                    System.out.println(reader.readLine());
-                }
-
-                reader.close();
-
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-                throw new RuntimeException(e);
-            }
-    }
-
-    public File() {
-        // Tom konstruktør
-    }
-
-    public static void writeFileMembers() {
+    public static void saveFiles() {
         try {
-            writer = new BufferedWriter(new FileWriter("Members.txt"));
-            writer.write(String.valueOf(Register.listOfMembers));
-            writer.close();
+            ObjectOutputStream saveMember = new ObjectOutputStream(new FileOutputStream("listOfMembers.ser"));
+            saveMember.writeObject(Register.listOfMembers);
+            saveMember.close();
+
+            ObjectOutputStream saveTrainer = new ObjectOutputStream(new FileOutputStream("listOfTrainers.ser"));
+            saveTrainer.writeObject(Register.listOfTrainers);
+            saveTrainer.close();
+
+            ObjectOutputStream saveCompetitor = new ObjectOutputStream(new FileOutputStream("listOfCompetitors.ser"));
+            saveCompetitor.writeObject(Register.listOfCompetitors);
+            saveCompetitor.close();
+
+            ObjectOutputStream saveCompetition = new ObjectOutputStream(new FileOutputStream("listOfCompetitions.ser"));
+            saveCompetition.writeObject(Register.listOfCompetitions);
+            saveCompetition.close();
+
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            System.out.println("Something went wrong");
         }
     }
 
-    public static void writeFileTrainers() {
+    public static void loadFiles() {
         try {
-            writer = new BufferedWriter(new FileWriter("Trainers.txt"));
-            writer.write(String.valueOf(Register.listOfTrainers));
-            writer.close();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+            ObjectInputStream loadMember = new ObjectInputStream(new FileInputStream("listOfMembers.ser"));
+            Register.listOfMembers = (ArrayList<Member>) loadMember.readObject();
+            loadMember.close();
+
+            ObjectInputStream loadTrainer = new ObjectInputStream(new FileInputStream("listOfTrainers.ser"));
+            Register.listOfTrainers = (ArrayList<Trainer>) loadTrainer.readObject();
+            loadTrainer.close();
+
+            ObjectInputStream loadCompetitor = new ObjectInputStream(new FileInputStream("listOfCompetitors.ser"));
+            Register.listOfCompetitors = (ArrayList<Competitor>) loadCompetitor.readObject();
+            loadCompetitor.close();
+
+            ObjectInputStream loadCompetitions = new ObjectInputStream(new FileInputStream("listOfCompetitions.ser"));
+            Register.listOfCompetitions = (ArrayList<Competition>) loadCompetitions.readObject();
+            loadCompetitions.close();
+
+        } catch (IOException | ClassNotFoundException e) {
+            System.out.println("Something went wrong");
         }
     }
-
-    public static void writeFileCompetitors() {
-        try {
-            writer = new BufferedWriter(new FileWriter("Competitors.txt"));
-            writer.write(String.valueOf(Register.listOfCompetitors));
-            writer.close();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    public static void writeFileCompetition() {
-        try {
-            writer = new BufferedWriter(new FileWriter("Competetion.txt"));
-            writer.write(String.valueOf(Register.listOfCompetitions));
-            writer.close();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
 }
