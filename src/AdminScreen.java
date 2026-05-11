@@ -1,3 +1,8 @@
+import java.sql.Date;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
+
 public class AdminScreen {
     //FOR METHODS RELATING TO THE ADMINISTRATORS SCREEN
 
@@ -58,7 +63,7 @@ public class AdminScreen {
 
                 //ADD COMPETITION
                 case 1:
-                    //ADD CODE HERE
+                    createCompetition();
 
                 //EDIT COMPETITION
                 case 2:
@@ -170,6 +175,30 @@ public class AdminScreen {
 
             }
         }
+    }
+
+    public static void createCompetition() {
+
+        //LOAD BEARING SCANNER NEXTLINE
+        Application.scanner.nextLine();
+
+        System.out.println("OPRET STÆVNE:");
+        System.out.println("------------------------------");
+        System.out.println("Indtast titel på stævne:");
+
+        String compTitle = Application.scanner.nextLine();
+
+        System.out.println("Indtast dato for stævnet i dette format: yyyy-mm-dd. eks: 2020-05-05");
+
+        String unformattedDate = Application.scanner.nextLine();
+        LocalDate compDate = LocalDate.parse(unformattedDate);
+
+        Competition competition = new Competition(compTitle, compDate);
+
+        System.out.println("Stævnet er oprettet i systemet");
+        System.out.println(competition);
+
+
     }
 
     //STRINGS BELOW:
