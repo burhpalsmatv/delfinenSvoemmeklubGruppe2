@@ -8,6 +8,14 @@ public class PaymentManager {
         this.discount = discount;
     }
 
+    public static String showMembersPaymentStatus(ArrayList<Member> members) {
+        StringBuilder builder = new StringBuilder();
+        for (Member member : members) {
+            builder.append(member.getName() + ": " + member.getPaymentStatusAsText() + "\n");
+        }
+        return builder.toString();
+    }
+
 
     public static ArrayList<Member> getMembersInArrear(ArrayList<Member> members) {
         ArrayList<Member> membersInArrear = new ArrayList<Member>();
