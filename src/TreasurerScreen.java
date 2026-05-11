@@ -68,6 +68,29 @@ public class TreasurerScreen {
         }
     }
 
+    public static void quotaMenu() {
+        boolean inQuotaMenu = true;
+        System.out.println(quotaMenuString());
+
+        while(inQuotaMenu) {
+            int quotaInput = Application.scanner.nextInt();
+
+            switch (inQuotaMenu) {
+                //VIS FORVENTEDE ÅRSOPGØRELSE
+                case 1:
+                    //INSERT METHOD
+
+                //VIS FAKTISKE ÅRSOPGØRELSE
+                case 2:
+                    //INSERT METHOD
+
+                //Tilbage til menu
+                case 0:
+                    inQuotaMenu = false;
+            }
+        }
+    }
+
     //STRINGS BELOW:
 
     public static String treasurerScreenString() {
