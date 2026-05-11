@@ -41,9 +41,11 @@ public class Competitor extends Member implements Comparable<Competitor>, Serial
                 Kategori: %s
                 Træner: %s
                 Resultat: %s
+                Medlemstype: %s
+                Er betalt?: %s
                 ---------------------
                 
-                """, this.name, this.swimmingCategory, this.trainer, this.result);
+                """, this.name, this.swimmingCategory, this.trainer, this.result, this.membership, this.isPaid);
     }
 
 
