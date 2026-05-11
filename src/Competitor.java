@@ -1,7 +1,6 @@
-public class Competitor extends Member implements Comparable<Competitor>{
 import java.io.Serializable;
 
-public class Competitor extends Member implements Serializable {
+public class Competitor extends Member implements Comparable<Competitor>, Serializable {
     private static final long serialVersionUID = 3L;
 
     private SwimmingCategory swimmingCategory;
