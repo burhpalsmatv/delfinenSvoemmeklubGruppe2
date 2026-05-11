@@ -6,12 +6,12 @@ import java.util.Scanner;
 public class Competition{
 
     private ArrayList<Competitor> competitors;
-    private String date;
+    private LocalDate date;
     private String title;
     private String prize;
     private boolean ended = false;
 
-    public Competition(String title, String date
+    public Competition(String title, LocalDate date
             , Competitor... competitors) {
 
         this.title = title;

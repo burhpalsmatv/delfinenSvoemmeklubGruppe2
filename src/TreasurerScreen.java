@@ -29,7 +29,7 @@ public class TreasurerScreen {
 
                 //QUOTA
                 case 4:
-                    System.out.println(quotaMenuString());
+                    quotaMenu();
                     break;
 
                 //LOGOUT
@@ -64,6 +64,29 @@ public class TreasurerScreen {
                     //LOG OUT
                 case 0:
                     inPricingMenu = false;
+            }
+        }
+    }
+
+    public static void quotaMenu() {
+        boolean inQuotaMenu = true;
+        System.out.println(quotaMenuString());
+
+        while(inQuotaMenu) {
+            int quotaInput = Application.scanner.nextInt();
+
+            switch (quotaInput) {
+                //VIS FORVENTEDE ÅRSOPGØRELSE
+                case 1:
+                    System.out.println("Den forventede årsopgørelse er: " + PaymentManager.getExpectedQuota(Register.listOfMembers) + " kr.");
+
+                //VIS FAKTISKE ÅRSOPGØRELSE
+                case 2:
+                    System.out.println("Den faktiske årsopgørelse er: " + PaymentManager.getActualQuota(Register.listOfMembers) + " kr.");
+
+                //Tilbage til menu
+                case 0:
+                    inQuotaMenu = false;
             }
         }
     }

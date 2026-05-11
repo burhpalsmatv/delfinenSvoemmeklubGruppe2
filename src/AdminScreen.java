@@ -1,3 +1,5 @@
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class AdminScreen {
@@ -60,7 +62,7 @@ public class AdminScreen {
 
                 //ADD COMPETITION
                 case 1:
-                    //ADD CODE HERE
+                    createCompetition();
 
                 //EDIT COMPETITION
                 case 2:
@@ -114,7 +116,7 @@ public class AdminScreen {
 
                 //ADD TRAINER
                 case 1:
-                    //ADD CODE HERE
+                    createTrainer();
 
                 //DELETE TRAINER
                 case 2:
@@ -152,7 +154,7 @@ public class AdminScreen {
 
                 //ADD MEMBER
                 case 1:
-                    //ADD CODE HERE
+                    createMember();
 
                 //EDIT MEMBER INFO
                 case 2:
@@ -174,6 +176,126 @@ public class AdminScreen {
 
             }
         }
+    }
+
+    public static void createMember() {
+
+        //LOAD BEARING SCANNER NEXTLINE
+        Application.scanner.nextLine();
+
+        System.out.println("OPRET MEDLEM:");
+        System.out.println("------------------------------");
+        System.out.println("Indtast medlemmets navn:");
+
+        String name = Application.scanner.nextLine();
+
+        System.out.println("Medlemmets alder:");
+        int age = Application.scanner.nextInt();
+        Application.scanner.nextLine();
+
+        System.out.println("Medlemmets adresse:");
+        String address = Application.scanner.nextLine();
+
+        System.out.println("Medlemmets postnummer:");
+        String postalcode = Application.scanner.nextLine();
+
+        System.out.println("Medlemmets telefonnummer:");
+        String phone = Application.scanner.nextLine();
+
+        System.out.println("Medlemmets email:");
+        String email = Application.scanner.nextLine();
+
+        System.out.println("Køn - 1: kvinde, 2: mand, 3: ikke binær, 4: akønnet");
+        Gender gender = null;
+        int genderChoice = Application.scanner.nextInt();
+        if (genderChoice == 1) {
+            gender = Gender.FEMALE;
+        } else if (genderChoice == 2) {
+            gender = Gender.MALE;
+        } else if (genderChoice == 3) {
+            gender = Gender.NONBINARY;
+        } else if (genderChoice == 4) {
+            gender = Gender.AGENDER;
+        }
+
+        System.out.println("Passivt medlemskab? ja/nej");
+        Membership membership = null;
+        String answer = Application.scanner.next();
+        if(answer.equals("ja")) {
+            membership = Membership.PASSIVE;
+        }
+         else if (age > 18) {
+            membership = Membership.SENIOR;
+        } else membership = Membership.JUNIOR;
+
+        Member member = new Member(name, age, address, postalcode, phone, email, gender, membership);
+        System.out.println("Medlem " + name + " er oprettet i systemet");
+    }
+
+    public static void createTrainer() {
+
+        //LOAD BEARING SCANNER NEXTLINE
+        Application.scanner.nextLine();
+
+        System.out.println("OPRET TRÆNER:");
+        System.out.println("------------------------------");
+        System.out.println("Indtast trænerens navn:");
+
+        String name = Application.scanner.nextLine();
+
+        System.out.println("Trænerens alder:");
+        int age = Application.scanner.nextInt();
+        Application.scanner.nextLine();
+
+        System.out.println("Trænerens adresse:");
+        String address = Application.scanner.nextLine();
+
+        System.out.println("Trænerens postnummer:");
+        String postalcode = Application.scanner.nextLine();
+
+        System.out.println("Trænerens telefonnummer:");
+        String phone = Application.scanner.nextLine();
+
+        System.out.println("Trænerens email:");
+        String email = Application.scanner.nextLine();
+
+        System.out.println("Køn - 1: kvinde, 2: mand, 3: ikke binær, 4: akønnet");
+        Gender gender = null;
+        int genderChoice = Application.scanner.nextInt();
+            if (genderChoice == 1) {
+                gender = Gender.FEMALE;
+            } else if (genderChoice == 2) {
+                gender = Gender.MALE;
+            } else if (genderChoice == 3) {
+                gender = Gender.NONBINARY;
+            } else if (genderChoice == 4) {
+                gender = Gender.AGENDER;
+            }
+
+        Trainer trainer = new Trainer(name, age, address, postalcode, phone, email, gender);
+        System.out.println("Træneren " + name + " er oprettet i systemet");
+    }
+
+    public static void createCompetition() {
+
+        //LOAD BEARING SCANNER NEXTLINE
+        Application.scanner.nextLine();
+
+        System.out.println("OPRET STÆVNE:");
+        System.out.println("------------------------------");
+        System.out.println("Indtast titel på stævne:");
+
+        String compTitle = Application.scanner.nextLine();
+
+        System.out.println("Indtast dato for stævnet i dette format: yyyy-mm-dd. eks: 2020-05-05");
+
+        String unformattedDate = Application.scanner.nextLine();
+        LocalDate compDate = LocalDate.parse(unformattedDate);
+
+        Competition competition = new Competition(compTitle, compDate);
+
+        System.out.println("Stævnet " + compTitle + " er oprettet i systemet");
+
     }
 
     //STRINGS BELOW:
