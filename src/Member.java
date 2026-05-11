@@ -23,13 +23,19 @@ public class Member implements Serializable {
 
     }
 
-    public Member(String name, Membership membership, String phone){
+    public Member(String name, int age, String address, String postcode, String phone,
+                   String email, Gender gender, Membership membership) {
         this.name = name;
-        this.membership = membership;
+        this.age = age;
+        this.address = address;
+        this.postcode = postcode;
         this.phone = phone;
+        this.email = email;
+        this.gender = gender;
         this.isPaid = false;
+        this.membership = membership;
+        this.seniorDiscount = hasSeniorDiscount();
 
-        //
         Register.listOfMembers.add(this);
     }
 

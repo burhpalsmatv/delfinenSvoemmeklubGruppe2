@@ -157,7 +157,7 @@ public class AdminScreen {
 
                 //ADD MEMBER
                 case 1:
-                    //ADD CODE HERE
+                    createMember();
 
                 //EDIT MEMBER INFO
                 case 2:
@@ -177,6 +177,60 @@ public class AdminScreen {
 
             }
         }
+    }
+
+    public static void createMember() {
+
+        //LOAD BEARING SCANNER NEXTLINE
+        Application.scanner.nextLine();
+
+        System.out.println("OPRET MEDLEM:");
+        System.out.println("------------------------------");
+        System.out.println("Indtast medlemmets navn:");
+
+        String name = Application.scanner.nextLine();
+
+        System.out.println("Medlemmets alder:");
+        int age = Application.scanner.nextInt();
+        Application.scanner.nextLine();
+
+        System.out.println("Medlemmets adresse:");
+        String address = Application.scanner.nextLine();
+
+        System.out.println("Medlemmets postnummer:");
+        String postalcode = Application.scanner.nextLine();
+
+        System.out.println("Medlemmets telefonnummer:");
+        String phone = Application.scanner.nextLine();
+
+        System.out.println("Medlemmets email:");
+        String email = Application.scanner.nextLine();
+
+        System.out.println("Køn - 1: kvinde, 2: mand, 3: ikke binær, 4: akønnet");
+        Gender gender = null;
+        int genderChoice = Application.scanner.nextInt();
+        if (genderChoice == 1) {
+            gender = Gender.FEMALE;
+        } else if (genderChoice == 2) {
+            gender = Gender.MALE;
+        } else if (genderChoice == 3) {
+            gender = Gender.NONBINARY;
+        } else if (genderChoice == 4) {
+            gender = Gender.AGENDER;
+        }
+
+        System.out.println("Passivt medlemskab? ja/nej");
+        Membership membership = null;
+        String answer = Application.scanner.next();
+        if(answer.equals("ja")) {
+            membership = Membership.PASSIVE;
+        }
+         else if (age > 18) {
+            membership = Membership.SENIOR;
+        } else membership = Membership.JUNIOR;
+
+        Member member = new Member(name, age, address, postalcode, phone, email, gender, membership);
+        System.out.println("Medlem " + name + " er oprettet i systemet");
     }
 
     public static void createTrainer() {
@@ -200,10 +254,10 @@ public class AdminScreen {
         System.out.println("Trænerens postnummer:");
         String postalcode = Application.scanner.nextLine();
 
-        System.out.println("Trænerens telefonnummer");
+        System.out.println("Trænerens telefonnummer:");
         String phone = Application.scanner.nextLine();
 
-        System.out.println("Trænerens email");
+        System.out.println("Trænerens email:");
         String email = Application.scanner.nextLine();
 
         System.out.println("Køn - 1: kvinde, 2: mand, 3: ikke binær, 4: akønnet");
