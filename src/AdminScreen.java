@@ -121,6 +121,8 @@ public class AdminScreen {
                 //DELETE TRAINER
                 case 2:
                     //ADD CODE HERE
+                    printSimplifiedTrainerList();
+                    deleteTrainer();
 
                 //EDIT TRAINER
                 case 3:
@@ -367,6 +369,21 @@ public class AdminScreen {
         System.out.print("Delete member at: ");
         int deleteAtIndex = Integer.parseInt(scanner.nextLine());
         Member.removeMemberAt(deleteAtIndex);
+    }
+
+    public static void printSimplifiedTrainerList() {
+        for (int i = 0; i < Register.listOfTrainers.size(); i++) {
+            System.out.println(i + " " + Register.listOfTrainers.get(i).getName());
+        }
+
+    }
+
+    public static void deleteTrainer() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Delete trainer at: ");
+        int deleteAtIndex = Integer.parseInt(scanner.nextLine());
+        Trainer.deleteTrainer(deleteAtIndex);
     }
 
 

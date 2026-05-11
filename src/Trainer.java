@@ -14,6 +14,13 @@ public class Trainer implements Serializable {
 
     //
 
+    public Trainer(String name) {
+        this.name = name;
+
+        Register.listOfTrainers.add(this);
+
+    }
+
     public Trainer(String name, int age, String address, String postalCode, String phone,
                    String email, Gender gender) {
         this.name = name;

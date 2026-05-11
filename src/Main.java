@@ -16,10 +16,14 @@ public class Main {
 
         // File.saveFiles(); // NIKS PILLE */
 
-        Member mads = new Member("Mads", Membership.SENIOR, "22334455");
-        Member valdemar = new Member("Valdemar", Membership.SENIOR, "33445566");
-        Member mattie = new Member("Mattie", Membership.SENIOR, "44556677");
-        Member jens = new Member("Jens", Membership.SENIOR, "11223344");
+        Member mads = new Member("Mads", Membership.SENIOR, 20);
+        Member valdemar = new Member("Valdemar", Membership.SENIOR, 10);
+        Member mattie = new Member("Mattie", Membership.SENIOR, 9000);
+        Member jens = new Member("Jens", Membership.SENIOR, 90);
+
+        Trainer trænerMads = new Trainer("trænerMads");
+        Trainer trænerLars = new Trainer("trænerLars");
+
 
         Competitor mattieComp = new Competitor(mattie);
         // Competitor madsComp = new Competitor(mads);
@@ -27,6 +31,7 @@ public class Main {
         Competitor jensComp = new Competitor(jens);
 
         System.out.println(Register.listOfMembers);
+        System.out.println(Register.listOfTrainers);
 
         Application.mainApp();
 
