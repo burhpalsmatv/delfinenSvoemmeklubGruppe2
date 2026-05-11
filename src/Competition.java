@@ -1,16 +1,17 @@
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
-public class Competition {
+public class Competition{
 
     private ArrayList<Competitor> competitors;
-    private LocalDate date;
+    private String date;
     private String title;
     private String prize;
     private boolean ended = false;
 
-    public Competition(String title, LocalDate date
+    public Competition(String title, String date
             , Competitor... competitors) {
 
         this.title = title;
@@ -26,6 +27,9 @@ public class Competition {
         Register.listOfCompetitions.add(this);
     }
 
+    public void sortCompetitors() {
+        Collections.sort(competitors);
+    }
     public void competitionEnded() {
         this.ended = true;
         System.out.println("Konkurrencen: " + title + ", er nu markeret som afsluttet");
@@ -57,8 +61,9 @@ public class Competition {
                 STÆVNE INFO
                 Titel: %s
                 Dato: %s
-                Deltagere: %s
                 Præmie: %s
-                -------------------""", this.title, this.date, this.competitors, this.prize);
+                Deltagere: %s
+               
+                -------------------""", this.title, this.date, this.prize, this.competitors);
     }
 }

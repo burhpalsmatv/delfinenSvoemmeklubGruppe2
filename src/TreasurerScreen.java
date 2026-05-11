@@ -15,6 +15,7 @@ public class TreasurerScreen {
                 //SHOW MEMBERS PAYMENT STATUS
                 case 1:
                     //INSERT METHOD HERE
+                    System.out.println(PaymentManager.showMembersPaymentStatus(Register.listOfMembers));
 
                 //MEMBERS IN ARREAR
                 case 2:
