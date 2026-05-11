@@ -20,6 +20,8 @@ public class TrainerScreen {
                 //LIST OF COMPETITORS
                 case 2:
                     //SHOW LIST OF COMPETITORS
+                    Register.showListOfMembers();
+
 
                 //ADD CATEGORY TO SWIMMER
                 case 3:
