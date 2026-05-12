@@ -1,4 +1,5 @@
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Trainer implements Serializable {
     private static final long serialVersionUID = 2L;
@@ -14,13 +15,6 @@ public class Trainer implements Serializable {
 
     //
 
-    public Trainer(String name) {
-        this.name = name;
-
-        Register.listOfTrainers.add(this);
-
-    }
-
     public Trainer(String name, int age, String address, String postalCode, String phone,
                    String email, Gender gender) {
         this.name = name;
@@ -31,19 +25,12 @@ public class Trainer implements Serializable {
         this.email = email;
         this.gender = gender;
 
-        Register.listOfTrainers.add(this);
-    }
-
-    public Trainer(String name, SwimmingCategory swimmingCategory){
-        this.name = name;
-        this.swimmingCategory = swimmingCategory;
-
         //
+        ArrayList<SwimmingCategory> thisSwimmingCategories = new ArrayList<>();
         Register.listOfTrainers.add(this);
     }
 
     // Setters for specific trainers at index i
-
     public void setNameAt(int i, String name) {
         Register.listOfTrainers.get(i).name = name;
     }
@@ -77,7 +64,6 @@ public class Trainer implements Serializable {
     }
 
     // Getters
-
     public String getName() {
         return name;
     }
@@ -110,12 +96,6 @@ public class Trainer implements Serializable {
         return swimmingCategory;
     }
 
-    public static void deleteTrainer(int i) {
-        // Delete member at index # of arraylist "listOfMembers"
-
-        Register.listOfTrainers.remove(i);
-    }
-
     public String toString() {
         String text = "";
 
@@ -131,9 +111,4 @@ public class Trainer implements Serializable {
                 """, this.getName(), this.getGender(), this.getAge(), this.getAddress(), this.getPostalCode(), this.getPhone(), this.getEmail(), this.getSwimmingCategory());
     return text;
     }
-
-    /*
-    public void setSwimmingCategory(SwimmingCategory swimmingCategory) {
-        this.swimmingCategory = swimmingCategory;
-    }*/
 }
