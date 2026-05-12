@@ -125,7 +125,7 @@ public class AdminScreen {
                 case 2:
                     //ADD CODE HERE
                     RegisterSimplePrinter.printSimplifiedTrainerList();
-                    ASdeleteTrainer();
+                    //ASdeleteTrainer();
                     break;
 
                 //EDIT TRAINER
@@ -134,11 +134,12 @@ public class AdminScreen {
 
                 //SHOW LIST OF TRAINER
                 case 4:
-                    //ADD CODE HERE
+                    RegisterSimplePrinter.printSimplifiedTrainerList();
 
                 //ASSIGN TRAINER TO SWIMMER
                 case 5:
-                    //ADD CODE HERE
+                    assignTrainerToCompetitor();
+                    break;
 
                 //LOGOUT
                 case 0:
@@ -184,6 +185,34 @@ public class AdminScreen {
 
             }
         }
+    }
+
+    public static void assignTrainerToCompetitor() {
+        //LOADBEARING SCANNER
+        Application.scanner.nextLine();
+
+        System.out.println("TILDEL TRÆNER TIL SVØMMER:");
+        System.out.println("------------------------------");
+        System.out.println("Vælg træner:");
+
+        for (int i = 0; i < Register.listOfTrainers.size(); i++) {
+            System.out.println(i + " " + Register.listOfTrainers.get(i).getName());
+        }
+        int trainerChoice = Application.scanner.nextInt();
+
+        System.out.println("Tildel " + Register.listOfTrainers.get(trainerChoice).getName() + "til svømmer:");
+
+        for (int i = 0; i < Register.listOfCompetitors.size(); i++) {
+            System.out.println(i + " " + Register.listOfCompetitors.get(i).getName());
+        }
+        int swimmerChoice = Application.scanner.nextInt();
+        String swimmerName = Register.listOfCompetitors.get(swimmerChoice).getName();
+
+        Register.listOfCompetitors.get(swimmerChoice).setTrainer(Register.listOfTrainers.get(trainerChoice));
+
+        System.out.println(Register.listOfTrainers.get(trainerChoice).getName() + " er tildelt som træner til " +
+                swimmerName);
+
     }
 
     public static void createCategory() {
@@ -405,7 +434,7 @@ public class AdminScreen {
 
         System.out.print("Delete member at: ");
         int deleteAtIndex = Integer.parseInt(scanner.nextLine());
-        Member.removeMemberAt(deleteAtIndex);
+        //Member.removeMemberAt(deleteAtIndex);
     }
 
     public static void printSimplifiedTrainerList() {
@@ -420,7 +449,7 @@ public class AdminScreen {
 
         System.out.print("Delete trainer at: ");
         int deleteAtIndex = Integer.parseInt(scanner.nextLine());
-        Trainer.deleteTrainer(deleteAtIndex);
+        //Trainer.deleteTrainer(deleteAtIndex);
     }
 
     // hej

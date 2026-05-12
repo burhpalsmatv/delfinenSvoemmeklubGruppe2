@@ -125,6 +125,10 @@ public class Competitor extends Member implements Comparable<Competitor>, Serial
         this.amtOfMedals = amtOfMedals;
     }
 
+    public void setTrainer(Trainer trainer) {
+        this.trainer = trainer;
+    }
+
     @Override
     public int compareTo(Competitor competitor) {
         return Integer.compare(this.placing, competitor.placing);
