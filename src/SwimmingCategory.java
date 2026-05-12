@@ -6,4 +6,8 @@ public class SwimmingCategory {
 
         Register.listOfCategories.add(this);
     }
+
+    public String getTitle() {
+        return title;
+    }
 }

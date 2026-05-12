@@ -7,7 +7,7 @@ public class Main {
 
         File.loadFiles();
 
-        // Application.mainApp();
+        Application.mainApp();
 
         System.out.println(Register.listOfMembers);
 

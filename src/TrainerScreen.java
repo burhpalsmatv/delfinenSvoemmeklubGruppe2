@@ -133,6 +133,17 @@ public class TrainerScreen {
             }
         }
     }
+/*
+    public static void showMemberTrainingResults(){
+        AdminScreen.printSimplifiedMemberList();
+        for (int i = 0; i < Register.listOfMembers.size(); i++) {
+            System.out.println(i + " " + Register.listOfMembers.get(i).getName() + " Resultat: "
+             + Register.listOfMembers.get(i).get);
+        }
+
+    }
+
+ */
 
     public static void addCompetitorToCompetition() {
 

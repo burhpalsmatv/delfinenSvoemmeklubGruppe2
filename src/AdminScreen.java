@@ -92,10 +92,12 @@ public class AdminScreen {
                 //ADD CATEGORY
                 case 1:
                     createCategory();
+                    break;
 
                 //DELETE CATEGORY
                 case 2:
-                    //ADD CODE HERE
+                    deleteCategory();
+                    break;
 
                 //LOG OUT
                 case 0:
@@ -192,6 +194,25 @@ public class AdminScreen {
 
         String title = Application.scanner.nextLine();
         SwimmingCategory swimmingCategory = new SwimmingCategory(title);
+    }
+
+    public static void deleteCategory() {
+        //LOAD BEARING SCANNER NEXTLINE
+        Application.scanner.nextLine();
+
+        System.out.println("SLET SVØMMEDISCIPLIN:");
+        System.out.println("------------------------------");
+        System.out.println("Vælg disciplin at slette:");
+
+        for (int i = 0; i < Register.listOfCategories.size(); i++) {
+            System.out.println(i + " " + Register.listOfCategories.get(i).getTitle());
+        }
+
+        int Choice = Application.scanner.nextInt();
+        String title = Register.listOfCategories.get(Choice).getTitle();
+        Register.listOfCategories.remove(Choice);
+
+        System.out.println(title + " er hermed slettet");
     }
 
     public static void createMember() {

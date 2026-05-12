@@ -1,12 +1,13 @@
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Competitor extends Member implements Comparable<Competitor>, Serializable {
     private static final long serialVersionUID = 3L;
 
-    private SwimmingCategory swimmingCategory;
+    private ArrayList<SwimmingCategory> swimmingCategory;
     private Trainer trainer;
     private double speed;
-    private int result;
+    private int placing;
     private String name;
     private Medals medals;
     private int amtOfMedals;
@@ -45,12 +46,12 @@ public class Competitor extends Member implements Comparable<Competitor>, Serial
                 Er betalt?: %s
                 ---------------------
                 
-                """, this.name, this.swimmingCategory, this.trainer, this.result, this.membership, this.isPaid);
+                """, this.name, this.swimmingCategory, this.trainer, this.placing, this.membership, this.isPaid);
     }
 
 
    // GETTERS
-    public SwimmingCategory getSwimmingCategory() {
+    public ArrayList<SwimmingCategory> getSwimmingCategory() {
         return swimmingCategory;
     }
 
@@ -62,8 +63,8 @@ public class Competitor extends Member implements Comparable<Competitor>, Serial
         return speed;
     }
 
-    public int getResult() {
-        return result;
+    public int getPlacing() {
+        return placing;
     }
 
     public String getName() {
@@ -91,16 +92,13 @@ public class Competitor extends Member implements Comparable<Competitor>, Serial
     }
 
     // SETTERS
-    public void setSwimmingCategory(SwimmingCategory swimmingCategory) {
-        this.swimmingCategory = swimmingCategory;
-    }
 
     public void setSpeed(double speed) {
         this.speed = speed;
     }
 
-    public void setResult(int result) {
-        this.result = result;
+    public void setPlacing(int placing) {
+        this.placing = placing;
     }
 
     public void setMedals(Medals medals) {
@@ -125,6 +123,6 @@ public class Competitor extends Member implements Comparable<Competitor>, Serial
 
     @Override
     public int compareTo(Competitor competitor) {
-        return Integer.compare(this.result, competitor.result);
+        return Integer.compare(this.placing, competitor.placing);
     }
 }

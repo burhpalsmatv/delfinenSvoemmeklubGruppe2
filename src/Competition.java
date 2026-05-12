@@ -48,7 +48,7 @@ public class Competition{
             }
 
             int result = scanner.nextInt();
-            competitor.setResult(result);
+            competitor.setPlacing(result);
         }
 
         System.out.println("Alle resultater er nu gemt");
