@@ -38,10 +38,10 @@ public class Competitor extends Member implements /* Comparable<Competitor>, */ 
 
         // Find en måde at holde PR's og tjekke om participant (som er denne Competitor)
         // har slået PR i stævne
-        this.PR_butterfly = PR_butterfly;
-        this.PR_crawl = PR_crawl;
-        this.PR_back_crawl = PR_back_crawl;
-        this.PR_breast = PR_back_crawl;
+        this.PR_butterfly = null;
+        this.PR_crawl = null;
+        this.PR_back_crawl = null;
+        this.PR_breast = null;
 
         // Remove member fra sin ArrayList og add Competitor til sin ArrayList
         Register.listOfCompetitors.add(this);
