@@ -1,9 +1,11 @@
 import java.io.Serializable;
+import java.util.Random;
 
 public class Member implements Serializable {
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L; // Til serialization. Niks pille
 
     protected String name;
+    protected String memberID;
     protected int age;
     protected String address;
     protected String postcode;
@@ -14,20 +16,11 @@ public class Member implements Serializable {
     protected Membership membership;
     protected boolean seniorDiscount;
 
-    public Member(String name, int age) { // Midlertidig constructor med kun name og age
+    public Member(String name, String memberID) {
         this.name = name;
-        this.age = age;
-
+        this.memberID = memberID;
         //
-        Register.listOfMembers.add(this);
-    }
-
-    public Member(String name, Membership membership, int age) { // Midlertidig constructor med kun name og age og membership
-        this.name = name;
-        this.age = age;
-        this.membership = membership;
-
-        //
+        this.memberID = memberIDgenerator.generateMemberID();
         Register.listOfMembers.add(this);
     }
 
@@ -43,11 +36,10 @@ public class Member implements Serializable {
         this.isPaid = false;
         this.membership = membership;
         this.seniorDiscount = hasSeniorDiscount();
-
+        //
+        this.memberID = memberIDgenerator.generateMemberID();
         Register.listOfMembers.add(this);
     }
-
-    public Member () {}
 
     public String toString(){
         return String.format("""
@@ -61,49 +53,16 @@ public class Member implements Serializable {
                 Køn: %s
                 Betalingsstatus: %b
                 Medlemstype: %s
+                MemberID: %s
                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
                 """, this.name, this.age, this.address,this.postcode,this.phone,this.email,
-                this.gender, this.isPaid, this.membership);
+                this.gender, this.isPaid, this.membership, this.memberID);
     }
 
-    //
 
-    //GETTERS BELOW:
-
+    // GETTERS
     public String getName() {
-        return this.name;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public String getPostcode() {
-        return postcode;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public Gender getGender() {
-        return gender;
-    }
-
-    public Membership getMemberType() {
-        return membership;
-    }
-
-    public boolean isSeniorDiscount() {
-        return seniorDiscount;
+        return name;
     }
 
     public boolean isPaid() {
@@ -111,12 +70,14 @@ public class Member implements Serializable {
     }
 
     public String getPaymentStatusAsText() {
-        return isPaid ? "Betalt" : "ikke betalt";
+        return isPaid ? "Betalt" : "Ikke betalt";
     }
-    // DEFAULT SETTERS ABOVE ^^^^^
+
+    public Membership getMemberType() {
+        return membership;
+    }
 
     // Setters for specific members at index i
-
     public static void setNameAt(int i, String name) {
          Register.listOfMembers.get(i).name = name;
     }
@@ -157,10 +118,6 @@ public class Member implements Serializable {
         Register.listOfMembers.get(i).seniorDiscount = seniorDiscount;
     }
 
-    public static void removeMemberAt(int i) {
-        Register.listOfMembers.remove(i);
-    }
-
     public boolean hasSeniorDiscount() {
         if (age >= 60){
             return true;
@@ -168,3 +125,4 @@ public class Member implements Serializable {
         else return false;
     }
 }
+

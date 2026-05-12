@@ -17,10 +17,14 @@ public class Competitor extends Member implements Comparable<Competitor>, Serial
 
 
     public Competitor(Member member) {
-        super();
-        this.name = member.getName();
-        this.membership = member.getMemberType();
-        this.phone = member.getPhone();
+        super(member.name, member.age,
+                member.address, member.postcode,
+                member.phone, member.email,
+                member.gender, member.membership);
+
+        this.name = member.name;
+        this.membership = member.membership;
+        this.phone = member.phone;
         this.isPaid = false;
         //
         Register.listOfCompetitors.add(this);

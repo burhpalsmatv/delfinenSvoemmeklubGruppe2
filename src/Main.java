@@ -5,14 +5,14 @@ import java.util.Scanner;
 public class Main {
     public static void main (String[] args) {
 
-        File.loadFiles();
+        // File.loadFiles();
 
         Application.mainApp();
 
         System.out.println(Register.listOfMembers);
 
 
-        File.saveFiles();
+        // File.saveFiles();
 
     }
 }
