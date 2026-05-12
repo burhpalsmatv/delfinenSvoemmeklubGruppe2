@@ -16,9 +16,10 @@ public class Member implements Serializable {
     protected Membership membership;
     protected boolean seniorDiscount;
 
-    public Member(String name, String memberID) {
+    public Member() {}
+
+    public Member(String name) {
         this.name = name;
-        this.memberID = memberID;
         //
         this.memberID = memberIDgenerator.generateMemberID();
         Register.listOfMembers.add(this);

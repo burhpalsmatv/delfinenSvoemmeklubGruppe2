@@ -2,6 +2,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 
     // This is our database
+
     // Main files
 public abstract class Register {
     static ArrayList<Member> listOfMembers = new ArrayList<>();

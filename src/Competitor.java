@@ -1,140 +1,96 @@
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Competitor extends Member implements Comparable<Competitor>, Serializable {
+public class Competitor extends Member implements /* Comparable<Competitor>, */ Serializable {
     private static final long serialVersionUID = 3L;
 
-    private ArrayList<SwimmingCategory> swimmingCategory;
-    private Trainer trainer;
-    private double speed;
-    private int placing;
-    private String name;
-    private Medals medals;
-    private int amtOfMedals;
-    private String time;
-    private double pr;
-    private String timeForCategory;
+    // COMPETITOR PLACINGS (TOP 5 BEDSTE SVØMMERE) SKAL KUNNE SES INDENFOR HVER KATEGORI
+    // OG SKAL ADSKILELS I HVER KATEGORI
+    // FX PRINT TOP 5 BEDSTE SVØMMERE I BRYST
+    // & PRINT TOP 5 BEDSTE SVØMMERE I CRAWL
 
+
+    private Trainer trainer;
+    // PR i hver kategori
+    String PR_butterfly; // MIDLERTIDIG INDTIL FIKS
+    String PR_crawl; // MIDLERTIDIG INDTIL FIKS
+    String PR_back_crawl; // MIDLERTIDIG INDTIL FIKS
+    String PR_breast; // MIDLERTIDIG INDTIL FIKS
+
+    // Find måde at track tid og PR på hver swimming category
 
     public Competitor(Member member) {
-        super(member.name, member.age,
-                member.address, member.postcode,
-                member.phone, member.email,
-                member.gender, member.membership);
-
+        // Fra memberen
         this.name = member.name;
-        this.membership = member.membership;
+        this.age = member.age;
+        this.address = member.address;
+        this.postcode = member.postcode;
         this.phone = member.phone;
-        this.isPaid = false;
-        //
+        this.email = member.email;
+        this.gender = member.gender;
+        this.isPaid = member.isPaid;
+        this.membership = member.membership;
+        this.seniorDiscount = member.seniorDiscount;
+        this.memberID = member.memberID;
+
+        // Competitor unique variables
+        this.trainer = null;
+
+        // Find en måde at holde PR's og tjekke om participant (som er denne Competitor)
+        // har slået PR i stævne
+        this.PR_butterfly = PR_butterfly;
+        this.PR_crawl = PR_crawl;
+        this.PR_back_crawl = PR_back_crawl;
+        this.PR_breast = PR_back_crawl;
+
+        // Remove member fra sin ArrayList og add Competitor til sin ArrayList
         Register.listOfCompetitors.add(this);
         Register.listOfMembers.remove(member);
 
     }
 
     public void addTrainer(Trainer  trainer){
-        this.trainer =  trainer;
+        this.trainer = trainer;
     }
 
-
+    public void addMedal() {
+        // Find måde at add medalje fra stævne
+        // this.achievedMedals.add();
+    }
 
     public String toString(){
         return String.format("""
                 
                 ---------------------
                 Navn: %s
-                Kategori: %s
+                Kategori: IKKE INDFØRT
                 Træner: %s
-                Resultat: %s
+                Resultat: IKKE INDFØRT
                 Medlemstype: %s
                 Er betalt?: %s
                 ---------------------
                 
-                """, this.name, this.swimmingCategory, this.trainer, this.placing, this.membership, this.isPaid);
+                """, this.name, this.trainer, this.membership, this.isPaid);
     }
-
 
    // GETTERS
-    public ArrayList<SwimmingCategory> getSwimmingCategory() {
-        return swimmingCategory;
-    }
 
     public Trainer getTrainer() {
         return trainer;
-    }
-
-    public double getSpeed() {
-        return speed;
-    }
-
-    public int getPlacing() {
-        return placing;
     }
 
     public String getName() {
         return name;
     }
 
-    public Medals getMedals() {
-        return medals;
-    }
-
-    public String getTime() {
-        return time;
-    }
-
-    public double getPr() {
-        return pr;
-    }
-
-    public String getTimeForCategory() {
-        return timeForCategory;
-    }
-
-    public int getAmtOfMedals() {
-        return amtOfMedals;
-    }
-
     // SETTERS
-
-    public void setSpeed(double speed) {
-        this.speed = speed;
-    }
-
-    public void setPlacing(int placing) {
-        this.placing = placing;
-    }
-
-    public void setMedals(Medals medals) {
-        this.medals = medals;
-    }
-
-    public void setTime(String time) {
-        this.time = time;
-    }
-
-    public void setPr(double pr) {
-        this.pr = pr;
-    }
-
-    public void setTimeForCategory(String timeForCategory) {
-        this.timeForCategory = timeForCategory;
-    }
-
-    public void setAmtOfMedals(int amtOfMedals) {
-        this.amtOfMedals = amtOfMedals;
-    }
 
     public void setTrainer(Trainer trainer) {
         this.trainer = trainer;
     }
 
-    public void addSwimmingCategory(SwimmingCategory swimmingCategory) {
-        this.swimmingCategory.add(swimmingCategory);
-    }
-
-    @Override
-    public int compareTo(Competitor competitor) {
-        return Integer.compare(this.placing, competitor.placing);
-    }
+//    @Override
+//    public int compareTo(Competitor competitor) {
+//        return Integer.compare(this.placing, competitor.placing);
+//    }
 }

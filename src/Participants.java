@@ -8,4 +8,6 @@ public class Participants {
     public String getTime() {
         return time;
     }
+
+    // parse string til int og sort efter lavest først
 }
