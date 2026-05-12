@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Application {
 
-    public static void mainApp() {
+    public static void mainApp(String[] args) {
 
     Boolean applicationRunning = true;
 
@@ -16,23 +16,23 @@ public class Application {
         }
         int input = scanner.nextInt();
 
-switch (input) {
+        switch (input) {
 
-    case 1:
-        AdminScreen.adminScreen();
-        break;
+            case 1:
+                AdminScreen.adminScreen();
+                break;
 
-    case 2:
-        TrainerScreen.trainerScreen();
-        break;
+            case 2:
+                TrainerScreen.trainerScreen();
+                break;
 
-    case 3:
-        TreasurerScreen.treasurerScreen();
-        break;
+            case 3:
+                TreasurerScreen.treasurerScreen();
+                break;
 
-    case 0:
-applicationRunning = false;
-}
+            case 0:
+                applicationRunning = false;
+            }
 
         }
     }
