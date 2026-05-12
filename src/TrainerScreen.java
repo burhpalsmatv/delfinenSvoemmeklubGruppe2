@@ -162,7 +162,7 @@ public class TrainerScreen {
         }
         int categoryChoice = Application.scanner.nextInt();
 
-        Register.listOfCompetitors.get(competitorChoice).addSwimmingCategory(Register.listOfCategories.get(categoryChoice));
+        // Register.listOfCompetitors.get(competitorChoice).addSwimmingCategory(Register.listOfCategories.get(categoryChoice));
 
         System.out.println(Register.listOfCompetitors.get(competitorChoice).getName() + " har tilføjet " +
                 Register.listOfCategories.get(categoryChoice).getTitle() + " til deres profil");
@@ -183,7 +183,7 @@ public class TrainerScreen {
 
         printSimplifiedCompetitionList();
         int CompetitionChoice = Application.scanner.nextInt();
-        Register.listOfCompetitions.get(CompetitionChoice).addCompetitor(Register.listOfCompetitors.get(CompetitorChoice));
+        // Register.listOfCompetitions.get(CompetitionChoice).addCompetitor(Register.listOfCompetitors.get(CompetitorChoice));
 
         System.out.println(Register.listOfCompetitors.get(CompetitorChoice).getName() + " er tilføjet til "
         + Register.listOfCompetitions.get(CompetitionChoice).getTitle());
