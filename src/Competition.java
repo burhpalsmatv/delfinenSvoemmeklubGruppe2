@@ -66,4 +66,14 @@ public class Competition{
                
                 -------------------""", this.title, this.date, this.prize, this.competitors);
     }
+
+    //GETTERS + SETTERS:
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void addCompetitor(Competitor competitor) {
+        competitors.add(competitor);
+    }
 }
