@@ -7,9 +7,15 @@ public class Main {
 
         // File.loadFiles();
 
-        Application.mainApp();
+        Member lars = new Member("Lars");
+        Member morten = new Member("Morten");
+
+        Competitor compMorten = new Competitor(morten);
+
+        // Application.mainApp();
 
         System.out.println(Register.listOfMembers);
+        System.out.println(Register.listOfCompetitors);
 
 
         // File.saveFiles();
