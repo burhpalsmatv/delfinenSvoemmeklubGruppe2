@@ -26,7 +26,8 @@ public class TrainerScreen {
 
                 //ADD CATEGORY TO SWIMMER
                 case 3:
-                    // ADD CODE HERE
+                    addCategoryToCompetitor();
+                    break;
 
                 //ADD SWIMMER TO COMPETITION
                 case 4:
@@ -144,6 +145,29 @@ public class TrainerScreen {
     }
 
  */
+
+    public static void addCategoryToCompetitor() {
+        //Loadbearing scanner nextline
+        Application.scanner.nextLine();
+
+        System.out.println("Vælg konkurrencesvømmer:");
+        printSimplifiedCompetitorList();
+        int competitorChoice = Application.scanner.nextInt();
+
+        System.out.println("Vælg svømmedisciplin at tilføje til " +
+                Register.listOfCompetitors.get(competitorChoice).getName());
+
+        for (int i = 0; i < Register.listOfCategories.size(); i++) {
+            System.out.println(i + " " + Register.listOfCategories.get(i).getTitle());
+        }
+        int categoryChoice = Application.scanner.nextInt();
+
+        Register.listOfCompetitors.get(competitorChoice).addSwimmingCategory(Register.listOfCategories.get(categoryChoice));
+
+        System.out.println(Register.listOfCompetitors.get(competitorChoice).getName() + " har tilføjet " +
+                Register.listOfCategories.get(categoryChoice).getTitle() + " til deres profil");
+
+    }
 
     public static void addCompetitorToCompetition() {
 

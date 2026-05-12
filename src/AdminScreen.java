@@ -67,7 +67,8 @@ public class AdminScreen {
 
                 //EDIT COMPETITION
                 case 2:
-                    //ADD CODE HERE
+                    editCompetition();
+                    break;
 
                 //DELETE COMPETITION
                 case 3:
@@ -234,6 +235,42 @@ public class AdminScreen {
 
         System.out.println(Register.listOfTrainers.get(trainerChoice).getName() + " er tildelt som træner til " +
                 swimmerName);
+
+    }
+
+    public static void editCompetition() {
+        //LOADBEARING SCANNER
+        Application.scanner.nextLine();
+
+        System.out.println("REDIGÉR STÆVNE:");
+        System.out.println("------------------------------");
+        System.out.println("Vælg stævne at redigere:");
+
+        for (int i = 0; i < Register.listOfCompetitions.size(); i++) {
+            System.out.println(i + " " + Register.listOfCompetitions.get(i).getTitle());
+        }
+        int competitionChoice = Application.scanner.nextInt();
+
+        System.out.println(Register.listOfCompetitions.get(competitionChoice));
+
+        System.out.println("Rediger: 1. Titel, 2. Dato, 0. Tilbage til Menu");
+        int choice = Application.scanner.nextInt();
+        //LOAD BEARING SCANNERLINE BELOW
+        Application.scanner.nextLine();
+        if (choice == 1) {
+            System.out.println("Indtast ny titel på stævne:");
+            String newTitle = Application.scanner.nextLine();
+
+            Register.listOfCompetitions.get(competitionChoice).setTitle(newTitle);
+            System.out.println("Titlen på stævnet er ændret");
+        } else if (choice == 2) {
+            System.out.println("Indtast ny dato i dette format: yyyy-mm-dd. eks: 2020-05-05");
+
+            String unformattedDate = Application.scanner.nextLine();
+            LocalDate compDate = LocalDate.parse(unformattedDate);
+            Register.listOfCompetitions.get(competitionChoice).setDate(compDate);
+            System.out.println("Datoen på stævnet er ændret");
+        }
 
     }
 
