@@ -129,6 +129,10 @@ public class Competitor extends Member implements Comparable<Competitor>, Serial
         this.trainer = trainer;
     }
 
+    public void addSwimmingCategory(SwimmingCategory swimmingCategory) {
+        this.swimmingCategory.add(swimmingCategory);
+    }
+
     @Override
     public int compareTo(Competitor competitor) {
         return Integer.compare(this.placing, competitor.placing);

@@ -67,7 +67,7 @@ public class AdminScreen {
 
                 //EDIT COMPETITION
                 case 2:
-                    //ADD CODE HERE
+                    break;
 
                 //DELETE COMPETITION
                 case 3:
