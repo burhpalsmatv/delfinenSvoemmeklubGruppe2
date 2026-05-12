@@ -76,4 +76,12 @@ public class Competition{
     public void addCompetitor(Competitor competitor) {
         competitors.add(competitor);
     }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
 }

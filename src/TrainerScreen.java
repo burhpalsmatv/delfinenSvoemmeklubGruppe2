@@ -163,7 +163,7 @@ public class TrainerScreen {
         int categoryChoice = Application.scanner.nextInt();
 
         Register.listOfCompetitors.get(competitorChoice).addSwimmingCategory(Register.listOfCategories.get(categoryChoice));
-        
+
         System.out.println(Register.listOfCompetitors.get(competitorChoice).getName() + " har tilføjet " +
                 Register.listOfCategories.get(categoryChoice).getTitle() + " til deres profil");
 
