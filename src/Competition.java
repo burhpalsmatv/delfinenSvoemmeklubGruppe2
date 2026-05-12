@@ -10,6 +10,7 @@ public class Competition{
     private String title;
     private String prize;
     private boolean ended = false;
+    private ArrayList<Participants> participants;
 
     public Competition(String title, LocalDate date
             , Competitor... competitors) {
@@ -73,7 +74,7 @@ public class Competition{
         return title;
     }
 
-    public void addCompetitor(Competitor competitor) {
-        competitors.add(competitor);
+    public void addParticipants(Participants participant) {
+        participants.add(participant);
     }
 }
