@@ -9,12 +9,12 @@ public class PricingManager {
 
     }
 
-    public static void displayPrices() {
+    public static String displayPrices() {
         StringBuilder string = new StringBuilder();
 
         for (Membership type : Membership.values()) {
-            string.append("Prisen for " + type + " medlemskab er: " + type.getPrice() + " kr.\n");
+            string.append("Prisen for " + type + " medlemskab: " + type.getPrice() + " kr.\n");
         }
-        System.out.println(string);
+        return string.toString();
     }
 }
