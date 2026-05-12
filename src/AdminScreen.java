@@ -407,6 +407,8 @@ public class AdminScreen {
         RegisterManager.deleteTrainer(deleteAtIndex);
     }
 
+    // hej
+
 
 
 }
