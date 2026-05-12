@@ -119,12 +119,14 @@ public class AdminScreen {
                 //ADD TRAINER
                 case 1:
                     createTrainer();
+                    break;
 
                 //DELETE TRAINER
                 case 2:
                     //ADD CODE HERE
                     printSimplifiedTrainerList();
                     deleteTrainer();
+                    break;
 
                 //EDIT TRAINER
                 case 3:
@@ -132,7 +134,8 @@ public class AdminScreen {
 
                 //SHOW LIST OF TRAINER
                 case 4:
-                    //ADD CODE HERE
+                    showListOfTrainers();
+                    break;
 
                 //ASSIGN TRAINER TO SWIMMER
                 case 5:
@@ -182,6 +185,14 @@ public class AdminScreen {
 
             }
         }
+    }
+
+    public static void showListOfTrainers() {
+
+        for (Trainer trainer : Register.listOfTrainers) {
+            System.out.println(trainer);
+        }
+
     }
 
     public static void createCategory() {
