@@ -121,8 +121,8 @@ public class AdminScreen {
                 //DELETE TRAINER
                 case 2:
                     //ADD CODE HERE
-                    printSimplifiedTrainerList();
-                    deleteTrainer();
+                    RegisterSimplePrinter.printSimplifiedTrainerList();
+                    ASdeleteTrainer();
 
                 //EDIT TRAINER
                 case 3:
@@ -166,8 +166,8 @@ public class AdminScreen {
                 //DELETE MEMBER
                 case 3:
                     //ADD CODE HERE
-                    printSimplifiedMemberList();
-                    deleteMember();
+                    RegisterSimplePrinter.printSimplifiedMemberList();
+                    ASdeleteMember();
                     break;
 
                 //SHOW MEMBERS
@@ -370,34 +370,20 @@ public class AdminScreen {
                 """);
     }
 
-    public static void printSimplifiedMemberList() {
-        for (int i = 0; i < Register.listOfMembers.size(); i++) {
-            System.out.println(i + " " + Register.listOfMembers.get(i).getName());
-        }
-
-    }
-
-    public static void deleteMember() {
+    public static void ASdeleteMember() {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Delete member at: ");
         int deleteAtIndex = Integer.parseInt(scanner.nextLine());
-        Member.removeMemberAt(deleteAtIndex);
+        RegisterManager.removeMemberAt(deleteAtIndex);
     }
 
-    public static void printSimplifiedTrainerList() {
-        for (int i = 0; i < Register.listOfTrainers.size(); i++) {
-            System.out.println(i + " " + Register.listOfTrainers.get(i).getName());
-        }
-
-    }
-
-    public static void deleteTrainer() {
+    public static void ASdeleteTrainer() {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Delete trainer at: ");
         int deleteAtIndex = Integer.parseInt(scanner.nextLine());
-        Trainer.deleteTrainer(deleteAtIndex);
+        RegisterManager.deleteTrainer(deleteAtIndex);
     }
 
 
