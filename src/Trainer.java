@@ -24,7 +24,6 @@ public class Trainer implements Serializable {
         this.phone = phone;
         this.email = email;
         this.gender = gender;
-
         //
         ArrayList<SwimmingCategory> thisSwimmingCategories = new ArrayList<>();
         Register.listOfTrainers.add(this);

@@ -16,7 +16,6 @@ public class PaymentManager {
         return builder.toString();
     }
 
-
     public static ArrayList<Member> getMembersInArrear(ArrayList<Member> members) {
         ArrayList<Member> membersInArrear = new ArrayList<Member>();
 
@@ -27,7 +26,6 @@ public class PaymentManager {
         }
         return membersInArrear;
     }
-
 
     public static int getExpectedQuota(ArrayList<Member> members) {
     int expectedQuota = 0;

@@ -1,27 +1,16 @@
 import java.lang.reflect.Array;
 import java.util.ArrayList;
 
-// This is our database
-
-public class Register {
+    // This is our database
+    // Main files
+public abstract class Register {
     static ArrayList<Member> listOfMembers = new ArrayList<>();
     static ArrayList<Trainer> listOfTrainers = new ArrayList<>();
     static ArrayList<Competitor> listOfCompetitors = new ArrayList<>();
     static ArrayList<Competition> listOfCompetitions = new ArrayList<>();
-    //
+
+    // Other files
     static ArrayList<SwimmingCategory> listOfCategories = new ArrayList<>();
     static ArrayList<Receipt> listOfReceipts = new ArrayList<>();
 
-
-    public Register () {}
-
-    public static void showListOfMembers() {
-        if (listOfMembers.isEmpty()) {
-            System.out.println("Listen er tom");
-        } else {
-            for (Member member : listOfMembers) {
-                System.out.println(member);
-            }
-        }
-    }
 }
