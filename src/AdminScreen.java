@@ -63,6 +63,7 @@ public class AdminScreen {
                 //ADD COMPETITION
                 case 1:
                     createCompetition();
+                    break;
 
                 //EDIT COMPETITION
                 case 2:
@@ -70,7 +71,8 @@ public class AdminScreen {
 
                 //DELETE COMPETITION
                 case 3:
-                    //ADD CODE HERE
+                    deleteCompetition();
+                    break;
 
                 //LOGOUT
                 case 0:
@@ -135,6 +137,7 @@ public class AdminScreen {
                 //SHOW LIST OF TRAINER
                 case 4:
                     RegisterSimplePrinter.printSimplifiedTrainerList();
+                    break;
 
                 //ASSIGN TRAINER TO SWIMMER
                 case 5:
@@ -185,6 +188,25 @@ public class AdminScreen {
 
             }
         }
+    }
+
+    public static void deleteCompetition() {
+        //LOAD BEARING SCANNER NEXTLINE
+        Application.scanner.nextLine();
+
+        System.out.println("SLET STÆVNE:");
+        System.out.println("------------------------------");
+        System.out.println("Vælg stævne at slette:");
+
+        for (int i = 0; i < Register.listOfCompetitions.size(); i++) {
+            System.out.println(i + " " + Register.listOfCompetitions.get(i).getTitle());
+        }
+
+        int Choice = Application.scanner.nextInt();
+        String title = Register.listOfCompetitions.get(Choice).getTitle();
+        Register.listOfCompetitions.remove(Choice);
+
+        System.out.println(title + " er hermed slettet");
     }
 
     public static void assignTrainerToCompetitor() {
