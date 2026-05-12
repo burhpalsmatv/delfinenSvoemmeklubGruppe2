@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Application {
 
-    public static void mainApp(String[] args) {
+    public static void mainApp() {
 
     Boolean applicationRunning = true;
 
