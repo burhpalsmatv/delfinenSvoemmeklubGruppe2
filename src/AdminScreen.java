@@ -132,7 +132,7 @@ public class AdminScreen {
 
                 //SHOW LIST OF TRAINER
                 case 4:
-                    //ADD CODE HERE
+                    RegisterSimplePrinter.printSimplifiedTrainerList();
 
                 //ASSIGN TRAINER TO SWIMMER
                 case 5:
@@ -174,7 +174,7 @@ public class AdminScreen {
 
                 //SHOW MEMBERS
                 case 4:
-                    //ADD CODE HERE
+                    RegisterSimplePrinter.printSimplifiedMemberList();
 
                 //BACK TO MENU
                 case 0:
@@ -406,9 +406,5 @@ public class AdminScreen {
         int deleteAtIndex = Integer.parseInt(scanner.nextLine());
         RegisterManager.deleteTrainer(deleteAtIndex);
     }
-
-    // hej
-
-
 
 }
