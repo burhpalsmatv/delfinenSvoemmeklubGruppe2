@@ -126,6 +126,7 @@ public class AdminScreen {
                     //ADD CODE HERE
                     RegisterSimplePrinter.printSimplifiedTrainerList();
                     ASdeleteTrainer();
+                    break;
 
                 //EDIT TRAINER
                 case 3:
