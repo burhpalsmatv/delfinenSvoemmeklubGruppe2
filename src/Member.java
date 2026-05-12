@@ -20,7 +20,15 @@ public class Member implements Serializable {
 
         //
         Register.listOfMembers.add(this);
+    }
 
+    public Member(String name, Membership membership, int age) { // Midlertidig constructor med kun name og age og membership
+        this.name = name;
+        this.age = age;
+        this.membership = membership;
+
+        //
+        Register.listOfMembers.add(this);
     }
 
     public Member(String name, int age, String address, String postcode, String phone,
@@ -39,7 +47,7 @@ public class Member implements Serializable {
         Register.listOfMembers.add(this);
     }
 
-    public Member (){}
+    public Member () {}
 
     public String toString(){
         return String.format("""
@@ -56,48 +64,6 @@ public class Member implements Serializable {
                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
                 """, this.name, this.age, this.address,this.postcode,this.phone,this.email,
                 this.gender, this.isPaid, this.membership);
-    }
-
-    //SETTERS BELOW:
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public void setPostcode(String postcode) {
-        this.postcode = postcode;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setGender(Gender gender) {
-        this.gender = gender;
-    }
-
-    public void setIsPaid() {
-        this.isPaid = true;
-    }
-
-    public void setMemberType(Membership membership) {
-        this.membership = membership;
-    }
-
-    public void setSeniorDiscount(boolean seniorDiscount) {
-        this.seniorDiscount = seniorDiscount;
     }
 
     //

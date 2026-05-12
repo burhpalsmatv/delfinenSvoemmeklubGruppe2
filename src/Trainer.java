@@ -14,6 +14,13 @@ public class Trainer implements Serializable {
 
     //
 
+    public Trainer(String name) {
+        this.name = name;
+
+        Register.listOfTrainers.add(this);
+
+    }
+
     public Trainer(String name, int age, String address, String postalCode, String phone,
                    String email, Gender gender) {
         this.name = name;
@@ -34,41 +41,6 @@ public class Trainer implements Serializable {
         //
         Register.listOfTrainers.add(this);
     }
-
-    // DEFAULT SETTERS BELOW
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public void setPostalCode(String postalCode) {
-        this.postalCode = postalCode;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setGender(Gender gender) {
-        this.gender = gender;
-    }
-
-    public void setSwimmingCategory(SwimmingCategory swimmingCategory) {
-        this.swimmingCategory = swimmingCategory;
-    }
-    // DEFAULT SETTERS ABOVE ^^^^^
 
     // Setters for specific trainers at index i
 

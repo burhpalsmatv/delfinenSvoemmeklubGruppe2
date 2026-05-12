@@ -16,7 +16,6 @@ public class TreasurerScreen {
                 case 1:
                     //INSERT METHOD HERE
                     System.out.println(PaymentManager.showMembersPaymentStatus(Register.listOfMembers));
-                    break;
 
                 //MEMBERS IN ARREAR
                 case 2:
@@ -54,14 +53,10 @@ public class TreasurerScreen {
             switch (priceInput) {
 
                 //CURRENT PRICES
-                case 1:
-                    showCurrentPrices();
-                    break;
+                case 1: //INSERT METHOD
 
                     //CHANGE PRICES
-                case 2:
-                    changePrice();
-                    break;
+                case 2: //INSERT METHOD
 
                     //CHANGE DISCOUNT
                 case 3: //INSERT METHOD
@@ -71,27 +66,6 @@ public class TreasurerScreen {
                     inPricingMenu = false;
             }
         }
-    }
-
-    private static void showCurrentPrices() {
-        System.out.println("---------DE NUVÆRENDE PRISER---------");
-        System.out.println(PricingManager.displayPrices());
-        System.out.println("Indtast \"0\" for at vende tilbage til hjem");
-    }
-
-    private static void changePrice() {
-        System.out.println("Indtast et tal (1:JUNIOR, 2:SENIOR, 3:PASSIVE):");
-        int choosenMembership = Application.scanner.nextInt();
-        Membership membership = Membership.values()[choosenMembership - 1];
-
-        System.out.println("Indtast ny pris: ");
-        int newPrice = Application.scanner.nextInt();
-
-        membership.setPrice(newPrice);
-
-        System.out.println("Prisen er nu ændret");
-        System.out.println("Indtast \"0\" for at vende tilbage til hjem");
-
     }
 
     public static void quotaMenu() {
@@ -104,29 +78,17 @@ public class TreasurerScreen {
             switch (quotaInput) {
                 //VIS FORVENTEDE ÅRSOPGØRELSE
                 case 1:
-                    showExpectedQuota();
-                    break;
+                    System.out.println("Den forventede årsopgørelse er: " + PaymentManager.getExpectedQuota(Register.listOfMembers) + " kr.");
 
                 //VIS FAKTISKE ÅRSOPGØRELSE
                 case 2:
-                    showActualQuota();
-                    break;
+                    System.out.println("Den faktiske årsopgørelse er: " + PaymentManager.getActualQuota(Register.listOfMembers) + " kr.");
 
                 //Tilbage til menu
                 case 0:
                     inQuotaMenu = false;
             }
         }
-    }
-
-    private static void showActualQuota() {
-        System.out.println("Den faktiske årsopgørelse er: " + PaymentManager.getActualQuota(Register.listOfMembers) + " kr.");
-        System.out.println("Indtast \"0\" for at vende tilbage til hjem");
-    }
-
-    private static void showExpectedQuota() {
-        System.out.println("Den forventede årsopgørelse er: " + PaymentManager.getExpectedQuota(Register.listOfMembers) + " kr.");
-        System.out.println("Indtast \"0\" for at vende tilbage til hjem");
     }
 
     //STRINGS BELOW:

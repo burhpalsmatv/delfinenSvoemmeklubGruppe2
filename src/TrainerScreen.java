@@ -20,7 +20,8 @@ public class TrainerScreen {
                 //LIST OF COMPETITORS
                 case 2:
                     //SHOW LIST OF COMPETITORS
-                    Register.showListOfMembers();
+                        printSimplifiedCompetitorList();
+                    break;
 
 
                 //ADD CATEGORY TO SWIMMER
@@ -29,15 +30,18 @@ public class TrainerScreen {
 
                 //ADD SWIMMER TO COMPETITION
                 case 4:
-                    // ADD CODE HERE
+                    addCompetitorToCompetition();
+                    break;
 
                 // TRAINING RESULTS
                 case 5:
                     trainingResultScreen();
+                    break;
 
                 //COMPETITION RESULTS
                 case 6:
                     competitionResultScreen();
+                    break;
 
                 //LOG OUT
                 case 0:
@@ -127,6 +131,40 @@ public class TrainerScreen {
                 case 0:
                     inCompetitionMenu = false;
             }
+        }
+    }
+
+    public static void addCompetitorToCompetition() {
+
+        //Loadbearing scanner nextline
+        Application.scanner.nextLine();
+
+        System.out.println("Vælg konkurrencesvømmer:");
+        printSimplifiedCompetitorList();
+        int CompetitorChoice = Application.scanner.nextInt();
+
+        System.out.println("Tilføj " + Register.listOfCompetitors.get(CompetitorChoice).getName() +
+                " til stævne:");
+
+        printSimplifiedCompetitionList();
+        int CompetitionChoice = Application.scanner.nextInt();
+        Register.listOfCompetitions.get(CompetitionChoice).addCompetitor(Register.listOfCompetitors.get(CompetitorChoice));
+
+        System.out.println(Register.listOfCompetitors.get(CompetitorChoice).getName() + " er tilføjet til "
+        + Register.listOfCompetitions.get(CompetitionChoice).getTitle());
+
+    }
+
+    public static void printSimplifiedCompetitorList() {
+        for (int i = 0; i < Register.listOfCompetitors.size(); i++) {
+            System.out.println(i + " " + Register.listOfCompetitors.get(i).getName());
+        }
+
+    }
+
+    public static void printSimplifiedCompetitionList() {
+        for (int i = 0; i < Register.listOfCompetitions.size(); i++) {
+            System.out.println(i + " " + Register.listOfCompetitions.get(i).getTitle());
         }
     }
 

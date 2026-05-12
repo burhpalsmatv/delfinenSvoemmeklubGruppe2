@@ -3,5 +3,7 @@ public class SwimmingCategory {
 
     public SwimmingCategory(String title) {
         this.title = title;
+
+        Register.listOfCategories.add(this);
     }
 }

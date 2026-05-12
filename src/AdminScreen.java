@@ -1,6 +1,3 @@
-import javax.sound.midi.Soundbank;
-import java.sql.Date;
-import java.sql.SQLOutput;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
@@ -94,7 +91,7 @@ public class AdminScreen {
 
                 //ADD CATEGORY
                 case 1:
-                    //ADD CODE HERE
+                    createCategory();
 
                 //DELETE CATEGORY
                 case 2:
@@ -124,6 +121,8 @@ public class AdminScreen {
                 //DELETE TRAINER
                 case 2:
                     //ADD CODE HERE
+                    printSimplifiedTrainerList();
+                    deleteTrainer();
 
                 //EDIT TRAINER
                 case 3:
@@ -158,6 +157,7 @@ public class AdminScreen {
                 //ADD MEMBER
                 case 1:
                     createMember();
+                    break;
 
                 //EDIT MEMBER INFO
                 case 2:
@@ -166,6 +166,9 @@ public class AdminScreen {
                 //DELETE MEMBER
                 case 3:
                     //ADD CODE HERE
+                    printSimplifiedMemberList();
+                    deleteMember();
+                    break;
 
                 //SHOW MEMBERS
                 case 4:
@@ -177,6 +180,18 @@ public class AdminScreen {
 
             }
         }
+    }
+
+    public static void createCategory() {
+        //LOAD BEARING SCANNER NEXTLINE
+        Application.scanner.nextLine();
+
+        System.out.println("OPRET SVØMMEDISCIPLIN:");
+        System.out.println("------------------------------");
+        System.out.println("Indtast navn på disciplin:");
+
+        String title = Application.scanner.nextLine();
+        SwimmingCategory swimmingCategory = new SwimmingCategory(title);
     }
 
     public static void createMember() {
@@ -354,4 +369,37 @@ public class AdminScreen {
                 0. Tilbage til menu
                 """);
     }
+
+    public static void printSimplifiedMemberList() {
+        for (int i = 0; i < Register.listOfMembers.size(); i++) {
+            System.out.println(i + " " + Register.listOfMembers.get(i).getName());
+        }
+
+    }
+
+    public static void deleteMember() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Delete member at: ");
+        int deleteAtIndex = Integer.parseInt(scanner.nextLine());
+        Member.removeMemberAt(deleteAtIndex);
+    }
+
+    public static void printSimplifiedTrainerList() {
+        for (int i = 0; i < Register.listOfTrainers.size(); i++) {
+            System.out.println(i + " " + Register.listOfTrainers.get(i).getName());
+        }
+
+    }
+
+    public static void deleteTrainer() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Delete trainer at: ");
+        int deleteAtIndex = Integer.parseInt(scanner.nextLine());
+        Trainer.deleteTrainer(deleteAtIndex);
+    }
+
+
+
 }
