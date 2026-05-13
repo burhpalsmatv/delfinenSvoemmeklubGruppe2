@@ -9,6 +9,7 @@ public class Trainer implements Serializable {
     private String phone;
     private Gender gender;
     private ArrayList<SwimmingCategory> thisSwimmingCategories;
+    String trainerID;
 
     public Trainer(String name, int age, String phone, Gender gender) {
         this.name = name;
@@ -16,6 +17,7 @@ public class Trainer implements Serializable {
         this.phone = phone;
         this.gender = gender;
         this.thisSwimmingCategories = new ArrayList<>();
+        this.trainerID = IDgenerator.generateTrainerID();
         //
         Register.listOfTrainers.add(this);
     }
@@ -42,19 +44,23 @@ public class Trainer implements Serializable {
 
     // Getters
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public int getAge() {
-        return age;
+        return this.age;
     }
 
     public String getPhone() {
-        return phone;
+        return this.phone;
     }
 
     public Gender getGender() {
-        return gender;
+        return this.gender;
+    }
+
+    public String getTrainerID() {
+        return this.trainerID;
     }
 
     public ArrayList<SwimmingCategory> getSwimmingCategory() {
