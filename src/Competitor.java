@@ -19,8 +19,6 @@ public class Competitor extends Member implements /* Comparable<Competitor>, */ 
         this.membership = memberCasual.membership;
         this.memberID = memberCasual.memberID;
 
-        this.trainer = null;
-
         // Competitor unique variables
         this.trainer = null;
         this.PR_butterfly = null;
@@ -40,10 +38,8 @@ public class Competitor extends Member implements /* Comparable<Competitor>, */ 
         this.phone = memberPassive.phone;
         this.gender = memberPassive.gender;
         this.inArrear = memberPassive.inArrear;
-        this.membership = null; // Indsæt metode til at hente membership automatisk
+        this.membership = setMembershipByAge(this);
         this.memberID = memberPassive.memberID;
-
-        this.trainer = null;
 
         // Competitor unique variables
         this.trainer = null;

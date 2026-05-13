@@ -25,15 +25,15 @@ public class Application {
         switch (input) {
 
             case 1:
-                AdminScreen.adminScreen();
+                AdminMenu.AdminMenu();
                 break;
 
             case 2:
-                TrainerScreen.trainerScreen();
+                TrainerMenu.trainerScreen();
                 break;
 
             case 3:
-                TreasurerScreen.treasurerScreen();
+                TreasurerMenu.treasurerScreen();
                 break;
 
             case 0:
