@@ -6,60 +6,38 @@ public class Trainer implements Serializable {
 
     private String name;
     private int age;
-    private String address;
-    private String postalCode;
     private String phone;
-    private String email;
     private Gender gender;
-    private SwimmingCategory swimmingCategory;
+    private ArrayList<SwimmingCategory> thisSwimmingCategories;
 
-    //
-
-    public Trainer(String name, int age, String address, String postalCode, String phone,
-                   String email, Gender gender) {
+    public Trainer(String name, int age, String phone, Gender gender) {
         this.name = name;
         this.age = age;
-        this.address = address;
-        this.postalCode = postalCode;
         this.phone = phone;
-        this.email = email;
         this.gender = gender;
+        this.thisSwimmingCategories = new ArrayList<>();
         //
-        ArrayList<SwimmingCategory> thisSwimmingCategories = new ArrayList<>();
         Register.listOfTrainers.add(this);
     }
 
-    // Setters for specific trainers at index i
-    public void setNameAt(int i, String name) {
-        Register.listOfTrainers.get(i).name = name;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public void setAgeAt(int i, int age) {
-        Register.listOfTrainers.get(i).age = age;
+    public void setAge(int age) {
+        this.age = age;
     }
 
-    public void setAddressAt(int i, String address) {
-        Register.listOfTrainers.get(i).address = address;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
-    public void setPostalCodeAt(int i, String postalCode) {
-        Register.listOfTrainers.get(i).postalCode = postalCode;
+    public void setGender(Gender gender) {
+        this.gender = gender;
     }
 
-    public void setPhoneAt(int i, String phone) {
-        Register.listOfTrainers.get(i).phone = phone;
-    }
-
-    public void setEmailAt(int i, String email) {
-        Register.listOfTrainers.get(i).email = email;
-    }
-
-    public static void setGenderAt(int i, Gender gender) {
-        Register.listOfTrainers.get(i).gender = gender;
-    }
-
-    public void setSwimmingCategoryAt(int i, SwimmingCategory swimmingCategory) {
-        Register.listOfTrainers.get(i).swimmingCategory = swimmingCategory;
+    public void addSwimmingCategory(SwimmingCategory swimmingCategory) {
+        this.thisSwimmingCategories.add(swimmingCategory);
     }
 
     // Getters
@@ -71,28 +49,16 @@ public class Trainer implements Serializable {
         return age;
     }
 
-    public String getAddress() {
-        return address;
-    }
-
-    public String getPostalCode() {
-        return postalCode;
-    }
-
     public String getPhone() {
         return phone;
-    }
-
-    public String getEmail() {
-        return email;
     }
 
     public Gender getGender() {
         return gender;
     }
 
-    public SwimmingCategory getSwimmingCategory() {
-        return swimmingCategory;
+    public ArrayList<SwimmingCategory> getSwimmingCategory() {
+        return this.thisSwimmingCategories;
     }
 
     public String toString() {
@@ -106,8 +72,16 @@ public class Trainer implements Serializable {
                 Postnummer: %s
                 Telefon: %s
                 Email: %s
-                Svømmekategori: %s
-                """, this.getName(), this.getGender(), this.getAge(), this.getAddress(), this.getPostalCode(), this.getPhone(), this.getEmail(), this.getSwimmingCategory());
-    return text;
+                """, this.getName(), this.getGender(), this.getAge(), this.getPhone());
+        return text;
+    }
+
+    public void simplePrintSwimmingCategory() { // Find en måde at fleætte metoden ind i vores toString
+        for (SwimmingCategory swimmingCategory : this.thisSwimmingCategories) {
+            String text = "";
+            text += String.format("""
+                %s%n
+                """);
+        }
     }
 }
