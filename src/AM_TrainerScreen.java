@@ -115,7 +115,7 @@ public class AM_TrainerScreen {
             gender = Gender.AGENDER;
         }
 
-        Trainer trainer = new Trainer(name, age, address, postalcode, phone, email, gender);
+        Trainer trainer = new Trainer(name, age, phone, gender);
         System.out.println("Træneren " + name + " er oprettet i systemet");
     }
 

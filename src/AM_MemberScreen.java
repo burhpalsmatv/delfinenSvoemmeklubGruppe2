@@ -56,7 +56,7 @@ public class AM_MemberScreen {
 
         String name = Application.scanner.nextLine();
 
-        System.out.println("Medlemmets alder:"); // TO-DO: gør valgfri
+        System.out.println("Medlemmets alder:");
         int age = Application.scanner.nextInt();
         Application.scanner.nextLine();
 
@@ -76,12 +76,45 @@ public class AM_MemberScreen {
             gender = Gender.AGENDER;
         }
 
-        //TILFØJ KODE SOM OPRETTER MEDLEM HER
+        //System.out.println("Passivt medlemskab? ja/nej");
+        Boolean passiveMember = false;
+        //String passiveChoice = Application.scanner.nextLine();
+
+        //if (passiveChoice.equals("ja")) {
+         //   passiveMember = true;
+        //}
+
+        //Actual constructors:
+        if (passiveMember) {
+            new MemberPassive(name, age, phone, gender);
+        } else {
+            new MemberCasual(name, age, phone, gender);
+        }
+
+        System.out.println(name + " er oprettet som medlem");
     }
 
     public static void deleteMember() {
 
-        //TILFØJ METODE SOM SLETTER MEDLEM
+        //LOAD BEARING SCANNER NEXTLINE
+        Application.scanner.nextLine();
+
+        System.out.println("SLET MEDLEM");
+        System.out.println("------------------------------");
+        System.out.println("Vælg medlem at slette (indtast memberID)");
+
+        RegisterSimplePrinter.printSimplifiedMemberList();
+
+        String ID = Application.scanner.nextLine();
+
+        String name = RegisterManager.memberWithID(ID).getName();
+
+        System.out.println("Er du sikker på at du vil slette " + name + "? \n(ja/nej): ");
+        String answer = Application.scanner.nextLine();
+         if (answer.equalsIgnoreCase("ja")) {
+             RegisterManager.removeMember(RegisterManager.memberWithID(ID));
+             System.out.println(name + " er blevet slettet fra systemet");
+         }
 
     }
 

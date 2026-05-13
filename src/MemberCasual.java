@@ -1,6 +1,6 @@
 import java.io.Serializable;
 
-public abstract class MemberCasual extends Member implements Serializable {
+public class MemberCasual extends Member implements Serializable {
     private static final long serialVersionUID = 5L; // Til serialization. Niks pille
 
     /* Custom MemberID for TESTING
@@ -13,7 +13,7 @@ public abstract class MemberCasual extends Member implements Serializable {
     */
 
     // Fra oprettelse
-    public MemberCasual(String name, int age, String phone, Gender gender, Membership membership) {
+    public MemberCasual(String name, int age, String phone, Gender gender) {
         this.name = name;
         this.age = age;
         this.phone = phone;
