@@ -1,9 +1,11 @@
 import java.io.Serializable;
+import java.util.ArrayList;
 
 public class Competitor extends Member implements /* Comparable<Competitor>, */ Serializable {
     private static final long serialVersionUID = 3L;
 
-    private Trainer trainer;
+    ArrayList<Trainer> trainersAssigned;
+    final static String memberType = "Competitor";
     String PR_butterfly; // MIDLERTIDIG INDTIL FIKS
     String PR_crawl; // MIDLERTIDIG INDTIL FIKS
     String PR_back_crawl; // MIDLERTIDIG INDTIL FIKS
@@ -20,7 +22,7 @@ public class Competitor extends Member implements /* Comparable<Competitor>, */ 
         this.memberID = memberCasual.memberID;
 
         // Competitor unique variables
-        this.trainer = null;
+        ArrayList<Trainer> trainersAssigned = new ArrayList<>();
         this.PR_butterfly = null;
         this.PR_crawl = null;
         this.PR_back_crawl = null;
@@ -42,7 +44,7 @@ public class Competitor extends Member implements /* Comparable<Competitor>, */ 
         this.memberID = memberPassive.memberID;
 
         // Competitor unique variables
-        this.trainer = null;
+        ArrayList<Trainer> trainersAssigned = new ArrayList<>();
         this.PR_butterfly = null;
         this.PR_crawl = null;
         this.PR_back_crawl = null;
@@ -58,40 +60,46 @@ public class Competitor extends Member implements /* Comparable<Competitor>, */ 
                 
                 ---------------------
                 MemberID: %s
+                Medlemsskab: %s
                 Medlemstype: %s
 
                 Navn: %s
                 Alder: %s
                 Træner: %s
+                I restance?: %s
                 ---------------------
                 
-                """, this.memberID, this.membership, this.name, this.age, this.trainer, this.inArrear);
+                """, this.memberID, this.membership, memberType, this.name, this.age, this.trainersAssigned, this.inArrear);
     }
 
    // GETTERS
-    public Trainer getTrainer() {
-        return trainer;
+    public ArrayList<Trainer> getTrainer() {
+        return this.trainersAssigned;
     }
 
     public String getPR_butterfly() {
-        return PR_butterfly;
+        return this.PR_butterfly;
     }
 
     public String getPR_crawl() {
-        return PR_crawl;
+        return this.PR_crawl;
     }
 
     public String getPR_back_crawl() {
-        return PR_back_crawl;
+        return this.PR_back_crawl;
     }
 
     public String getPR_breast() {
-        return PR_breast;
+        return this.PR_breast;
     }
 
     // SETTERS
-    public void setTrainer(Trainer trainer) {
-        this.trainer = trainer;
+    public void addTrainer(Trainer trainer) {
+        this.trainersAssigned.add(trainer);
+    }
+
+    public void removeTrainer(Trainer trainer) {
+        this.trainersAssigned.remove(trainer);
     }
 
     public void setPR_butterfly(String PR_butterfly) {
