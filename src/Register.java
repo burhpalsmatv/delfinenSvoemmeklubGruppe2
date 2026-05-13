@@ -14,4 +14,13 @@ public abstract class Register {
     static ArrayList<SwimmingCategory> listOfCategories = new ArrayList<>();
     static ArrayList<Receipt> listOfReceipts = new ArrayList<>();
 
+    public static Member findMember(String memberID){
+        for (Member member : listOfMembers){
+            if(member.getMemberID() == memberID){
+                return member;
+            }
+        }
+        return null;
+    }
+
 }

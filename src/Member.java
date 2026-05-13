@@ -78,45 +78,56 @@ public class Member implements Serializable {
         return membership;
     }
 
+    public String getMemberID(){
+        return this.memberID;
+    }
+
+    //metode til at finde medlem i arrayList --> register har findmember metode (forloop gennem memberList)
     // Setters for specific members at index i
-    public static void setNameAt(int i, String name) {
-         Register.listOfMembers.get(i).name = name;
+
+
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public static void setAgeAt(int i, int age) {
-        Register.listOfMembers.get(i).age = age;
+    public void setMemberID(String memberID) {
+        this.memberID = memberID;
     }
 
-    public static void setAddressAt(int i, String address) {
-        Register.listOfMembers.get(i).address = address;
+    public void setAge(int age) {
+        this.age = age;
     }
 
-    public static void setPostcodeAt(int i, String postcode) {
-        Register.listOfMembers.get(i).postcode = postcode;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-    public static void setPhoneAt(int i, String phone) {
-        Register.listOfMembers.get(i).phone = phone;
+    public void setPostcode(String postcode) {
+        this.postcode = postcode;
     }
 
-    public static void setEmailAt(int i, String email) {
-        Register.listOfMembers.get(i).email = email;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
-    public static void setGenderAt(int i, Gender gender) {
-        Register.listOfMembers.get(i).gender = gender;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public static void setPaidAt(int i, boolean isPaid) {
-        Register.listOfMembers.get(i).isPaid = isPaid;
+    public void setGender(Gender gender) {
+        this.gender = gender;
     }
 
-    public static void setMedlemstypeAt(int i, Membership membership) {
-        Register.listOfMembers.get(i).membership = membership;
+    public void setPaid(boolean paid) {
+        isPaid = paid;
     }
 
-    public static void setSeniorRabatAt(int i, boolean seniorDiscount) {
-        Register.listOfMembers.get(i).seniorDiscount = seniorDiscount;
+    public void setMembership(Membership membership) {
+        this.membership = membership;
+    }
+
+    public void setSeniorDiscount(boolean seniorDiscount) {
+        this.seniorDiscount = seniorDiscount;
     }
 
     public boolean hasSeniorDiscount() {
