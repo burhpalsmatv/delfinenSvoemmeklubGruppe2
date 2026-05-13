@@ -68,7 +68,7 @@ public class AM_TrainerScreen {
         int swimmerChoice = Application.scanner.nextInt();
         String swimmerName = Register.listOfCompetitors.get(swimmerChoice).getName();
 
-        Register.listOfCompetitors.get(swimmerChoice).setTrainer(Register.listOfTrainers.get(trainerChoice));
+        Register.listOfCompetitors.get(swimmerChoice).addTrainer(Register.listOfTrainers.get(trainerChoice));
 
         System.out.println(Register.listOfTrainers.get(trainerChoice).getName() + " er tildelt som træner til " +
                 swimmerName);
