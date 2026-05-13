@@ -17,10 +17,6 @@ public abstract class Member implements Serializable {
 
     // GETTERS
 
-    public String getMemberType() {
-
-    }
-
     public String getName() {
         return this.name;
     }

@@ -166,7 +166,7 @@ public class AM_MemberScreen {
             //MEMBERSHIP
             case 5:
                 //CODE TBA
-                
+
             //BACK TO MENU
             case 6:
                 break;

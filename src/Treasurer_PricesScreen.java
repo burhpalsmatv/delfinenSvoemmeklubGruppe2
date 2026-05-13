@@ -12,13 +12,12 @@ public class Treasurer_PricesScreen {
                 //CURRENT PRICES
                 case 1:
                     showCurrentPrices();
+                    break;
 
                     //CHANGE PRICES
                 case 2:
                     changePrices();
-
-                    //CHANGE DISCOUNT
-                case 3: //INSERT METHOD
+                    break;
 
                     //LOG OUT
                 case 0:
@@ -30,7 +29,6 @@ public class Treasurer_PricesScreen {
     private static void showCurrentPrices() {
         System.out.println("---------DE NUVÆRENDE PRISER---------");
         System.out.println(PricingManager.displayPrices());
-        System.out.println("Indtast \"0\" for at vende tilbage til hjem");
     }
 
     private static void changePrices() {
@@ -43,15 +41,13 @@ public class Treasurer_PricesScreen {
 
         membership.setPrice(newPrice);
 
-        System.out.println("Prisen er nu ændret");
-        System.out.println("Indtast \"0\" for at vende tilbage til hjem");
+        System.out.println("Prisen for " + choosenMembership + " er nu ændret");
     }
 
     public static String pricesMenuString() {
         return String.format("""
                 1. Vis nuværende priser
                 2. Ændr priser
-                3. Ændr discount
                 0. Tilbage til menu
                 """);
     }

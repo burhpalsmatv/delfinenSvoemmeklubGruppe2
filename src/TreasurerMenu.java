@@ -14,7 +14,6 @@ public class TreasurerMenu {
 
                 //SHOW MEMBERS PAYMENT STATUS
                 case 1:
-                    //INSERT METHOD HERE
                     System.out.println(PaymentManager.showMembersPaymentStatus(Register.listOfMembers));
 
                 //MEMBERS IN ARREAR

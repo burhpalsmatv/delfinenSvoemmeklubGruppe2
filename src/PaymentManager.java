@@ -21,6 +21,7 @@ public class PaymentManager {
         return membersInArrear;
     }
 
+
     public static int getExpectedQuota(ArrayList<Member> members) {
     int expectedQuota = 0;
 
