@@ -69,10 +69,22 @@ public class RegisterSimplePrinter extends Register {
                         Navn: %s
                         Medlems-ID: %s
                         Medlemskab: %s
+                        
+                        Rekorder i kategorier:
+                        BUTTERFLY: %s
+                        CRAWL: %s
+                        BACKCRAWL: %s
+                        BREASTSTROKE: %s
                         """,
                         listOfCompetitors.get(i).getName(),
                         listOfCompetitors.get(i).getMemberID(),
                         listOfCompetitors.get(i).getMemberType());
+
+                        listOfCompetitors.get(i).getPR_butterfly();
+                        listOfCompetitors.get(i).getPR_crawl();
+                        listOfCompetitors.get(i).getPR_back_crawl();
+                        listOfCompetitors.get(i).getPR_breast();
+
 
                 System.out.println(text);
 
@@ -87,7 +99,15 @@ public class RegisterSimplePrinter extends Register {
             System.out.println("Listen er tom");
         } else {
             for (int i = 0; i < listOfTrainers.size(); i++) {
-                System.out.println(i + " " + listOfTrainers.get(i).getName());
+                String text = "";
+                text += String.format("""
+                        Navn: %s
+                        Træner i kategorier: %s
+                        """,
+                        listOfTrainers.get(i).getName(),
+                        listOfTrainers.get(i).getSwimmingCategory());
+
+                System.out.println(text);
             }
         }
     }
