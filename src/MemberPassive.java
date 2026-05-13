@@ -8,7 +8,7 @@ public class MemberPassive extends Member {
         this.gender = gender;
         this.inArrear = false;
         this.membership = Membership.PASSIVE;
-        this.memberID = memberIDgenerator.generateMemberID();
+        this.memberID = MemberIDGenerator.generateMemberID();
 
         Register.listOfPassiveMembers.add(this);
         Register.listOfMembers.add(this);

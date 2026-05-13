@@ -7,6 +7,7 @@ public class Competition {
 
     private String title;
     private LocalDate date;
+    String competitionID;
 
     private ArrayList<Competitor> competitors = new ArrayList<>();
     private boolean ended = false;
@@ -14,6 +15,7 @@ public class Competition {
     public Competition(String title, LocalDate date) {
         this.title = title;
         this.date = date;
+        this.competitionID = IDgenerator.generateCompetitionID();
         //
         Register.listOfCompetitions.add(this);
     }
@@ -22,13 +24,14 @@ public class Competition {
         return String.format("""
                 -------------------
                 STÆVNE INFO
+                ID: %s
                 Titel: %s
                 Dato: %s
                 Deltagere: IKKE INDFØRT
                 Afsluttet?: IKKE INDFØRT
                
                 -------------------""",
-                this.title, this.date);
+                this.competitionID, this.title, this.date);
     }
 
     //GETTERS
