@@ -11,21 +11,48 @@ public class File {
             saveMember.writeObject(Register.listOfMembers);
             saveMember.close();
 
+            // Passive members
+            //
+            // ADD CODE
+            //
+            //
+
+
+            // Casual members
+            //
+            // ADD CODE
+            //
+            //
+
+            // Competitors members
+            ObjectOutputStream saveCompetitor = new ObjectOutputStream(new FileOutputStream("listOfCompetitors.ser"));
+            saveCompetitor.writeObject(Register.listOfCompetitors);
+            saveCompetitor.close();
+
             // Trainers
             ObjectOutputStream saveTrainer = new ObjectOutputStream(new FileOutputStream("listOfTrainers.ser"));
             saveTrainer.writeObject(Register.listOfTrainers);
             saveTrainer.close();
-
-            // Competitors
-            ObjectOutputStream saveCompetitor = new ObjectOutputStream(new FileOutputStream("listOfCompetitors.ser"));
-            saveCompetitor.writeObject(Register.listOfCompetitors);
-            saveCompetitor.close();
 
             // Competitions
             ObjectOutputStream saveCompetition = new ObjectOutputStream(new FileOutputStream("listOfCompetitions.ser"));
             saveCompetition.writeObject(Register.listOfCompetitions);
             saveCompetition.close();
 
+            //Used Member IDs
+            ObjectOutputStream saveUsedMemberIDs = new ObjectOutputStream(new FileOutputStream("listOfUsedMemberIDs.ser"));
+            saveCompetition.writeObject(Register.listOfUsedMemberIDs);
+            saveCompetition.close();
+
+            //Used Trainer IDs
+            ObjectOutputStream saveUsedTrainerIDs = new ObjectOutputStream(new FileOutputStream("listOfUsedTrainerIDs.ser"));
+            saveCompetition.writeObject(Register.listOfUsedTrainerIDs);
+            saveCompetition.close();
+
+            //Used Competition IDs
+            ObjectOutputStream saveUsedCompetitionIDs = new ObjectOutputStream(new FileOutputStream("listOfUsedCompetitionIDs.ser"));
+            saveCompetition.writeObject(Register.listOfUsedCompetitionIDs);
+            saveCompetition.close();
     }
 
     public static void loadFiles() throws IOException, ClassNotFoundException {
@@ -34,19 +61,52 @@ public class File {
         Register.listOfMembers = (ArrayList<Member>) loadMember.readObject();
         loadMember.close();
 
-        // Trainers
-        ObjectInputStream loadTrainer = new ObjectInputStream(new FileInputStream("listOfTrainers.ser"));
-        Register.listOfTrainers = (ArrayList<Trainer>) loadTrainer.readObject();
-        loadTrainer.close();
+        // Passive members
+        //
+        // ADD CODE
+        //
+        //
+
+
+        // Casual members
+        //
+        // ADD CODE
+        //
+        //
 
         // Competitors
         ObjectInputStream loadCompetitor = new ObjectInputStream(new FileInputStream("listOfCompetitors.ser"));
         Register.listOfCompetitors = (ArrayList<Competitor>) loadCompetitor.readObject();
         loadCompetitor.close();
 
+        // Trainers
+        ObjectInputStream loadTrainer = new ObjectInputStream(new FileInputStream("listOfTrainers.ser"));
+        Register.listOfTrainers = (ArrayList<Trainer>) loadTrainer.readObject();
+        loadTrainer.close();
+
         // Competitions
         ObjectInputStream loadCompetitions = new ObjectInputStream(new FileInputStream("listOfCompetitions.ser"));
         Register.listOfCompetitions = (ArrayList<Competition>) loadCompetitions.readObject();
         loadCompetitions.close();
+
+        // Used Member IDs
+        //
+        // ADD CODE
+        //
+        //
+
+
+        // Used Trainer IDs
+        //
+        // ADD CODE
+        //
+        //
+
+        // Used Competition IDs
+        //
+        // ADD CODE
+        //
+        //
+
     }
 }

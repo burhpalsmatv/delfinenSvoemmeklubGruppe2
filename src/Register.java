@@ -14,6 +14,11 @@ public abstract class Register {
     // Trainers
     static ArrayList<Trainer> listOfTrainers = new ArrayList<>();
 
-    // Extra
+    // Competitions
     static ArrayList<Competition> listOfCompetitions = new ArrayList<>();
+
+    // IDs
+    static ArrayList<String> listOfUsedMemberIDs = new ArrayList<>();
+    static ArrayList<String> listOfUsedTrainerIDs = new ArrayList<>();
+    static ArrayList<String> listOfUsedCompetitionIDs = new ArrayList<>();
 }

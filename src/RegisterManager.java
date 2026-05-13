@@ -2,10 +2,21 @@ public class RegisterManager extends Register {
 
     // Removers
     public static void deleteTrainer(Trainer trainer) {
+        Register.listOfUsedTrainerIDs.remove(trainerWithID(trainer.getTrainerID()));
         listOfTrainers.remove(trainer);
     }
 
     public static void removeMember(Member member) {
+        if (listOfPassiveMembers.contains(member)) {
+            listOfPassiveMembers.remove(member);
+        }
+        if (listOfCasualMembers.contains(member)) {
+            listOfCasualMembers.remove(member);
+        }
+        if (listOfCompetitors.contains(member)) {
+            listOfCompetitors.remove(member);
+        }
+        Register.listOfUsedMemberIDs.remove(memberWithID(member.getMemberID()));
         listOfMembers.remove(member);
     }
 
@@ -14,6 +25,15 @@ public class RegisterManager extends Register {
         for (Member member : listOfMembers) {
             if (member.memberID.equals(memberID)) {
                 return member;
+            }
+        }
+        return null;
+    }
+
+    public static Trainer trainerWithID(String trainerID) {
+        for (Trainer trainer : listOfTrainers) {
+            if (trainer.trainerID.equals(trainerID)) {
+                return trainer;
             }
         }
         return null;
