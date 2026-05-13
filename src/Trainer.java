@@ -76,7 +76,7 @@ public class Trainer implements Serializable {
     return text;
     }
 
-    public void simplePrintSwimmingCategory() {
+    public void simplePrintSwimmingCategory() { // Find en måde at fleætte metoden ind i vores toString
         for (SwimmingCategory swimmingCategory : this.thisSwimmingCategories) {
         String text = "";
         text += String.format("""
