@@ -13,7 +13,7 @@ public class TrainerMenu {
             switch(input) {
 
                 //COMPETITIONS:
-                case 1: TM_CompetitionScreen.competitionMenu();
+                case 1: TrainerMenu_CompetitionScreen.competitionMenu();
                 break;
 
                 //LIST OF COMPETITORS
@@ -24,12 +24,12 @@ public class TrainerMenu {
 
                 //ADD SWIMMER TO COMPETITION
                 case 3:
-                    TM_CompetitionScreen.addCompetitorToCompetition();
+                    TrainerMenu_CompetitionScreen.addCompetitorToCompetition();
                     break;
 
                 // TRAINING RESULTS
                 case 4:
-                    TM_TrainingResultScreen.trainingResultScreen();
+                    TrainerMenu_TrainingResultScreen.trainingResultScreen();
                     break;
 
                 //LOG OUT

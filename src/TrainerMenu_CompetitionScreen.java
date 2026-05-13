@@ -1,4 +1,4 @@
-public class TM_CompetitionScreen {
+public class TrainerMenu_CompetitionScreen {
 
     public static void competitionMenu() {
 

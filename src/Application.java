@@ -33,7 +33,7 @@ public class Application {
                 break;
 
             case 3:
-                TreasurerScreen.treasurerScreen();
+                TreasurerMenu.treasurerScreen();
                 break;
 
             case 0:

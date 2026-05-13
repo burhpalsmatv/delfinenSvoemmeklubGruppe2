@@ -2,12 +2,6 @@ import java.util.ArrayList;
 
 public class PaymentManager {
 
-    private double discount;
-
-    public void setDiscount(double discount){
-        this.discount = discount;
-    }
-
     public static String showMembersPaymentStatus(ArrayList<Member> members) {
         StringBuilder builder = new StringBuilder();
         for (Member member : members) {

@@ -1,4 +1,4 @@
-public class TM_TrainingResultScreen {
+public class TrainerMenu_TrainingResultScreen {
 
     public static void trainingResultScreen() {
 
