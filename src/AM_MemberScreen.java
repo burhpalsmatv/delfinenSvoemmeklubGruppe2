@@ -26,8 +26,6 @@ public class AM_MemberScreen {
 
                     //DELETE MEMBER
                 case 3:
-                    //ADD CODE HERE
-                    RegisterSimplePrinter.printSimplifiedMemberList();
                     deleteMember();
                     break;
 
@@ -77,13 +75,16 @@ public class AM_MemberScreen {
             gender = Gender.AGENDER;
         }
 
-        //System.out.println("Passivt medlemskab? ja/nej");
-        Boolean passiveMember = false;
-        //String passiveChoice = Application.scanner.nextLine();
+        //LOADBEARING SCANNER
+        Application.scanner.nextLine();
 
-        //if (passiveChoice.equals("ja")) {
-         //   passiveMember = true;
-        //}
+        System.out.println("Passivt medlemskab? ja/nej");
+        Boolean passiveMember = false;
+        String passiveChoice = Application.scanner.nextLine();
+
+        if (passiveChoice.equals("ja")) {
+            passiveMember = true;
+        }
 
         //Actual constructors:
         if (passiveMember) {
