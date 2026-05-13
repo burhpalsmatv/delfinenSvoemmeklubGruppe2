@@ -1,11 +1,31 @@
-public class RegisterManager {
+public class RegisterManager extends Register {
 
-    public static void deleteTrainer(int i) {
-        Register.listOfTrainers.remove(i);
+    // Removers
+    public static void deleteTrainer(Trainer trainer) {
+        listOfTrainers.remove(trainer);
     }
 
-    public static void removeMemberAt(int i) {
-        Register.listOfMembers.remove(i);
+    public static void removeMember(Member member) {
+        listOfMembers.remove(member);
     }
 
+    // Finders
+    public static Member memberWithID(String memberID) {
+        for (Member member : listOfMembers) {
+            if (member.memberID == memberID) {
+                return member;
+            }
+        }
+        return null;
+    }
+
+    // With Name AND Phone together
+    public static Member memberWithNamePhone(String name, String phone) {
+        for (Member member : listOfMembers) {
+            if (member.getName().equalsIgnoreCase(name) && member.getPhone() == phone) {
+                return member;
+            }
+        }
+        return null;
+    }
 }

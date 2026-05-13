@@ -1,96 +1,112 @@
 import java.io.Serializable;
-import java.util.ArrayList;
 
 public class Competitor extends Member implements /* Comparable<Competitor>, */ Serializable {
     private static final long serialVersionUID = 3L;
 
-    // COMPETITOR PLACINGS (TOP 5 BEDSTE SVØMMERE) SKAL KUNNE SES INDENFOR HVER KATEGORI
-    // OG SKAL ADSKILELS I HVER KATEGORI
-    // FX PRINT TOP 5 BEDSTE SVØMMERE I BRYST
-    // & PRINT TOP 5 BEDSTE SVØMMERE I CRAWL
-
-
     private Trainer trainer;
-    // PR i hver kategori
     String PR_butterfly; // MIDLERTIDIG INDTIL FIKS
     String PR_crawl; // MIDLERTIDIG INDTIL FIKS
     String PR_back_crawl; // MIDLERTIDIG INDTIL FIKS
     String PR_breast; // MIDLERTIDIG INDTIL FIKS
 
-    // Find måde at track tid og PR på hver swimming category
-
-    public Competitor(Member member) {
-        // Fra memberen
-        this.name = member.name;
-        this.age = member.age;
-        this.address = member.address;
-        this.postcode = member.postcode;
-        this.phone = member.phone;
-        this.email = member.email;
-        this.gender = member.gender;
-        this.isPaid = member.isPaid;
-        this.membership = member.membership;
-        this.seniorDiscount = member.seniorDiscount;
-        this.memberID = member.memberID;
+    // Fra Casual Member
+    public Competitor(MemberCasual memberCasual) {
+        this.name = memberCasual.name;
+        this.age = memberCasual.age;
+        this.phone = memberCasual.phone;
+        this.gender = memberCasual.gender;
+        this.inArrear = memberCasual.inArrear;
+        this.membership = memberCasual.membership;
+        this.memberID = memberCasual.memberID;
 
         // Competitor unique variables
         this.trainer = null;
-
-        // Find en måde at holde PR's og tjekke om participant (som er denne Competitor)
-        // har slået PR i stævne
         this.PR_butterfly = null;
         this.PR_crawl = null;
         this.PR_back_crawl = null;
         this.PR_breast = null;
 
-        // Remove member fra sin ArrayList og add Competitor til sin ArrayList
+        //
+        Register.listOfCasualMembers.remove(memberCasual);
         Register.listOfCompetitors.add(this);
-        Register.listOfMembers.remove(member);
-
     }
 
-    public void addTrainer(Trainer  trainer){
-        this.trainer = trainer;
-    }
+    // Fra Passive Member
+    public Competitor(MemberPassive memberPassive) {
+        this.name = memberPassive.name;
+        this.age = memberPassive.age;
+        this.phone = memberPassive.phone;
+        this.gender = memberPassive.gender;
+        this.inArrear = memberPassive.inArrear;
+        this.membership = null; // Indsæt metode til at hente membership automatisk
+        this.memberID = memberPassive.memberID;
 
-    public void addMedal() {
-        // Find måde at add medalje fra stævne
-        // this.achievedMedals.add();
+        // Competitor unique variables
+        this.trainer = null;
+        this.PR_butterfly = null;
+        this.PR_crawl = null;
+        this.PR_back_crawl = null;
+        this.PR_breast = null;
+
+        //
+        Register.listOfPassiveMembers.remove(memberPassive);
+        Register.listOfCompetitors.add(this);
     }
 
     public String toString(){
         return String.format("""
                 
                 ---------------------
-                Navn: %s
-                Kategori: IKKE INDFØRT
-                Træner: %s
-                Resultat: IKKE INDFØRT
+                MemberID: %s
                 Medlemstype: %s
-                Er betalt?: %s
+
+                Navn: %s
+                Alder: %s
+                Træner: %s
                 ---------------------
                 
-                """, this.name, this.trainer, this.membership, this.isPaid);
+                """, this.memberID, this.membership, this.name, this.age, this.trainer, this.inArrear);
     }
 
    // GETTERS
-
     public Trainer getTrainer() {
         return trainer;
     }
 
-    public String getName() {
-        return name;
+    public String getPR_butterfly() {
+        return PR_butterfly;
+    }
+
+    public String getPR_crawl() {
+        return PR_crawl;
+    }
+
+    public String getPR_back_crawl() {
+        return PR_back_crawl;
+    }
+
+    public String getPR_breast() {
+        return PR_breast;
     }
 
     // SETTERS
-
     public void setTrainer(Trainer trainer) {
         this.trainer = trainer;
     }
 
-//    @Override
-//    public int compareTo(Competitor competitor) {
-//        return Integer.compare(this.placing, competitor.placing);
-//    }
+    public void setPR_butterfly(String PR_butterfly) {
+        this.PR_butterfly = PR_butterfly;
+    }
+
+    public void setPR_crawl(String PR_crawl) {
+        this.PR_crawl = PR_crawl;
+    }
+
+    public void setPR_back_crawl(String PR_back_crawl) {
+        this.PR_back_crawl = PR_back_crawl;
+    }
+
+    public void setPR_breast(String PR_breast) {
+        this.PR_breast = PR_breast;
+    }
 }

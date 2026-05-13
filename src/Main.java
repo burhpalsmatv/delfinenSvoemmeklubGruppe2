@@ -36,5 +36,8 @@ public class Main {
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
+
+        // Register.memberWithID("902841").setName();
+        // member1.remove(memberWithID("Argument");
     }
 }
