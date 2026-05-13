@@ -81,16 +81,9 @@ public class Trainer implements Serializable {
             String text = "";
             text += String.format("""
                 %s%n
-                """);
+                """, swimmingCategory);
         }
     }
 
-    public void simplePrintSwimmingCategory() {
-        for (SwimmingCategory swimmingCategory : this.thisSwimmingCategories) {
-        String text = "";
-        text += String.format("""
-                %s%n
-                """);
-        }
-    }
+
 }
