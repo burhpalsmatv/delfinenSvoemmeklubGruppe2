@@ -73,7 +73,16 @@ public class Trainer implements Serializable {
                 Telefon: %s
                 Email: %s
                 """, this.getName(), this.getGender(), this.getAge(), this.getPhone());
-    return text;
+        return text;
+    }
+
+    public void simplePrintSwimmingCategory() { // Find en måde at fleætte metoden ind i vores toString
+        for (SwimmingCategory swimmingCategory : this.thisSwimmingCategories) {
+            String text = "";
+            text += String.format("""
+                %s%n
+                """);
+        }
     }
 
     public void simplePrintSwimmingCategory() {
