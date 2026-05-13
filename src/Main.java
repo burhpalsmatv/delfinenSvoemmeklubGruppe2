@@ -1,3 +1,4 @@
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -5,7 +6,13 @@ import java.util.Scanner;
 public class Main {
     public static void main (String[] args) {
 
-        // File.loadFiles();
+        try {
+            File.loadFiles();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        }
 
         /* Member lars = new Member("Lars", "904820");
         Member morten = new Member("Morten");
@@ -24,6 +31,10 @@ public class Main {
         System.out.println("His name is now Fars instead of Lars");
         System.out.print(Register.memberWithID("904820")); */
 
-        // File.saveFiles();
+        try {
+            File.saveFiles();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
