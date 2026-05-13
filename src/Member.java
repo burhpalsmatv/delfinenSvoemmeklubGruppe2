@@ -73,6 +73,17 @@ public abstract class Member implements Serializable {
         this.membership = membership;
     }
 
+    public Membership setMembershipByAge(Member member) {
+        if (member.getAge() < 18) {
+            return Membership.JUNIOR;
+        }
+
+        if (member.getAge() >= 18) {
+            return Membership.SENIOR;
+        }
+        return null;
+    }
+
     // Extra
     public boolean hasSeniorDiscount() {
         if (age >= 60){
