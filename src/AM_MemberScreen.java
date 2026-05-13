@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class AM_MemberScreen {
@@ -107,7 +108,8 @@ public class AM_MemberScreen {
 
         String ID = Application.scanner.nextLine();
 
-        String name = RegisterManager.memberWithID(ID).getName();
+        String name = String.join(" ", RegisterManager.memberWithID(ID).getName());
+
 
         System.out.println("Er du sikker på at du vil slette " + name + "? \n(ja/nej): ");
         String answer = Application.scanner.nextLine();
@@ -115,6 +117,7 @@ public class AM_MemberScreen {
              RegisterManager.removeMember(RegisterManager.memberWithID(ID));
              System.out.println(name + " er blevet slettet fra systemet");
          }
+
 
     }
 

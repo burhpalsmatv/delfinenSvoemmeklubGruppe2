@@ -12,7 +12,7 @@ public class RegisterManager extends Register {
     // Finders
     public static Member memberWithID(String memberID) {
         for (Member member : listOfMembers) {
-            if (member.memberID == memberID) {
+            if (member.memberID.equals(memberID)) {
                 return member;
             }
         }
@@ -22,7 +22,7 @@ public class RegisterManager extends Register {
     // With Name AND Phone together
     public static Member memberWithNamePhone(String name, String phone) {
         for (Member member : listOfMembers) {
-            if (member.getName().equalsIgnoreCase(name) && member.getPhone() == phone) {
+            if (member.getName().equalsIgnoreCase(name) && member.getPhone().equals(phone)) {
                 return member;
             }
         }
