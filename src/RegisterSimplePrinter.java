@@ -13,7 +13,7 @@ public class RegisterSimplePrinter extends Register {
                         """,
                         listOfMembers.get(i).getName(),
                         listOfMembers.get(i).getMemberID(),
-                        listOfMembers.get(i).getMemberType());
+                        listOfMembers.get(i).getMembership());
 
                 System.out.println(text);
 
@@ -51,7 +51,7 @@ public class RegisterSimplePrinter extends Register {
                         """,
                         listOfCasualMembers.get(i).getName(),
                         listOfCasualMembers.get(i).getMemberID(),
-                        listOfCasualMembers.get(i).getMemberType());
+                        listOfCasualMembers.get(i).getMembership());
 
                 System.out.println(text);
 
@@ -78,7 +78,7 @@ public class RegisterSimplePrinter extends Register {
                         """,
                         listOfCompetitors.get(i).getName(),
                         listOfCompetitors.get(i).getMemberID(),
-                        listOfCompetitors.get(i).getMemberType());
+                        listOfCompetitors.get(i).getMembership());
 
                         listOfCompetitors.get(i).getPR_butterfly();
                         listOfCompetitors.get(i).getPR_crawl();

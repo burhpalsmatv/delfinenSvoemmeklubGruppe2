@@ -26,11 +26,11 @@ public class PaymentManager {
 
         for (Member member: members) {
 
-            if (member.hasSeniorDiscount() && member.getMemberType() != Membership.PASSIVE) {
+            if (member.hasSeniorDiscount() && member.getMembership() != Membership.PASSIVE) {
                 int discount = 25;
-                expectedQuota += ((member.getMemberType().getPrice())/100) * (discount);
+                expectedQuota += ((member.getMembership().getPrice())/100) * (discount);
             }
-            else expectedQuota += member.getMemberType().getPrice();
+            else expectedQuota += member.getMembership().getPrice();
         }
 
         return expectedQuota;
@@ -41,13 +41,13 @@ public class PaymentManager {
 
         for (Member member: members) {
 
-            if (member.hasSeniorDiscount() && member.getMemberType() != Membership.PASSIVE &&
+            if (member.hasSeniorDiscount() && member.getMembership() != Membership.PASSIVE &&
             member.isInArrear()) {
                 int discount = 25;
-                actualQuota += ((member.getMemberType().getPrice())/(100)) * (discount);
+                actualQuota += ((member.getMembership().getPrice())/(100)) * (discount);
             }
             else if (member.isInArrear()) {
-                actualQuota += member.getMemberType().getPrice();
+                actualQuota += member.getMembership().getPrice();
             }
         }
 

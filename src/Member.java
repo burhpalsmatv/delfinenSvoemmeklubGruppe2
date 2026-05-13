@@ -16,6 +16,11 @@ public abstract class Member implements Serializable {
     public Member() {}
 
     // GETTERS
+
+    public String getMemberType() {
+
+    }
+
     public String getName() {
         return this.name;
     }
@@ -40,7 +45,7 @@ public abstract class Member implements Serializable {
         return this.inArrear;
     }
 
-    public Membership getMemberType() {
+    public Membership getMembership() {
         return membership;
     }
 

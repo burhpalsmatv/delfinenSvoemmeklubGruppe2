@@ -2,6 +2,7 @@ import java.io.Serializable;
 
 public class MemberCasual extends Member implements Serializable {
     private static final long serialVersionUID = 5L; // Til serialization. Niks pille
+    final static String memberType = "Casual";
 
     /* Custom MemberID for TESTING
     public Member(String name, String memberID) {

@@ -93,6 +93,10 @@ public class Competitor extends Member implements /* Comparable<Competitor>, */ 
         return this.PR_breast;
     }
 
+    public String getMemberType() {
+        return memberType;
+    }
+
     // SETTERS
     public void addTrainer(Trainer trainer) {
         this.trainersAssigned.add(trainer);

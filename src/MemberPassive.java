@@ -1,4 +1,5 @@
 public class MemberPassive extends Member {
+    final static String memberType = "Passive";
 
     // Fra oprettelsen
     public MemberPassive(String name, int age, String phone, Gender gender) {
