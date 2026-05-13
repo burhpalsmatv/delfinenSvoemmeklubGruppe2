@@ -18,12 +18,20 @@ public class Member implements Serializable {
 
     public Member() {}
 
-    public Member(String name) {
+    public Member(String name, String phone) {
+        this.memberID = memberIDgenerator.generateMemberID();
+
+        this.name = name;
+    }
+
+    /* Custom MemberID for TESTING
+    public Member(String name, String memberID) {
         this.name = name;
         //
-        this.memberID = memberIDgenerator.generateMemberID();
+        this.memberID = memberID;
         Register.listOfMembers.add(this);
     }
+    */
 
     public Member(String name, int age, String address, String postcode, String phone,
                    String email, Gender gender, Membership membership) {
@@ -45,6 +53,7 @@ public class Member implements Serializable {
     public String toString(){
         return String.format("""
                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                MemberID: %s
                 Navn: %s
                 Alder: %d
                 Addresse: %s
@@ -52,73 +61,107 @@ public class Member implements Serializable {
                 Telefon: %s
                 Email: %s
                 Køn: %s
-                Betalingsstatus: %b
+                Betalingsstatus: %s
                 Medlemstype: %s
-                MemberID: %s
                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
-                """, this.name, this.age, this.address,this.postcode,this.phone,this.email,
-                this.gender, this.isPaid, this.membership, this.memberID);
+                """, this.memberID, this.name, this.age, this.address,this.postcode,this.phone,this.email,
+                this.gender, this.isPaid, this.membership);
     }
 
 
     // GETTERS
+
+
     public String getName() {
-        return name;
+        return this.name;
+    }
+
+    public String getMemberID() {
+        return this.memberID;
+    }
+
+    public int getAge() {
+        return this.age;
+    }
+
+    public String getAddress() {
+        return this.address;
+    }
+
+    public String getPostcode() {
+        return this.postcode;
+    }
+
+    public String getPhone() {
+        return this.phone;
+    }
+
+    public String getEmail() {
+        return this.email;
+    }
+
+    public Gender getGender() {
+        return this.gender;
     }
 
     public boolean isPaid() {
-        return isPaid;
-    }
-
-    public String getPaymentStatusAsText() {
-        return isPaid ? "Betalt" : "Ikke betalt";
+        return this.isPaid;
     }
 
     public Membership getMemberType() {
         return membership;
     }
 
-    // Setters for specific members at index i
-    public static void setNameAt(int i, String name) {
-         Register.listOfMembers.get(i).name = name;
+    public boolean isSeniorDiscount() {
+        return this.seniorDiscount;
     }
 
-    public static void setAgeAt(int i, int age) {
-        Register.listOfMembers.get(i).age = age;
+    public String getPaymentStatusAsText() {
+        return this.isPaid ? "Betalt" : "Ikke betalt";
     }
 
-    public static void setAddressAt(int i, String address) {
-        Register.listOfMembers.get(i).address = address;
+    // Normal Setters
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public static void setPostcodeAt(int i, String postcode) {
-        Register.listOfMembers.get(i).postcode = postcode;
+    public void setAge(int age) {
+        this.age = age;
     }
 
-    public static void setPhoneAt(int i, String phone) {
-        Register.listOfMembers.get(i).phone = phone;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-    public static void setEmailAt(int i, String email) {
-        Register.listOfMembers.get(i).email = email;
+    public void setPostcode(String postcode) {
+        this.postcode = postcode;
     }
 
-    public static void setGenderAt(int i, Gender gender) {
-        Register.listOfMembers.get(i).gender = gender;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
-    public static void setPaidAt(int i, boolean isPaid) {
-        Register.listOfMembers.get(i).isPaid = isPaid;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
-    public static void setMedlemstypeAt(int i, Membership membership) {
-        Register.listOfMembers.get(i).membership = membership;
+    public void setGender(Gender gender) {
+        this.gender = gender;
     }
 
-    public static void setSeniorRabatAt(int i, boolean seniorDiscount) {
-        Register.listOfMembers.get(i).seniorDiscount = seniorDiscount;
+    public void setPaid(boolean paid) {
+        isPaid = paid;
     }
 
+    public void setMembership(Membership membership) {
+        this.membership = membership;
+    }
+
+    public void setSeniorDiscount(boolean seniorDiscount) {
+        this.seniorDiscount = seniorDiscount;
+    }
+
+    // Extra
     public boolean hasSeniorDiscount() {
         if (age >= 60){
             return true;

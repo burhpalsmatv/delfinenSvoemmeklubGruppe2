@@ -312,27 +312,27 @@ public class AdminScreen {
 
         System.out.println("OPRET MEDLEM:");
         System.out.println("------------------------------");
-        System.out.println("Indtast medlemmets navn:");
+        System.out.println("Indtast medlemmets navn (*):");
 
         String name = Application.scanner.nextLine();
 
-        System.out.println("Medlemmets alder:");
+        System.out.println("Medlemmets alder (valgfrit):"); // TO-DO: gør valgfri
         int age = Application.scanner.nextInt();
         Application.scanner.nextLine();
 
-        System.out.println("Medlemmets adresse:");
+        System.out.println("Medlemmets adresse (valgfrit):");
         String address = Application.scanner.nextLine();
 
-        System.out.println("Medlemmets postnummer:");
+        System.out.println("Medlemmets postnummer (valgfrit):");
         String postalcode = Application.scanner.nextLine();
 
-        System.out.println("Medlemmets telefonnummer:");
+        System.out.println("Medlemmets telefonnummer (*):");
         String phone = Application.scanner.nextLine();
 
-        System.out.println("Medlemmets email:");
+        System.out.println("Medlemmets email (valgfrit):");
         String email = Application.scanner.nextLine();
 
-        System.out.println("Køn - 1: kvinde, 2: mand, 3: ikke binær, 4: akønnet");
+        System.out.println("Køn (valgfrit) - 1: kvinde, 2: mand, 3: ikke binær, 4: akønnet ");
         Gender gender = null;
         int genderChoice = Application.scanner.nextInt();
         if (genderChoice == 1) {
@@ -348,12 +348,15 @@ public class AdminScreen {
         System.out.println("Passivt medlemskab? ja/nej");
         Membership membership = null;
         String answer = Application.scanner.next();
+
         if(answer.equals("ja")) {
             membership = Membership.PASSIVE;
         }
          else if (age > 18) {
             membership = Membership.SENIOR;
         } else membership = Membership.JUNIOR;
+
+         // FIND MÅDE AT LAVE MEMBERS UD FRA KUN NAVN OG TELEFONNUMMER
 
         Member member = new Member(name, age, address, postalcode, phone, email, gender, membership);
         System.out.println("Medlem " + name + " er oprettet i systemet");
