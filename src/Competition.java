@@ -3,58 +3,19 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
-public class Competition{
+public class Competition {
 
-    private ArrayList<Competitor> competitors;
-    private LocalDate date;
     private String title;
-    private String prize;
+    private LocalDate date;
+
+    private ArrayList<Competitor> competitors = new ArrayList<>();
     private boolean ended = false;
-    private ArrayList<Participants> participants;
 
-    public Competition(String title, LocalDate date
-            , Competitor... competitors) {
-
+    public Competition(String title, LocalDate date) {
         this.title = title;
         this.date = date;
-        this.competitors = new ArrayList<>();
-
-        for(Competitor competitor : competitors){
-            this.competitors.add(competitor);
-        }
-
         //
-
         Register.listOfCompetitions.add(this);
-    }
-
-    /* public void sortCompetitors() {
-        Collections.sort(competitors);
-    } */
-
-    public void competitionEnded() {
-        this.ended = true;
-        System.out.println("Konkurrencen: " + title + ", er nu markeret som afsluttet");
-
-    }
-
-    public  void enterResults() {
-        Scanner scanner = new Scanner(System.in);
-
-        for (Competitor competitor : competitors) {
-            System.out.println("Indtast resultat for: " + competitor.getName());
-
-            while(!scanner.hasNextDouble()) {
-                System.out.println("Udyldigt! Indtast et tal");
-                scanner.nextLine();
-            }
-
-            int result = scanner.nextInt();
-            // competitor.setPlacing(result);
-        }
-
-        System.out.println("Alle resultater er nu gemt");
-
     }
 
     public String toString(){
@@ -63,22 +24,23 @@ public class Competition{
                 STÆVNE INFO
                 Titel: %s
                 Dato: %s
-                Præmie: %s
-                Deltagere: %s
+                Deltagere: IKKE INDFØRT
+                Afsluttet?: IKKE INDFØRT
                
-                -------------------""", this.title, this.date, this.prize, this.competitors);
+                -------------------""",
+                this.title, this.date);
     }
 
-    //GETTERS + SETTERS:
-
+    //GETTERS
     public String getTitle() {
-        return title;
+        return this.title;
     }
 
-    public void addParticipants(Participants participant) {
-        participants.add(participant);
+    public LocalDate getDate() {
+        return this.date;
     }
 
+    // Setters
     public void setTitle(String title) {
         this.title = title;
     }

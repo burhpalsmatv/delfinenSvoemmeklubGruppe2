@@ -20,7 +20,7 @@ public class PaymentManager {
         ArrayList<Member> membersInArrear = new ArrayList<Member>();
 
         for (Member member: members) {
-            if (!member.isPaid()) {
+            if (!member.isInArrear()) {
                 membersInArrear.add(member);
             }
         }
@@ -48,11 +48,11 @@ public class PaymentManager {
         for (Member member: members) {
 
             if (member.hasSeniorDiscount() && member.getMemberType() != Membership.PASSIVE &&
-            member.isPaid()) {
+            member.isInArrear()) {
                 int discount = 25;
                 actualQuota += ((member.getMemberType().getPrice())/(100)) * (discount);
             }
-            else if (member.isPaid()) {
+            else if (member.isInArrear()) {
                 actualQuota += member.getMemberType().getPrice();
             }
         }
