@@ -18,12 +18,20 @@ public class Member implements Serializable {
 
     public Member() {}
 
-    public Member(String name) {
+    public Member(String name, String phone) {
+        this.memberID = memberIDgenerator.generateMemberID();
+
+        this.name = name;
+    }
+
+    /* Custom MemberID for TESTING
+    public Member(String name, String memberID) {
         this.name = name;
         //
-        this.memberID = memberIDgenerator.generateMemberID();
+        this.memberID = memberID;
         Register.listOfMembers.add(this);
     }
+    */
 
     public Member(String name, int age, String address, String postcode, String phone,
                    String email, Gender gender, Membership membership) {
@@ -45,6 +53,7 @@ public class Member implements Serializable {
     public String toString(){
         return String.format("""
                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
+                MemberID: %s
                 Navn: %s
                 Alder: %d
                 Addresse: %s
@@ -52,46 +61,68 @@ public class Member implements Serializable {
                 Telefon: %s
                 Email: %s
                 Køn: %s
-                Betalingsstatus: %b
+                Betalingsstatus: %s
                 Medlemstype: %s
-                MemberID: %s
                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~
-                """, this.name, this.age, this.address,this.postcode,this.phone,this.email,
-                this.gender, this.isPaid, this.membership, this.memberID);
+                """, this.memberID, this.name, this.age, this.address,this.postcode,this.phone,this.email,
+                this.gender, this.isPaid, this.membership);
     }
 
 
     // GETTERS
+
+
     public String getName() {
-        return name;
+        return this.name;
+    }
+
+    public String getMemberID() {
+        return this.memberID;
+    }
+
+    public int getAge() {
+        return this.age;
+    }
+
+    public String getAddress() {
+        return this.address;
+    }
+
+    public String getPostcode() {
+        return this.postcode;
+    }
+
+    public String getPhone() {
+        return this.phone;
+    }
+
+    public String getEmail() {
+        return this.email;
+    }
+
+    public Gender getGender() {
+        return this.gender;
     }
 
     public boolean isPaid() {
-        return isPaid;
-    }
-
-    public String getPaymentStatusAsText() {
-        return isPaid ? "Betalt" : "Ikke betalt";
+        return this.isPaid;
     }
 
     public Membership getMemberType() {
         return membership;
     }
 
-    public String getMemberID(){
-        return this.memberID;
+    public boolean isSeniorDiscount() {
+        return this.seniorDiscount;
     }
 
-    //metode til at finde medlem i arrayList --> register har findmember metode (forloop gennem memberList)
-    // Setters for specific members at index i
+    public String getPaymentStatusAsText() {
+        return this.isPaid ? "Betalt" : "Ikke betalt";
+    }
 
-
+    // Normal Setters
     public void setName(String name) {
         this.name = name;
-    }
-
-    public void setMemberID(String memberID) {
-        this.memberID = memberID;
     }
 
     public void setAge(int age) {
@@ -130,6 +161,7 @@ public class Member implements Serializable {
         this.seniorDiscount = seniorDiscount;
     }
 
+    // Extra
     public boolean hasSeniorDiscount() {
         if (age >= 60){
             return true;

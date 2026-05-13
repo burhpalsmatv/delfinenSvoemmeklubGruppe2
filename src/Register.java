@@ -14,13 +14,25 @@ public abstract class Register {
     static ArrayList<SwimmingCategory> listOfCategories = new ArrayList<>();
     static ArrayList<Receipt> listOfReceipts = new ArrayList<>();
 
-    public static Member findMember(String memberID){
-        for (Member member : listOfMembers){
-            if(member.getMemberID() == memberID){
+
+    // 'Return Member'-methods
+        // With memberID
+    public static Member memberWithID(String memberID) {
+        for (Member member : listOfMembers) {
+            if (member.memberID == memberID) {
                 return member;
             }
         }
         return null;
     }
 
+        // With Name AND Phone together
+        public static Member memberWithNamePhone(String name, String phone) {
+            for (Member member : listOfMembers) {
+                if (member.getName().equalsIgnoreCase(name) && member.getPhone() == phone) {
+                    return member;
+                }
+            }
+            return null;
+        }
 }

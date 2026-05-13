@@ -8,7 +8,13 @@ public class Application {
 
     while (applicationRunning) {
 
-        System.out.println("Vælg menu: 1 for admin login, 2 for træner, 3 for kassér, 0 for log ud");
+        System.out.println("""
+                1: Admin login 
+                2: Træner
+                3: Kassér
+                0: Log ud - sluk system
+                """);
+        System.out.print("Vælg menu: ");
 
         while (!scanner.hasNextInt()) {
             System.out.println("indtast et tal");
@@ -37,6 +43,6 @@ public class Application {
         }
     }
 
-    //My best friend the scanner
+    // My best friend the scanner
     public static final Scanner scanner = new Scanner(System.in);
 }
