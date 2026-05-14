@@ -1,19 +1,19 @@
 public class RegisterSimplePrinter extends Register {
 
     public static void printSimplifiedMemberList() {
-        if (listOfMembers.isEmpty()) {
+        if (Register.listOfMembers.isEmpty()) {
             System.out.println("Listen er tom");
         } else {
-            for (int i = 0; i < listOfMembers.size(); i++) {
+            for (int i = 0; i < Register.listOfMembers.size(); i++) {
                 String text = "";
                 text += String.format("""
                         Navn: %s
                         Medlems-ID: %s
                         Medlemskab: %s
                         """,
-                        listOfMembers.get(i).getName(),
-                        listOfMembers.get(i).getMemberID(),
-                        listOfMembers.get(i).getMembership());
+                        Register.listOfMembers.get(i).getName(),
+                        Register.listOfMembers.get(i).getMemberID(),
+                        Register.listOfMembers.get(i).getMembership());
 
                 System.out.println(text);
 
