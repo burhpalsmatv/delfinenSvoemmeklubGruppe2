@@ -22,36 +22,36 @@ public class RegisterSimplePrinter extends Register {
     }
 
     public static void printSimplifiedPassiveMemberList() {
-        if (listOfPassiveMembers.isEmpty()) {
+        if (Register.listOfPassiveMembers.isEmpty()) {
             System.out.println("Listen er tom");
         } else {
-            for (int i = 0; i < listOfPassiveMembers.size(); i++) {
+            for (int i = 0; i < Register.listOfPassiveMembers.size(); i++) {
                 String text = "";
                 text += String.format("""
                         Navn: %s
                         Medlems-ID: %s
                         """,
-                        listOfPassiveMembers.get(i).getName(),
-                        listOfPassiveMembers.get(i).getMemberID());
+                        Register.listOfPassiveMembers.get(i).getName(),
+                        Register.listOfPassiveMembers.get(i).getMemberID());
                 System.out.println(text);
             }
         }
     }
 
     public static void printSimplifiedCasualMemberList() {
-        if (listOfCasualMembers.isEmpty()) {
+        if (Register.listOfCasualMembers.isEmpty()) {
             System.out.println("Listen er tom");
         } else {
-            for (int i = 0; i < listOfCasualMembers.size(); i++) {
+            for (int i = 0; i < Register.listOfCasualMembers.size(); i++) {
                 String text = "";
                 text += String.format("""
                         Navn: %s
                         Medlems-ID: %s
                         Medlemskab: %s
                         """,
-                        listOfCasualMembers.get(i).getName(),
-                        listOfCasualMembers.get(i).getMemberID(),
-                        listOfCasualMembers.get(i).getMembership());
+                        Register.listOfCasualMembers.get(i).getName(),
+                        Register.listOfCasualMembers.get(i).getMemberID(),
+                        Register.listOfCasualMembers.get(i).getMembership());
 
                 System.out.println(text);
 
@@ -60,10 +60,10 @@ public class RegisterSimplePrinter extends Register {
     }
 
     public static void printSimplifiedCompetitorList() {
-        if (listOfCompetitors.isEmpty()) {
+        if (Register.listOfCompetitors.isEmpty()) {
             System.out.println("Listen er tom");
         } else {
-            for (int i = 0; i < listOfCompetitors.size(); i++) {
+            for (int i = 0; i < Register.listOfCompetitors.size(); i++) {
                 String text = "";
                 text += String.format("""
                         Navn: %s
@@ -76,14 +76,14 @@ public class RegisterSimplePrinter extends Register {
                         BACKCRAWL: %s
                         BREASTSTROKE: %s
                         """,
-                        listOfCompetitors.get(i).getName(),
-                        listOfCompetitors.get(i).getMemberID(),
-                        listOfCompetitors.get(i).getMembership());
+                        Register.listOfCompetitors.get(i).getName(),
+                        Register.listOfCompetitors.get(i).getMemberID(),
+                        Register.listOfCompetitors.get(i).getMembership());
 
-                        listOfCompetitors.get(i).getPR_butterfly();
-                        listOfCompetitors.get(i).getPR_crawl();
-                        listOfCompetitors.get(i).getPR_back_crawl();
-                        listOfCompetitors.get(i).getPR_breast();
+                        Register.listOfCompetitors.get(i).getPR_butterfly();
+                        Register.listOfCompetitors.get(i).getPR_crawl();
+                        Register.listOfCompetitors.get(i).getPR_back_crawl();
+                        Register.listOfCompetitors.get(i).getPR_breast();
 
 
                 System.out.println(text);
@@ -95,17 +95,17 @@ public class RegisterSimplePrinter extends Register {
 
 
     public static void printSimplifiedTrainerList() {
-        if (listOfTrainers.isEmpty()) {
+        if (Register.listOfTrainers.isEmpty()) {
             System.out.println("Listen er tom");
         } else {
-            for (int i = 0; i < listOfTrainers.size(); i++) {
+            for (int i = 0; i < Register.listOfTrainers.size(); i++) {
                 String text = "";
                 text += String.format("""
                         Navn: %s
                         Træner i kategorier: %s
                         """,
-                        listOfTrainers.get(i).getName(),
-                        listOfTrainers.get(i).getSwimmingCategory());
+                        Register.listOfTrainers.get(i).getName(),
+                        Register.listOfTrainers.get(i).getSwimmingCategory());
 
                 System.out.println(text);
             }
