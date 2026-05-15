@@ -121,22 +121,27 @@ public class AM_TrainerScreen {
 
     public static void deleteTrainer() {
         //LOAD BEARING SCANNER NEXTLINE
-        Application.scanner.nextLine();
+        if (Register.listOfTrainers.isEmpty()) {
+            System.out.println("Der er ingen trænere at slette lige nu");
+        } else {
 
-        System.out.println("SLET TRÆNER");
-        System.out.println("------------------------------");
-        System.out.println("Vælg træner at slette (indtast ID)");
+            Application.scanner.nextLine();
 
-        RegisterSimplePrinter.printSimplifiedTrainerList();
+            System.out.println("SLET TRÆNER");
+            System.out.println("------------------------------");
+            System.out.println("Vælg træner at slette (indtast ID)");
 
-        String ID = Application.scanner.nextLine();
-        String name = String.join(" ", RegisterManager.trainerWithID(ID).getName());
+            RegisterSimplePrinter.printSimplifiedTrainerList();
 
-        System.out.println("Er du sikker på at du vil slette " + name + "? \n(ja/nej): ");
-        String answer = Application.scanner.nextLine();
-        if (answer.equalsIgnoreCase("ja")) {
-            RegisterManager.removeTrainer(RegisterManager.trainerWithID(ID));
-            System.out.println(name + " er blevet slettet fra systemet");
+            String ID = Application.scanner.nextLine();
+            String name = String.join(" ", RegisterManager.trainerWithID(ID).getName());
+
+            System.out.println("Er du sikker på at du vil slette " + name + "? \n(ja/nej): ");
+            String answer = Application.scanner.nextLine();
+            if (answer.equalsIgnoreCase("ja")) {
+                RegisterManager.removeTrainer(RegisterManager.trainerWithID(ID));
+                System.out.println(name + " er blevet slettet fra systemet");
+            }
         }
     }
 

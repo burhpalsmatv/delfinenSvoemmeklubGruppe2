@@ -47,7 +47,7 @@ public class AM_CompetitionScreen {
         while (true) {
 
             if (Register.listOfCompetitions.isEmpty()) {
-                System.out.println("Listen er tom\n");
+                System.out.println("Der er ingen konkurrencer at slette\n");
                 return;
             } else {
                 System.out.println("SLET STÆVNE:");
