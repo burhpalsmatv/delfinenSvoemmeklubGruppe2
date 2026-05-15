@@ -9,7 +9,7 @@ public class Competition {
     private LocalDate date;
     String competitionID;
 
-    private ArrayList<Competitor> competitions = new ArrayList<>();
+    private ArrayList<Competitor> competitors = new ArrayList<>();
     private boolean ended = false;
 
     public Competition(String title, LocalDate date) {
@@ -57,6 +57,6 @@ public class Competition {
     }
 
     public void addCompetitor(Competitor competitor){
-        this.competitions.add(competitor);
+        this.competitors.add(competitor);
     }
 }
