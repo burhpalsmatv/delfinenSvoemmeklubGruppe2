@@ -102,9 +102,11 @@ public class RegisterSimplePrinter extends Register {
                 String text = "";
                 text += String.format("""
                         Navn: %s
+                        ID: %s
                         Træner i kategorier: %s
                         """,
                         Register.listOfTrainers.get(i).getName(),
+                        Register.listOfTrainers.get(i).getTrainerID(),
                         Register.listOfTrainers.get(i).getSwimmingCategory());
 
                 System.out.println(text);

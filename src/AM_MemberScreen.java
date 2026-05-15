@@ -22,7 +22,8 @@ public class AM_MemberScreen {
 
                 //EDIT MEMBER INFO
                 case 2:
-                    //ADD CODE HERE
+                    editMember();
+                    break;
 
                     //DELETE MEMBER
                 case 3:
