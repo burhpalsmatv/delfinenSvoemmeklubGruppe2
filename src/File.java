@@ -12,17 +12,14 @@ public class File {
             saveMember.close();
 
             // Passive members
-            //
-            // ADD CODE
-            //
-            //
-
+            ObjectOutputStream savePassiveMember = new ObjectOutputStream(new FileOutputStream("listOfPassiveMembers.ser"));
+            saveMember.writeObject(Register.listOfPassiveMembers);
+            savePassiveMember.close();
 
             // Casual members
-            //
-            // ADD CODE
-            //
-            //
+            ObjectOutputStream saveCasualMember = new ObjectOutputStream(new FileOutputStream("listOfCasualMembers.ser"));
+            saveMember.writeObject(Register.listOfCasualMembers);
+            saveCasualMember.close();
 
             // Competitors members
             ObjectOutputStream saveCompetitor = new ObjectOutputStream(new FileOutputStream("listOfCompetitors.ser"));
@@ -39,15 +36,17 @@ public class File {
             saveCompetition.writeObject(Register.listOfCompetitions);
             saveCompetition.close();
 
+            // IDs ------------------------------------------
+
             //Used Member IDs
             ObjectOutputStream saveUsedMemberIDs = new ObjectOutputStream(new FileOutputStream("listOfUsedMemberIDs.ser"));
-            saveCompetition.writeObject(Register.listOfUsedMemberIDs);
-            saveCompetition.close();
+            saveUsedMemberIDs.writeObject(Register.listOfUsedMemberIDs);
+            saveUsedMemberIDs.close();
 
             //Used Trainer IDs
             ObjectOutputStream saveUsedTrainerIDs = new ObjectOutputStream(new FileOutputStream("listOfUsedTrainerIDs.ser"));
-            saveCompetition.writeObject(Register.listOfUsedTrainerIDs);
-            saveCompetition.close();
+            saveUsedTrainerIDs.writeObject(Register.listOfUsedTrainerIDs);
+            saveUsedTrainerIDs.close();
 
             //Used Competition IDs
             ObjectOutputStream saveUsedCompetitionIDs = new ObjectOutputStream(new FileOutputStream("listOfUsedCompetitionIDs.ser"));
@@ -62,17 +61,14 @@ public class File {
         loadMember.close();
 
         // Passive members
-        //
-        // ADD CODE
-        //
-        //
-
+        ObjectInputStream loadPassiveMember = new ObjectInputStream(new FileInputStream("listOfPassiveMembers.ser"));
+        Register.listOfPassiveMembers = (ArrayList<MemberPassive>) loadPassiveMember.readObject();
+        loadPassiveMember.close();
 
         // Casual members
-        //
-        // ADD CODE
-        //
-        //
+        ObjectInputStream loadCasualMember = new ObjectInputStream(new FileInputStream("listOfCasualMembers.ser"));
+        Register.listOfCasualMembers = (ArrayList<MemberCasual>) loadCasualMember.readObject();
+        loadCasualMember.close();
 
         // Competitors
         ObjectInputStream loadCompetitor = new ObjectInputStream(new FileInputStream("listOfCompetitors.ser"));
@@ -90,23 +86,19 @@ public class File {
         loadCompetitions.close();
 
         // Used Member IDs
-        //
-        // ADD CODE
-        //
-        //
-
+        ObjectInputStream loadUsedMemberIDs = new ObjectInputStream(new FileInputStream("listOfUsedMemberIDs.ser"));
+        Register.listOfUsedMemberIDs = (ArrayList<String>) loadUsedMemberIDs.readObject();
+        loadUsedMemberIDs.close();
 
         // Used Trainer IDs
-        //
-        // ADD CODE
-        //
-        //
+        ObjectInputStream loadUsedTrainerIDs = new ObjectInputStream(new FileInputStream("listOfUsedTrainerIDs.ser"));
+        Register.listOfUsedTrainerIDs = (ArrayList<String>) loadUsedTrainerIDs.readObject();
+        loadUsedTrainerIDs.close();
 
         // Used Competition IDs
-        //
-        // ADD CODE
-        //
-        //
+        ObjectInputStream loadUsedCompetitionIDs = new ObjectInputStream(new FileInputStream("listOfUsedCompetitionIDs.ser"));
+        Register.listOfUsedCompetitionIDs = (ArrayList<String>) loadUsedCompetitionIDs.readObject();
+        loadUsedCompetitionIDs.close();
 
     }
 }
