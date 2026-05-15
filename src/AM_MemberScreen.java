@@ -207,7 +207,7 @@ public class AM_MemberScreen {
 
     while (true) {
         if (Register.listOfMembers.isEmpty()) {
-            System.out.println("Listen er tom\n");
+            System.out.println("Der er ingen medlemmer at slette\n");
             return;
         }
         else {
