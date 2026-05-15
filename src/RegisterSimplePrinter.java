@@ -115,6 +115,21 @@ public class RegisterSimplePrinter extends Register {
     }
 
     public static void printSimplifiedCompetitionsList() {
+        if (Register.listOfCompetitions.isEmpty()) {
+            System.out.println("Listen er tom");
+        } else {
+            for (int i = 0; i < Register.listOfCompetitions.size(); i++) {
+                String text = "";
+                text += String.format("""
+                        Titel: %s
+                        Dato: %s
+                        """,
+                        Register.listOfCompetitions.get(i).getTitle(),
+                        Register.listOfCompetitions.get(i).getDate());
+
+                System.out.println(text);
+            }
+        }
 
     }
 

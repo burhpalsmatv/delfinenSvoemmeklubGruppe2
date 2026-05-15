@@ -7,17 +7,17 @@ public class RegisterManager extends Register {
     }
 
     public static void removeMember(Member member) {
-        if (Register.listOfPassiveMembers.contains(member)) {
-            Register.listOfPassiveMembers.remove(member);
+        if (Register.listOfPassiveMembers.contains(memberWithID(member.getMemberID()))) {
+            Register.listOfPassiveMembers.remove(memberWithID(member.getMemberID()));
         }
-        if (Register.listOfCasualMembers.contains(member)) {
-            Register.listOfCasualMembers.remove(member);
+        if (Register.listOfCasualMembers.contains(memberWithID(member.getMemberID()))) {
+            Register.listOfCasualMembers.remove(memberWithID(member.getMemberID()));
         }
-        if (Register.listOfCompetitors.contains(member)) {
-            Register.listOfCompetitors.remove(member);
+        if (Register.listOfCompetitors.contains(memberWithID(member.getMemberID()))) {
+            Register.listOfCompetitors.remove(memberWithID(member.getMemberID()));
         }
         Register.listOfUsedMemberIDs.remove(memberWithID(member.getMemberID()));
-        Register.listOfMembers.remove(member);
+        Register.listOfMembers.remove(memberWithID(member.getMemberID()));
     }
 
     // Finders
@@ -34,6 +34,15 @@ public class RegisterManager extends Register {
         for (Trainer trainer : Register.listOfTrainers) {
             if (trainer.trainerID.equals(trainerID)) {
                 return trainer;
+            }
+        }
+        return null;
+    }
+
+    public static Competition competitionWithID(String competitionID) {
+        for (Competition competition : Register.listOfCompetitions) {
+            if (competition.competitionID.equals(competitionID)) {
+                return competition;
             }
         }
         return null;

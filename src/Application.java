@@ -1,6 +1,8 @@
 import java.util.Scanner;
 
 public class Application {
+    // My best friend the scanner
+    public static final Scanner scanner = new Scanner(System.in);
 
     public static void mainApp() {
 
@@ -9,7 +11,7 @@ public class Application {
     while (applicationRunning) {
 
         System.out.println("""
-                1: Admin login 
+                1: Admin login
                 2: Træner
                 3: Kassér
                 0: Log ud - sluk system
@@ -43,6 +45,4 @@ public class Application {
         }
     }
 
-    // My best friend Bajs Woody the scanner
-    public static final Scanner scanner = new Scanner(System.in);
 }
