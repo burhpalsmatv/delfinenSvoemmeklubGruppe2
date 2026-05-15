@@ -5,9 +5,10 @@ public class AM_TrainerScreen {
     public static void trainerScreen(){
 
         boolean inTrainerScreen = true;
-        System.out.println(trainerScreenString());
 
         while(inTrainerScreen) {
+
+            System.out.println(trainerScreenString());
 
             int trainerInput = Application.scanner.nextInt();
             switch (trainerInput) {
@@ -46,30 +47,40 @@ public class AM_TrainerScreen {
     //METHODS BELOW
 
     public static void assignTrainerToCompetitor() {
-        //LOADBEARING SCANNER
-        Application.scanner.nextLine();
 
-        System.out.println("TILDEL TRÆNER TIL SVØMMER:");
-        System.out.println("------------------------------");
-        System.out.println("Vælg træner:");
+        while (true) {
 
-        for (int i = 0; i < Register.listOfTrainers.size(); i++) {
-            System.out.println(i + " " + Register.listOfTrainers.get(i).getName());
+            if (Register.listOfCompetitors.isEmpty()) {
+                System.out.println("Der er ingen Konkurrencesvømmere. \nOpret konkurrencesvømmer først\n");
+                return;
+
+            } else {
+                //LOADBEARING SCANNER
+                Application.scanner.nextLine();
+
+                System.out.println("TILDEL TRÆNER TIL SVØMMER:");
+                System.out.println("------------------------------");
+                System.out.println("Vælg træner:");
+
+                for (int i = 0; i < Register.listOfTrainers.size(); i++) {
+                    System.out.println(i + " " + Register.listOfTrainers.get(i).getName());
+                }
+                int trainerChoice = Application.scanner.nextInt();
+
+                System.out.println("Tildel " + Register.listOfTrainers.get(trainerChoice).getName() + "til svømmer:");
+
+                for (int i = 0; i < Register.listOfCompetitors.size(); i++) {
+                    System.out.println(i + " " + Register.listOfCompetitors.get(i).getName());
+                }
+                int swimmerChoice = Application.scanner.nextInt();
+                String swimmerName = Register.listOfCompetitors.get(swimmerChoice).getName();
+
+                Register.listOfCompetitors.get(swimmerChoice).addTrainer(Register.listOfTrainers.get(trainerChoice));
+
+                System.out.println(Register.listOfTrainers.get(trainerChoice).getName() + " er tildelt som træner til " +
+                        swimmerName);
+            }
         }
-        int trainerChoice = Application.scanner.nextInt();
-
-        System.out.println("Tildel " + Register.listOfTrainers.get(trainerChoice).getName() + "til svømmer:");
-
-        for (int i = 0; i < Register.listOfCompetitors.size(); i++) {
-            System.out.println(i + " " + Register.listOfCompetitors.get(i).getName());
-        }
-        int swimmerChoice = Application.scanner.nextInt();
-        String swimmerName = Register.listOfCompetitors.get(swimmerChoice).getName();
-
-        Register.listOfCompetitors.get(swimmerChoice).addTrainer(Register.listOfTrainers.get(trainerChoice));
-
-        System.out.println(Register.listOfTrainers.get(trainerChoice).getName() + " er tildelt som træner til " +
-                swimmerName);
 
     }
 
