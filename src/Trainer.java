@@ -8,7 +8,7 @@ public class Trainer implements Serializable {
     private int age;
     private String phone;
     private Gender gender;
-    private ArrayList<SwimmingCategory> thisSwimmingCategories;
+    private ArrayList<SwimmingCategory> assignedSwimmingCategories;
     String trainerID;
 
     public Trainer(String name, int age, String phone, Gender gender) {
@@ -16,7 +16,7 @@ public class Trainer implements Serializable {
         this.age = age;
         this.phone = phone;
         this.gender = gender;
-        this.thisSwimmingCategories = new ArrayList<>();
+        this.assignedSwimmingCategories = new ArrayList<>();
         this.trainerID = IDgenerator.generateTrainerID();
         //
         Register.listOfTrainers.add(this);
@@ -39,7 +39,7 @@ public class Trainer implements Serializable {
     }
 
     public void addSwimmingCategory(SwimmingCategory swimmingCategory) {
-        this.thisSwimmingCategories.add(swimmingCategory);
+        this.assignedSwimmingCategories.add(swimmingCategory);
     }
 
     // Getters
@@ -64,7 +64,7 @@ public class Trainer implements Serializable {
     }
 
     public ArrayList<SwimmingCategory> getSwimmingCategory() {
-        return this.thisSwimmingCategories;
+        return this.assignedSwimmingCategories;
     }
 
     public String toString() {
@@ -83,7 +83,7 @@ public class Trainer implements Serializable {
     }
 
     public void simplePrintSwimmingCategory() { // Find en måde at fleætte metoden ind i vores toString
-        for (SwimmingCategory swimmingCategory : this.thisSwimmingCategories) {
+        for (SwimmingCategory swimmingCategory : this.assignedSwimmingCategories) {
             String text = "";
             text += String.format("""
                 %s%n

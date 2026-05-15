@@ -4,8 +4,8 @@ import java.util.ArrayList;
 public class Competitor extends Member implements /* Comparable<Competitor>, */ Serializable {
     private static final long serialVersionUID = 3L;
 
-    ArrayList<Trainer> trainersAssigned;
     final static String memberType = "Competitor";
+    ArrayList<Trainer> trainersAssigned;
     String PR_butterfly; // MIDLERTIDIG INDTIL FIKS
     String PR_crawl; // MIDLERTIDIG INDTIL FIKS
     String PR_back_crawl; // MIDLERTIDIG INDTIL FIKS
@@ -35,6 +35,8 @@ public class Competitor extends Member implements /* Comparable<Competitor>, */ 
 
     // Fra Passive Member
     public Competitor(MemberPassive memberPassive) {
+        final String memberType = "Competitor";
+
         this.name = memberPassive.name;
         this.age = memberPassive.age;
         this.phone = memberPassive.phone;
@@ -69,7 +71,7 @@ public class Competitor extends Member implements /* Comparable<Competitor>, */ 
                 I restance?: %s
                 ---------------------
                 
-                """, this.memberID, this.membership, memberType, this.name, this.age, this.trainersAssigned, this.inArrear);
+                """, this.memberID, this.membership, getMemberType(), this.name, this.age, this.trainersAssigned, this.inArrear);
     }
 
    // GETTERS

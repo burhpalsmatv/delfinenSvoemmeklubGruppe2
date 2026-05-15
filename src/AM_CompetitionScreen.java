@@ -5,11 +5,11 @@ public class AM_CompetitionScreen {
     public static void competitionScreen(){
 
         boolean inCompetitionScreen = true;
-        System.out.println(competitionScreenString());
 
         while (inCompetitionScreen) {
-
+            System.out.println(competitionScreenString());
             int compInput = Application.scanner.nextInt();
+
             switch(compInput) {
 
                 //ADD COMPETITION
@@ -29,9 +29,9 @@ public class AM_CompetitionScreen {
 
                 //SHOW COMPETITIONS
                 case 4:
-                    //ADD CODE HERE
-
+                    RegisterSimplePrinter.printSimplifiedCompetitionsList();
                     //LOGOUT
+
                 case 0:
                     inCompetitionScreen = false;
             }
@@ -43,55 +43,75 @@ public class AM_CompetitionScreen {
 
     public static void deleteCompetition() {
         //LOAD BEARING SCANNER NEXTLINE
-        Application.scanner.nextLine();
 
-        System.out.println("SLET STÆVNE:");
-        System.out.println("------------------------------");
-        System.out.println("Vælg stævne at slette:");
+        while (true) {
 
-        for (int i = 0; i < Register.listOfCompetitions.size(); i++) {
-            System.out.println(i + " " + Register.listOfCompetitions.get(i).getTitle());
+            if (Register.listOfCompetitions.isEmpty()) {
+                System.out.println("Listen er tom\n");
+                return;
+            } else {
+                System.out.println("SLET STÆVNE:");
+                System.out.println("------------------------------");
+                System.out.println("Vælg stævne at slette:");
+
+                for (int i = 0; i < Register.listOfCompetitions.size(); i++) {
+                    System.out.println(i + " " + Register.listOfCompetitions.get(i).getTitle());
+                }
+
+                int Choice = Application.scanner.nextInt();
+                String title = Register.listOfCompetitions.get(Choice).getTitle();
+                Register.listOfCompetitions.remove(Choice);
+
+                System.out.println(title + " er hermed slettet\n");
+            }
         }
-
-        int Choice = Application.scanner.nextInt();
-        String title = Register.listOfCompetitions.get(Choice).getTitle();
-        Register.listOfCompetitions.remove(Choice);
-
-        System.out.println(title + " er hermed slettet");
     }
 
     public static void editCompetition() {
         //LOADBEARING SCANNER
-        Application.scanner.nextLine();
+        while (true) {
 
-        System.out.println("REDIGÉR STÆVNE:");
-        System.out.println("------------------------------");
-        System.out.println("Vælg stævne at redigere:");
+            System.out.println("REDIGÉR STÆVNE:");
+            System.out.println("------------------------------");
+            System.out.println("Vælg stævne at redigere:");
 
-        for (int i = 0; i < Register.listOfCompetitions.size(); i++) {
-            System.out.println(i + " " + Register.listOfCompetitions.get(i).getTitle());
-        }
-        int competitionChoice = Application.scanner.nextInt();
+            if (Register.listOfCompetitions.isEmpty()) {
+                System.out.println("Listen er tom\n");
+                return;
 
-        System.out.println(Register.listOfCompetitions.get(competitionChoice));
+            } else {
+                for (int i = 0; i < Register.listOfCompetitions.size(); i++) {
+                    System.out.println((i) + ":\n" + Register.listOfCompetitions.get(i).getTitle() + "\n" +
+                    Register.listOfCompetitions.get(i).getDate() + "\n" +
+                            Register.listOfCompetitions.get(i).getCompetitionID() + "\n");
+                }
+                int competitionChoice = Application.scanner.nextInt();
 
-        System.out.println("Rediger: 1. Titel, 2. Dato, 0. Tilbage til Menu");
-        int choice = Application.scanner.nextInt();
-        //LOAD BEARING SCANNERLINE BELOW
-        Application.scanner.nextLine();
-        if (choice == 1) {
-            System.out.println("Indtast ny titel på stævne:");
-            String newTitle = Application.scanner.nextLine();
+                System.out.println(Register.listOfCompetitions.get(competitionChoice));
 
-            Register.listOfCompetitions.get(competitionChoice).setTitle(newTitle);
-            System.out.println("Titlen på stævnet er ændret");
-        } else if (choice == 2) {
-            System.out.println("Indtast ny dato i dette format: yyyy-mm-dd. eks: 2020-05-05");
+                System.out.println("Rediger: 1. Titel, 2. Dato, 0. Tilbage til Menu");
+                int choice = Application.scanner.nextInt();
 
-            String unformattedDate = Application.scanner.nextLine();
-            LocalDate compDate = LocalDate.parse(unformattedDate);
-            Register.listOfCompetitions.get(competitionChoice).setDate(compDate);
-            System.out.println("Datoen på stævnet er ændret");
+                //LOAD BEARING SCANNERLINE BELOW
+                Application.scanner.nextLine();
+                if (choice == 1) {
+                    System.out.println("Indtast ny titel på stævne:");
+                    String newTitle = Application.scanner.nextLine();
+
+                    Register.listOfCompetitions.get(competitionChoice).setTitle(newTitle);
+                    System.out.println("Titlen på stævnet er ændret\n");
+                    break;
+
+                } else if (choice == 2) {
+                    System.out.println("Indtast ny dato i dette format: yyyy-mm-dd. eks: 2020-05-05");
+
+                    String unformattedDate = Application.scanner.nextLine();
+                    LocalDate compDate = LocalDate.parse(unformattedDate);
+                    Register.listOfCompetitions.get(competitionChoice).setDate(compDate);
+                    System.out.println("Datoen på stævnet er ændret\n");
+                    break;
+                }
+            }
         }
     }
 
@@ -113,7 +133,7 @@ public class AM_CompetitionScreen {
 
         Competition competition = new Competition(compTitle, compDate);
 
-        System.out.println("Stævnet " + compTitle + " er oprettet i systemet");
+        System.out.println("Stævnet " + compTitle + " er oprettet i systemet\n");
 
     }
 
@@ -123,6 +143,7 @@ public class AM_CompetitionScreen {
                 1. Opret stævne
                 2. Rediger stævne
                 3. Slet stævne
+                4. Vis stævner
                 0. Tilbage til menu
                 """);
     }

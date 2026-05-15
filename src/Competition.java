@@ -43,6 +43,10 @@ public class Competition {
         return this.date;
     }
 
+    public String getCompetitionID() {
+        return this.competitionID;
+    }
+
     // Setters
     public void setTitle(String title) {
         this.title = title;
