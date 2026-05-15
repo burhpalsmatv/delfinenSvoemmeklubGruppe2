@@ -43,6 +43,6 @@ public class Application {
         }
     }
 
-    // My best friend the scanner
+    // My best friend Bajs Woody the scanner
     public static final Scanner scanner = new Scanner(System.in);
 }

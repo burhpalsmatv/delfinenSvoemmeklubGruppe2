@@ -90,17 +90,8 @@ public class AM_TrainerScreen {
         int age = Application.scanner.nextInt();
         Application.scanner.nextLine();
 
-        System.out.println("Trænerens adresse:");
-        String address = Application.scanner.nextLine();
-
-        System.out.println("Trænerens postnummer:");
-        String postalcode = Application.scanner.nextLine();
-
         System.out.println("Trænerens telefonnummer:");
         String phone = Application.scanner.nextLine();
-
-        System.out.println("Trænerens email:");
-        String email = Application.scanner.nextLine();
 
         System.out.println("Køn - 1: kvinde, 2: mand, 3: ikke binær, 4: akønnet");
         Gender gender = null;
