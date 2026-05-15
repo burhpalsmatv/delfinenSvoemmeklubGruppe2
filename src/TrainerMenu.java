@@ -67,7 +67,7 @@ public class TrainerMenu {
 
         RegisterSimplePrinter.printSimplifiedCompetitionsList();
         int CompetitionChoice = Application.scanner.nextInt();
-        // Register.listOfCompetitions.get(CompetitionChoice).addCompetitor(Register.listOfCompetitors.get(CompetitorChoice));
+        Register.listOfCompetitions.get(CompetitionChoice).addCompetitor(Register.listOfCompetitors.get(CompetitorChoice));
 
         System.out.println(Register.listOfCompetitors.get(CompetitorChoice).getName() + " er tilføjet til "
                 + Register.listOfCompetitions.get(CompetitionChoice).getTitle());
