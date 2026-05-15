@@ -12,19 +12,19 @@ public class TrainerMenu {
 
             switch(input) {
 
-                //COMPETITIONS:
-                case 1: TrainerMenu_CompetitionScreen.competitionMenu();
+                //LIST OF COMPETITIONS:
+                case 1:
+                    RegisterSimplePrinter.printSimplifiedCompetitionsList();
                 break;
 
                 //LIST OF COMPETITORS
                 case 2:
-                    //SHOW LIST OF COMPETITORS
                        RegisterSimplePrinter.printSimplifiedCompetitorList();
                     break;
 
                 //ADD SWIMMER TO COMPETITION
                 case 3:
-                    TrainerMenu_CompetitionScreen.addCompetitorToCompetition();
+                    addCompetitorToCompetition();
                     break;
 
                 // TRAINING RESULTS
@@ -45,13 +45,32 @@ public class TrainerMenu {
         return String.format("""
                 "-----------------------------"
                 "Træner menu"
-                1. Stævner
+                1. Liste af stævner
                 2. Vis liste af konkurrencesvømmere
-                3. Tilføj disciplin til svømmer
-                4. Tilføj svømmer til stævne
-                5. Træningsresultater
-                6. Stævneresultater
+                3. Tilføj svømmer til stævne
+                4. Træningsresultater
                 0. Log ud
                 """);
+    }
+
+    public static void addCompetitorToCompetition() {
+
+        //Loadbearing scanner nextline
+        Application.scanner.nextLine();
+
+        System.out.println("Vælg konkurrencesvømmer:");
+        RegisterSimplePrinter.printSimplifiedCompetitorList();
+        int CompetitorChoice = Application.scanner.nextInt();
+
+        System.out.println("Tilføj " + Register.listOfCompetitors.get(CompetitorChoice).getName() +
+                " til stævne:");
+
+        RegisterSimplePrinter.printSimplifiedCompetitionsList();
+        int CompetitionChoice = Application.scanner.nextInt();
+        // Register.listOfCompetitions.get(CompetitionChoice).addCompetitor(Register.listOfCompetitors.get(CompetitorChoice));
+
+        System.out.println(Register.listOfCompetitors.get(CompetitorChoice).getName() + " er tilføjet til "
+                + Register.listOfCompetitions.get(CompetitionChoice).getTitle());
+
     }
 }
