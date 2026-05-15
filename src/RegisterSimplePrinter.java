@@ -2,7 +2,7 @@ public class RegisterSimplePrinter extends Register {
 
     public static void printSimplifiedMemberList() {
         if (Register.listOfMembers.isEmpty()) {
-            System.out.println("Listen er tom");
+            System.out.println("Der er ingen medlemmer lige nu\n");
         } else {
             for (int i = 0; i < Register.listOfMembers.size(); i++) {
                 String text = "";
@@ -23,7 +23,7 @@ public class RegisterSimplePrinter extends Register {
 
     public static void printSimplifiedPassiveMemberList() {
         if (Register.listOfPassiveMembers.isEmpty()) {
-            System.out.println("Listen er tom");
+            System.out.println("Der er ingen passive medlemmer lige nu\n");
         } else {
             for (int i = 0; i < Register.listOfPassiveMembers.size(); i++) {
                 String text = "";
@@ -40,7 +40,7 @@ public class RegisterSimplePrinter extends Register {
 
     public static void printSimplifiedCasualMemberList() {
         if (Register.listOfCasualMembers.isEmpty()) {
-            System.out.println("Listen er tom");
+            System.out.println("Der er ingen medlemmer lige nu\n");
         } else {
             for (int i = 0; i < Register.listOfCasualMembers.size(); i++) {
                 String text = "";
@@ -61,7 +61,7 @@ public class RegisterSimplePrinter extends Register {
 
     public static void printSimplifiedCompetitorList() {
         if (Register.listOfCompetitors.isEmpty()) {
-            System.out.println("Listen er tom");
+            System.out.println("Der er ingen konkurrenter lige nu\n");
         } else {
             for (int i = 0; i < Register.listOfCompetitors.size(); i++) {
                 String text = "";
@@ -96,7 +96,7 @@ public class RegisterSimplePrinter extends Register {
 
     public static void printSimplifiedTrainerList() {
         if (Register.listOfTrainers.isEmpty()) {
-            System.out.println("Listen er tom");
+            System.out.println("Der er ingen trænere lige nu\n");
         } else {
             for (int i = 0; i < Register.listOfTrainers.size(); i++) {
                 String text = "";
@@ -116,7 +116,7 @@ public class RegisterSimplePrinter extends Register {
 
     public static void printSimplifiedCompetitionsList() {
         if (Register.listOfCompetitions.isEmpty()) {
-            System.out.println("Listen er tom");
+            System.out.println("Der er ingen konkurrencer lige nu\n");
         } else {
             for (int i = 0; i < Register.listOfCompetitions.size(); i++) {
                 String text = "";

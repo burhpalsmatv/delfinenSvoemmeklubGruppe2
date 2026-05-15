@@ -7,10 +7,11 @@ public class AM_MemberScreen {
     public static void memberScreen(){
 
         boolean inMemberScreen = true;
-        System.out.println(memberScreenString());
 
         while(inMemberScreen) {
 
+            System.out.println(memberScreenString());
+            System.out.print("Vælg: ");
             int memberInput = Application.scanner.nextInt();
 
             switch (memberInput) {
@@ -95,108 +96,143 @@ public class AM_MemberScreen {
             new MemberCasual(name, age, phone, gender);
         }
 
-        System.out.println(name + " er oprettet som medlem");
+        System.out.println(name + " er oprettet som medlem\n");
     }
 
     public static void editMember() {
 
-        //LOAD BEARING SCANNER NEXTLINE
-        Application.scanner.nextLine();
+        while (true) {
+            if (Register.listOfMembers.isEmpty()) {
+                System.out.println("Der er ingen medlemmer at redigere lige nu\n");
+                return;
 
-        System.out.println("REDIGER MEDLEM");
-        System.out.println("------------------------------");
-        System.out.println("Vælg medlem at Redigere (indtast memberID)");
-
-        RegisterSimplePrinter.printSimplifiedMemberList();
-        String ID = Application.scanner.nextLine();
-
-        System.out.printf("""
-                Ændr:
-                1. navn
-                2. alder
-                3. tlf
-                4. køn
-                5. medlemstype
-                0. Tilbage til menu
-                """);
-
-        int choice = Application.scanner.nextInt();
-        Application.scanner.nextLine();
-
-        switch (choice) {
-
-            //NAME
-            case 1:
-                System.out.println("Indtast nyt navn:");
-                String name = Application.scanner.nextLine();
-                RegisterManager.memberWithID(ID).setName(name);
-                break;
-
-            //AGE
-            case 2:
-                System.out.println("Indtast ny alder:");
-                int age = Application.scanner.nextInt();
+            } else {
+                //LOAD BEARING SCANNER NEXTLINE
                 Application.scanner.nextLine();
-                RegisterManager.memberWithID(ID).setAge(age);
-                break;
 
-            //PHONE
-            case 3:
-                System.out.println("Indtast nyt tlfnummer:");
-                String phone = Application.scanner.nextLine();
-                RegisterManager.memberWithID(ID).setPhone(phone);
-                break;
+                System.out.println("REDIGER MEDLEM");
+                System.out.println("------------------------------");
+                System.out.println("Vælg medlem at Redigere \n");
 
-            //GENDER
-            case 4:
-                System.out.println("Nyt Køn - 1: kvinde, 2: mand, 3: ikke binær, 4: akønnet ");
-                Gender gender = null;
-                int genderChoice = Application.scanner.nextInt();
-                if (genderChoice == 1) {
-                    gender = Gender.FEMALE;
-                } else if (genderChoice == 2) {
-                    gender = Gender.MALE;
-                } else if (genderChoice == 3) {
-                    gender = Gender.NONBINARY;
-                } else if (genderChoice == 4) {
-                    gender = Gender.AGENDER;
+                RegisterSimplePrinter.printSimplifiedMemberList();
+
+                String ID;
+
+                while (true) {
+                    System.out.print("Indtast her (memberID): ");
+                    ID = Application.scanner.nextLine();
+                    if (!Register.listOfMembers.contains(RegisterManager.memberWithID(ID))) {
+                        System.out.println("Kan ikke finde medlem med ID " + ID + " i medlemsliste. \nPrøv igen.\n");
+                    }
+                    else {
+                        break;
+                    }
+
                 }
-                RegisterManager.memberWithID(ID).setGender(gender);
-                break;
 
-            //MEMBERSHIP
-            case 5:
-                //CODE TBA
+                System.out.printf("""
+                        
+                        Ændr:
+                        1. Navn
+                        2. Alder
+                        3. Telefonnummer
+                        4. Køn
+                        5. Medlemstype (Passiv, Normalt, Konkurrencesvømmer)
+                        0. Tilbage til menu
+                        """);
 
-            //BACK TO MENU
-            case 6:
-                break;
+                int choice = Application.scanner.nextInt();
+                System.out.print("\nVælg her: ");
+                Application.scanner.nextLine();
+
+                switch (choice) {
+
+                    //NAME
+                    case 1:
+                        System.out.println("Indtast nyt navn:");
+                        String name = Application.scanner.nextLine();
+                        RegisterManager.memberWithID(ID).setName(name);
+                        System.out.println("Medlem " + RegisterManager.memberWithID(ID).getName() + " er nu ændret til");
+                        return;
+
+                    //AGE
+                    case 2:
+                        System.out.println("Indtast ny alder:");
+                        int age = Application.scanner.nextInt();
+                        Application.scanner.nextLine();
+                        RegisterManager.memberWithID(ID).setAge(age);
+                        System.out.println("Alderen på " + RegisterManager.memberWithID(ID).getName() + " er nu ændret til ");
+                        return;
+
+                    //PHONE
+                    case 3:
+                        System.out.println("Indtast nyt tlfnummer:");
+                        String phone = Application.scanner.nextLine();
+                        RegisterManager.memberWithID(ID).setPhone(phone);
+                        System.out.println("Telefonnummeret på " + RegisterManager.memberWithID(ID).getName() + " er nu ændret");
+                        return;
+
+                    //GENDER
+                    case 4:
+                        System.out.println("Nyt Køn - 1: kvinde, 2: mand, 3: ikke binær, 4: akønnet ");
+                        Gender gender = null;
+                        int genderChoice = Application.scanner.nextInt();
+                        if (genderChoice == 1) {
+                            gender = Gender.FEMALE;
+                        } else if (genderChoice == 2) {
+                            gender = Gender.MALE;
+                        } else if (genderChoice == 3) {
+                            gender = Gender.NONBINARY;
+                        } else if (genderChoice == 4) {
+                            gender = Gender.AGENDER;
+                        }
+
+                        System.out.println("Kønnet på " + RegisterManager.memberWithID(ID).getName() + " er nu ændret.");
+                        RegisterManager.memberWithID(ID).setGender(gender);
+                        return;
+
+                    //MEMBERSHIP
+                    case 5:
+                        //CODE TBA
+
+                        //BACK TO MENU
+                    case 6:
+                        break;
+                }
+            }
         }
-
     }
 
     public static void deleteMember() {
 
-        //LOAD BEARING SCANNER NEXTLINE
-        Application.scanner.nextLine();
+    while (true) {
+        if (Register.listOfMembers.isEmpty()) {
+            System.out.println("Der er ingen medlemmer at slette\n");
+            return;
+        }
+        else {
+            //LOAD BEARING SCANNER NEXTLINE
+            Application.scanner.nextLine();
 
-        System.out.println("SLET MEDLEM");
-        System.out.println("------------------------------");
-        System.out.println("Vælg medlem at slette (indtast memberID)");
+            System.out.println("SLET MEDLEM");
+            System.out.println("------------------------------");
+            System.out.println("Vælg medlem at slette (indtast memberID)");
 
-        RegisterSimplePrinter.printSimplifiedMemberList();
+            RegisterSimplePrinter.printSimplifiedMemberList();
 
-        String ID = Application.scanner.nextLine();
+            String ID = Application.scanner.nextLine();
 
-        String name = String.join(" ", RegisterManager.memberWithID(ID).getName());
+            String name = String.join(" ", RegisterManager.memberWithID(ID).getName());
 
 
-        System.out.println("Er du sikker på at du vil slette " + name + "? \n(ja/nej): ");
-        String answer = Application.scanner.nextLine();
-         if (answer.equalsIgnoreCase("ja")) {
-             RegisterManager.removeMember(RegisterManager.memberWithID(ID));
-             System.out.println(name + " er blevet slettet fra systemet");
-         }
+            System.out.println("Er du sikker på at du vil slette " + name + "? \n(ja/nej): ");
+            String answer = Application.scanner.nextLine();
+            if (answer.equalsIgnoreCase("ja")) {
+                RegisterManager.removeMember(RegisterManager.memberWithID(ID));
+                System.out.println(name + " er blevet slettet fra systemet");
+            }
+        }
+    }
 
 
     }
