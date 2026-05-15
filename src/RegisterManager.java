@@ -1,7 +1,7 @@
 public class RegisterManager extends Register {
 
     // Removers
-    public static void deleteTrainer(Trainer trainer) {
+    public static void removeTrainer(Trainer trainer) {
         Register.listOfUsedTrainerIDs.remove(trainerWithID(trainer.getTrainerID()));
         Register.listOfTrainers.remove(trainer);
     }

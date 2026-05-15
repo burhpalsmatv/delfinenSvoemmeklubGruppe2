@@ -19,14 +19,12 @@ public class AM_TrainerScreen {
 
                 //DELETE TRAINER
                 case 2:
-                    //ADD CODE HERE
-                    RegisterSimplePrinter.printSimplifiedTrainerList();
                     deleteTrainer();
                     break;
 
                 //EDIT TRAINER
                 case 3:
-                    //ADD CODE HERE
+                    editTrainer();
 
                     //SHOW LIST OF TRAINER
                 case 4:
@@ -111,10 +109,99 @@ public class AM_TrainerScreen {
     }
 
     public static void deleteTrainer() {
+        //LOAD BEARING SCANNER NEXTLINE
+        Application.scanner.nextLine();
 
-        //TILFØJ METODE TIL AT SLETTE EN TRÆNER
+        System.out.println("SLET TRÆNER");
+        System.out.println("------------------------------");
+        System.out.println("Vælg træner at slette (indtast ID)");
+
+        RegisterSimplePrinter.printSimplifiedTrainerList();
+
+        String ID = Application.scanner.nextLine();
+        String name = String.join(" ", RegisterManager.trainerWithID(ID).getName());
+
+        System.out.println("Er du sikker på at du vil slette " + name + "? \n(ja/nej): ");
+        String answer = Application.scanner.nextLine();
+        if (answer.equalsIgnoreCase("ja")) {
+            RegisterManager.removeTrainer(RegisterManager.trainerWithID(ID));
+            System.out.println(name + " er blevet slettet fra systemet");
+        }
+    }
+
+    public static void editTrainer() {
+
+        //LOAD BEARING SCANNER NEXTLINE
+        Application.scanner.nextLine();
+
+        System.out.println("REDIGER TRÆNER");
+        System.out.println("------------------------------");
+        System.out.println("Vælg træner at Redigere (indtast ID)");
+
+        RegisterSimplePrinter.printSimplifiedTrainerList();
+        String ID = Application.scanner.nextLine();
+
+        System.out.printf("""
+                Ændr:
+                1. navn
+                2. alder
+                3. tlf
+                4. køn
+                0. Tilbage til menu
+                """);
+
+        int choice = Application.scanner.nextInt();
+        Application.scanner.nextLine();
+
+        switch (choice) {
+
+            //NAME
+            case 1:
+                System.out.println("Indtast nyt navn:");
+                String name = Application.scanner.nextLine();
+                RegisterManager.trainerWithID(ID).setName(name);
+                break;
+
+            //AGE
+            case 2:
+                System.out.println("Indtast ny alder:");
+                int age = Application.scanner.nextInt();
+                Application.scanner.nextLine();
+                RegisterManager.trainerWithID(ID).setAge(age);
+                break;
+
+            //PHONE
+            case 3:
+                System.out.println("Indtast nyt tlfnummer:");
+                String phone = Application.scanner.nextLine();
+                RegisterManager.trainerWithID(ID).setPhone(phone);
+                break;
+
+            //GENDER
+            case 4:
+                System.out.println("Nyt Køn - 1: kvinde, 2: mand, 3: ikke binær, 4: akønnet ");
+                Gender gender = null;
+                int genderChoice = Application.scanner.nextInt();
+                if (genderChoice == 1) {
+                    gender = Gender.FEMALE;
+                } else if (genderChoice == 2) {
+                    gender = Gender.MALE;
+                } else if (genderChoice == 3) {
+                    gender = Gender.NONBINARY;
+                } else if (genderChoice == 4) {
+                    gender = Gender.AGENDER;
+                }
+                RegisterManager.trainerWithID(ID).setGender(gender);
+                break;
+
+                //BACK TO MENU
+            case 6:
+                break;
+        }
 
     }
+
+
 
     public static String trainerScreenString(){
         return String.format("""
