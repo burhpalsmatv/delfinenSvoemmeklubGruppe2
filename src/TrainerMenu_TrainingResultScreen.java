@@ -55,19 +55,19 @@ public class TrainerMenu_TrainingResultScreen {
         if (CategoryChoice == 1) {
             System.out.println("Indtast svømmerens rekord for BUTTERFLY i formatet: minutter.sekunder (eks. 2.35)");
             String result = Application.scanner.nextLine();
-            RegisterManager.listOfCompetitors.get(CompetitorChoice).setPR_butterfly(result);
+            Register.listOfCompetitors.get(CompetitorChoice).setPR_butterfly(result);
         } else if (CategoryChoice == 2) {
             System.out.println("Indtast svømmerens tid for CRAWL i formatet: minutter.sekunder (eks. 2.35)");
             String result = Application.scanner.nextLine();
-            RegisterManager.listOfCompetitors.get(CompetitorChoice).setPR_crawl(result);
+            Register.listOfCompetitors.get(CompetitorChoice).setPR_crawl(result);
         } else if (CategoryChoice == 3) {
             System.out.println("Indtast svømmerens tid for BACKCRAWL i formatet: minutter.sekunder (eks. 2.35)");
             String result = Application.scanner.nextLine();
-            RegisterManager.listOfCompetitors.get(CompetitorChoice).setPR_back_crawl(result);
+            Register.listOfCompetitors.get(CompetitorChoice).setPR_back_crawl(result);
         } else if (CategoryChoice == 4) {
             System.out.println("Indtast svømmerens tid for BREASTSTROKE i formatet: minutter.sekunder (eks. 2.35)");
             String result = Application.scanner.nextLine();
-            RegisterManager.listOfCompetitors.get(CompetitorChoice).setPR_breast(result);
+            Register.listOfCompetitors.get(CompetitorChoice).setPR_breast(result);
         }
     }
 
