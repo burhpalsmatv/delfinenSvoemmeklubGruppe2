@@ -141,8 +141,8 @@ public class AM_MemberScreen {
                         0. Tilbage til menu
                         """);
 
-                int choice = Application.scanner.nextInt();
                 System.out.print("\nVælg her: ");
+                int choice = Application.scanner.nextInt();
                 Application.scanner.nextLine();
 
                 switch (choice) {
@@ -193,7 +193,8 @@ public class AM_MemberScreen {
 
                     //MEMBERSHIP
                     case 5:
-                        //CODE TBA
+                        membershipChanger(ID);
+                        break;
 
                         //BACK TO MENU
                     case 6:
@@ -238,7 +239,7 @@ public class AM_MemberScreen {
     }
 
     // MEMBERSHIP CHANGER - NEEDS FUNCTIONALITY FROM REGISTER TO WORK
-/*
+
     public static void membershipChanger(String ID) {
 
         if (Register.listOfPassiveMembers.contains(RegisterManager.memberWithID(ID))) {
@@ -248,12 +249,24 @@ public class AM_MemberScreen {
                     1. Standard medlem
                     2. Konkurrencesvømmer
                     0. Afbryd
+                    
                     """);
             int choice = Application.scanner.nextInt();
             Application.scanner.nextLine();
 
+            System.out.print("Vælg her: ");
+
             if (choice == 1) {
-                new MemberCasual(RegisterManager.memberWithID(ID));
+                new MemberCasual((MemberPassive) RegisterManager.memberWithID(ID));
+
+            }
+
+            if (choice == 2) {
+                new Competitor((MemberPassive) RegisterManager.memberWithID(ID));
+            }
+
+            else {
+                return;
             }
 
         } else if (Register.listOfCasualMembers.contains(RegisterManager.memberWithID(ID))) {
@@ -263,28 +276,65 @@ public class AM_MemberScreen {
                     1. Passivt medlem
                     2. Konkurrencesvømmer
                     0. Afbryd
+                    
                     """);
 
-        } else {
+            System.out.print("Vælg her: ");
+
+            int choice = Application.scanner.nextInt();
+            Application.scanner.nextLine();
+
+            if (choice == 1) {
+                new MemberPassive((MemberCasual) RegisterManager.memberWithID(ID));
+            }
+
+            if (choice == 2) {
+                new MemberPassive((MemberCasual) RegisterManager.memberWithID(ID));
+            }
+
+            else {
+                return;
+            }
+
+        } else if (Register.listOfCompetitors.contains(RegisterManager.memberWithID(ID))) {
 
             System.out.printf("""
                     Skift fra Konkurrencesvømmer til:
                     1. Passivt medlem
                     2. Standard medlem
                     0. Afbryd
+                    
                     """);
+
+            System.out.print("Vælg her: ");
+
+            int choice = Application.scanner.nextInt();
+            Application.scanner.nextLine();
+
+            if (choice == 1) {
+                new MemberPassive((Competitor) RegisterManager.memberWithID(ID));
+            }
+
+            if (choice == 2) {
+                new MemberCasual((Competitor) RegisterManager.memberWithID(ID));
+            }
+
+            else {
+                return;
+            }
         }
 
+        System.out.println("Medlemstypen er nu ændret");
 
     }
-    */
+
 
 
     public static String memberScreenString(){
         return String.format("""
                 MEDLEMMER
                 1. Tilføj medlem
-                2. Rediger medlemsinformation
+                2. Rediger medlems
                 3. Slet medlem
                 4. Vis aktive medlemmer
                 0. Tilbage til menu

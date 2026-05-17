@@ -27,7 +27,10 @@ public class MemberPassive extends Member {
         this.membership = Membership.PASSIVE;
 
         Register.listOfCasualMembers.remove(memberCasual);
+        Register.listOfMembers.remove(memberCasual);
+
         Register.listOfPassiveMembers.add(this);
+        Register.listOfMembers.add(this);
     }
 
     // Fra competitor
@@ -42,6 +45,10 @@ public class MemberPassive extends Member {
         this.membership = Membership.PASSIVE;
 
         Register.listOfCompetitors.remove(competitor);
+        Register.listOfMembers.remove(competitor);
+
         Register.listOfPassiveMembers.add(this);
+        Register.listOfMembers.add(this);
+
     }
 }
