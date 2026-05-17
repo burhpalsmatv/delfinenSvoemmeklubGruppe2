@@ -30,13 +30,14 @@ public class Competitor extends Member implements /* Comparable<Competitor>, */ 
 
         //
         Register.listOfCasualMembers.remove(memberCasual);
+        Register.listOfMembers.remove(memberCasual);
+
         Register.listOfCompetitors.add(this);
+        Register.listOfMembers.add(this);
     }
 
     // Fra Passive Member
     public Competitor(MemberPassive memberPassive) {
-        final String memberType = "Competitor";
-
         this.name = memberPassive.name;
         this.age = memberPassive.age;
         this.phone = memberPassive.phone;
@@ -54,7 +55,10 @@ public class Competitor extends Member implements /* Comparable<Competitor>, */ 
 
         //
         Register.listOfPassiveMembers.remove(memberPassive);
+        Register.listOfMembers.remove(memberPassive);
+
         Register.listOfCompetitors.add(this);
+        Register.listOfMembers.add(this);
     }
 
     public String toString(){

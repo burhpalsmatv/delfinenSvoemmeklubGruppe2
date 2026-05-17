@@ -23,8 +23,8 @@ public class MemberCasual extends Member implements Serializable {
         this.membership = setMembershipByAge(this);
         this.memberID = IDgenerator.generateMemberID();
 
-        Register.listOfMembers.add(this);
         Register.listOfCasualMembers.add(this);
+        Register.listOfMembers.add(this);
     }
 
     // Fra Passive Member
@@ -38,7 +38,12 @@ public class MemberCasual extends Member implements Serializable {
         this.membership = setMembershipByAge(this);
 
         Register.listOfPassiveMembers.remove(memberPassive);
+        Register.listOfMembers.remove(memberPassive);
+
         Register.listOfCasualMembers.add(this);
+        Register.listOfMembers.add(this);
+
+
     }
 
     // Fra Competitor
@@ -52,7 +57,11 @@ public class MemberCasual extends Member implements Serializable {
         this.membership = competitor.membership;
 
         Register.listOfCompetitors.remove(competitor);
+        Register.listOfMembers.remove(competitor);
+
         Register.listOfCasualMembers.add(this);
+        Register.listOfMembers.add(this);
+
     }
 
     public String toString(){
