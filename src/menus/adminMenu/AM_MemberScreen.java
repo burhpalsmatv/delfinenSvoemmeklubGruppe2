@@ -3,7 +3,7 @@ package menus.adminMenu;
 import enums.Gender;
 import members.*;
 import menus.Application;
-import Register.*;
+import register.*;
 
 public class AM_MemberScreen {
 

@@ -2,8 +2,8 @@ package menus.adminMenu;
 
 import menus.Application;
 import menus.trainerMenu.Competition;
-import Register.Register;
-import Register.RegisterSimplePrinter;
+import register.Register;
+import register.RegisterSimplePrinter;
 
 import java.time.LocalDate;
 

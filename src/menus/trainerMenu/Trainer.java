@@ -3,7 +3,7 @@ package menus.trainerMenu;
 import enums.Gender;
 import enums.SwimmingCategory;
 import members.IDgenerator;
-import Register.Register;
+import register.Register;
 
 import java.io.Serializable;
 import java.util.ArrayList;

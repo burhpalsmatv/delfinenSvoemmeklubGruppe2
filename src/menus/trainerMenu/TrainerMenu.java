@@ -1,7 +1,7 @@
 package menus.trainerMenu;
 
 import menus.Application;
-import Register.*;
+import register.*;
 
 public class TrainerMenu {
     //FOR METHODS RELATING TO THE TRAINERS SCREEN

@@ -1,7 +1,7 @@
 package members;
 
 import menus.trainerMenu.Trainer;
-import Register.Register;
+import register.Register;
 
 import java.io.Serializable;
 import java.util.ArrayList;

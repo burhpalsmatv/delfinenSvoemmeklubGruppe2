@@ -2,8 +2,8 @@ package menus.trainerMenu;
 
 import enums.SwimmingCategory;
 import menus.Application;
-import Register.Register;
-import Register.RegisterSimplePrinter;
+import register.Register;
+import register.RegisterSimplePrinter;
 
 public class TrainerMenu_TrainingResultScreen {
 

@@ -1,4 +1,4 @@
-package Register;
+package register;
 
 import members.*;
 import menus.trainerMenu.Competition;

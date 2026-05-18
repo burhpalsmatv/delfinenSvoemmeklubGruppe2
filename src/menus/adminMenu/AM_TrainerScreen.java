@@ -3,7 +3,7 @@ package menus.adminMenu;
 import enums.Gender;
 import members.Competitor;
 import menus.*;
-import Register.*;
+import register.*;
 import menus.trainerMenu.Trainer;
 
 public class AM_TrainerScreen {
