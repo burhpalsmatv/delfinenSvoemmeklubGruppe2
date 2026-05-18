@@ -1,5 +1,5 @@
 package menus.treasurerMenu;
-import Register.*;
+import register.*;
 import menus.Application;
 
 

@@ -2,7 +2,7 @@ package menus.trainerMenu;
 
 import members.Competitor;
 import members.IDgenerator;
-import Register.Register;
+import register.Register;
 
 import java.io.Serializable;
 import java.time.LocalDate;

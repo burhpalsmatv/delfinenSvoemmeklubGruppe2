@@ -1,6 +1,6 @@
 package members;
 
-import Register.Register;
+import register.Register;
 
 import java.util.ArrayList;
 import java.util.Random;

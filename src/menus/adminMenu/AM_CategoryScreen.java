@@ -2,8 +2,8 @@ package menus.adminMenu;
 
 import enums.SwimmingCategory;
 import menus.Application;
-import Register.RegisterManager;
-import Register.RegisterSimplePrinter;
+import register.RegisterManager;
+import register.RegisterSimplePrinter;
 
 public class AM_CategoryScreen {
 

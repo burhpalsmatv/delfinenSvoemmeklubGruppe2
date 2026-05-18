@@ -1,7 +1,7 @@
 package members;
 
 import enums.Gender;
-import Register.Register;
+import register.Register;
 
 import java.io.Serializable;
 
