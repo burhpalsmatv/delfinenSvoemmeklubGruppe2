@@ -336,7 +336,7 @@ public class AM_MemberScreen {
                 1. Tilføj medlem
                 2. Rediger medlem (+ skift medlemstype)
                 3. Slet medlem
-                4. Vis aktive medlemmer
+                4. Vis alle medlemmer
                 0. Tilbage til menu
                 """);
     }

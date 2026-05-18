@@ -14,6 +14,7 @@ public class AdminMenu {
             System.out.print("Vælg her: ");
 
             int input = Application.scanner.nextInt();
+            System.out.println();
 
             switch(input) {
 
