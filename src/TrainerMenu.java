@@ -50,27 +50,36 @@ public class TrainerMenu {
                 3. Tilføj svømmer til stævne
                 4. Træningsresultater
                 0. Log ud
+                
                 """);
     }
 
     public static void addCompetitorToCompetition() {
 
         //Loadbearing scanner nextline
+        System.out.print("Vælg her: ");
         Application.scanner.nextLine();
+        if (Register.listOfCompetitors.isEmpty()) {
+            System.out.println("Der er ingen konkurrencesvømmere lige nu. Opret først.");
+            return;
+        }
+        else {
 
-        System.out.println("Vælg konkurrencesvømmer:");
-        RegisterSimplePrinter.printSimplifiedCompetitorList();
-        int CompetitorChoice = Application.scanner.nextInt();
+            System.out.println("Vælg konkurrencesvømmer:");
+            RegisterSimplePrinter.printSimplifiedCompetitorList();
+            int CompetitorChoice = Application.scanner.nextInt();
+            Application.scanner.nextLine();
 
-        System.out.println("Tilføj " + Register.listOfCompetitors.get(CompetitorChoice).getName() +
-                " til stævne:");
+            System.out.println("Tilføj " + Register.listOfCompetitors.get(CompetitorChoice).getName() +
+                    " til stævne:");
 
-        RegisterSimplePrinter.printSimplifiedCompetitionsList();
-        int CompetitionChoice = Application.scanner.nextInt();
-        Register.listOfCompetitions.get(CompetitionChoice).addCompetitor(Register.listOfCompetitors.get(CompetitorChoice));
+            RegisterSimplePrinter.printSimplifiedCompetitionsList();
+            int CompetitionChoice = Application.scanner.nextInt();
+            Register.listOfCompetitions.get(CompetitionChoice).addCompetitor(Register.listOfCompetitors.get(CompetitorChoice));
 
-        System.out.println(Register.listOfCompetitors.get(CompetitorChoice).getName() + " er tilføjet til "
-                + Register.listOfCompetitions.get(CompetitionChoice).getTitle());
+            System.out.println(Register.listOfCompetitors.get(CompetitorChoice).getName() + " er tilføjet til "
+                    + Register.listOfCompetitions.get(CompetitionChoice).getTitle());
 
+        }
     }
 }

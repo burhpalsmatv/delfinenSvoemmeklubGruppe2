@@ -2,7 +2,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Competitor extends Member implements /* Comparable<Competitor>, */ Serializable {
-    private static final long serialVersionUID = 3L;
+    private static final long serialVersionUID = 4L;
 
     ArrayList<Trainer> trainersAssigned;
     String PR_butterfly; // MIDLERTIDIG INDTIL FIKS

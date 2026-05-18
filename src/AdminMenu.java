@@ -11,6 +11,7 @@ public class AdminMenu {
 
         while(adminLoggedIn) {
             System.out.println(adminScreenString());
+            System.out.print("Vælg her: ");
 
             int input = Application.scanner.nextInt();
 
