@@ -1,4 +1,8 @@
-public class MemberPassive extends Member {
+import java.io.Serializable;
+
+public class MemberPassive extends Member implements Serializable {
+    private static final long serialVersionUID = 3L; // Til serialization. Niks pille
+
 
     // Fra oprettelsen
     public MemberPassive(String name, int age, String phone, Gender gender) {

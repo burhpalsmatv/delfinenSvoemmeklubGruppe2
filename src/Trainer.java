@@ -2,7 +2,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 public class Trainer implements Serializable {
-    private static final long serialVersionUID = 2L;
+    private static final long serialVersionUID = 5L;
 
     private String name;
     private int age;

@@ -1,9 +1,11 @@
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Scanner;
 
-public class Competition {
+public class Competition implements Serializable {
+    private static final long serialVersionUID = 6L; // Til serialization. Niks pille
 
     private String title;
     private LocalDate date;
