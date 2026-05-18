@@ -1,3 +1,8 @@
+package members;
+
+import menus.trainerMenu.Trainer;
+import Register.Register;
+
 import java.io.Serializable;
 import java.util.ArrayList;
 
@@ -30,11 +35,11 @@ public class Competitor extends Member implements /* Comparable<Competitor>, */ 
         this.PR_breast = new int[]{0,0};
 
         //
-        Register.listOfCasualMembers.remove(memberCasual);
-        Register.listOfMembers.remove(memberCasual);
+        Register.getListOfCasualMembers().remove(memberCasual);
+        Register.getListOfMembers().remove(memberCasual);
 
-        Register.listOfCompetitors.add(this);
-        Register.listOfMembers.add(this);
+        Register.getListOfCompetitors().add(this);
+        Register.getListOfMembers().add(this);
     }
 
     // Fra Passive Member
@@ -57,11 +62,11 @@ public class Competitor extends Member implements /* Comparable<Competitor>, */ 
         this.PR_breast = new int[]{0,0};
 
         //
-        Register.listOfPassiveMembers.remove(memberPassive);
-        Register.listOfMembers.remove(memberPassive);
+        Register.getListOfPassiveMembers().remove(memberPassive);
+        Register.getListOfMembers().remove(memberPassive);
 
-        Register.listOfCompetitors.add(this);
-        Register.listOfMembers.add(this);
+        Register.getListOfCompetitors().add(this);
+        Register.getListOfMembers().add(this);
     }
 
     public String toString(){
