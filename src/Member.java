@@ -6,6 +6,7 @@ public abstract class Member implements Serializable {
     protected String memberID;
     protected Membership membership;
     protected boolean inArrear;
+    protected String memberType;
 
     // Stamoplysninger
     protected String name;
@@ -42,11 +43,15 @@ public abstract class Member implements Serializable {
     }
 
     public Membership getMembership() {
-        return membership;
+        return this.membership;
     }
 
     public String getPaymentStatusAsText() {
         return this.inArrear ? "Betalt" : "Ikke betalt";
+    }
+
+    public String getMemberType() {
+        return this.memberType;
     }
 
     // Normal Setters

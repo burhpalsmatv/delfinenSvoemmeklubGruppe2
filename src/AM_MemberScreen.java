@@ -153,7 +153,7 @@ public class AM_MemberScreen {
                         System.out.println("Indtast nyt navn:");
                         String name = Application.scanner.nextLine();
                         RegisterManager.memberWithID(ID).setName(name);
-                        System.out.println("Medlem " + RegisterManager.memberWithID(ID).getName() + " er nu ændret til");
+                        System.out.println("Medlem " + RegisterManager.memberWithID(ID).getName() + " er nu ændret.");
                         return;
 
                     //AGE
@@ -162,7 +162,7 @@ public class AM_MemberScreen {
                         int age = Application.scanner.nextInt();
                         Application.scanner.nextLine();
                         RegisterManager.memberWithID(ID).setAge(age);
-                        System.out.println("Alderen på " + RegisterManager.memberWithID(ID).getName() + " er nu ændret til ");
+                        System.out.println("Alderen på " + RegisterManager.memberWithID(ID).getName() + " er nu ændret. ");
                         return;
 
                     //PHONE
@@ -227,7 +227,7 @@ public class AM_MemberScreen {
             String name = String.join(" ", RegisterManager.memberWithID(ID).getName());
 
 
-            System.out.println("Er du sikker på at du vil slette " + name + "? \n(ja/nej): ");
+            System.out.println("Er du sikker på, at du vil slette " + name + "? \n(ja/nej): ");
             String answer = Application.scanner.nextLine();
             if (answer.equalsIgnoreCase("ja")) {
                 RegisterManager.removeMember(RegisterManager.memberWithID(ID));
@@ -252,10 +252,10 @@ public class AM_MemberScreen {
                     0. Afbryd
                     
                     """);
-            int choice = Application.scanner.nextInt();
-            Application.scanner.nextLine();
 
             System.out.print("Vælg her: ");
+            int choice = Application.scanner.nextInt();
+            Application.scanner.nextLine();
 
             if (choice == 1) {
                 new MemberCasual((MemberPassive) RegisterManager.memberWithID(ID));
@@ -267,6 +267,7 @@ public class AM_MemberScreen {
             }
 
             else {
+                System.out.println("Vælg mellem 1 eller 2");
                 return;
             }
 
@@ -290,10 +291,11 @@ public class AM_MemberScreen {
             }
 
             if (choice == 2) {
-                new MemberPassive((MemberCasual) RegisterManager.memberWithID(ID));
+                new Competitor((MemberCasual) RegisterManager.memberWithID(ID));
             }
 
             else {
+                System.out.println("Vælg mellem 1 eller 2");
                 return;
             }
 
@@ -321,11 +323,12 @@ public class AM_MemberScreen {
             }
 
             else {
-                return;
-            }
+                System.out.println("Vælg mellem 1 eller 2");
+                return;            }
         }
 
         System.out.println("Medlemstypen er nu ændret");
+        return;
 
     }
 

@@ -4,7 +4,6 @@ import java.util.ArrayList;
 public class Competitor extends Member implements /* Comparable<Competitor>, */ Serializable {
     private static final long serialVersionUID = 3L;
 
-    final static String memberType = "Competitor";
     ArrayList<Trainer> trainersAssigned;
     int[] PR_butterfly = {0, 0};
     int[] PR_crawl = {0, 0};
@@ -13,6 +12,8 @@ public class Competitor extends Member implements /* Comparable<Competitor>, */ 
 
     // Fra Casual Member
     public Competitor(MemberCasual memberCasual) {
+        this.memberType = "Konkurrencesvømmer";
+
         this.name = memberCasual.name;
         this.age = memberCasual.age;
         this.phone = memberCasual.phone;
@@ -38,6 +39,8 @@ public class Competitor extends Member implements /* Comparable<Competitor>, */ 
 
     // Fra Passive Member
     public Competitor(MemberPassive memberPassive) {
+        this.memberType = "Konkurrencesvømmer";
+
         this.name = memberPassive.name;
         this.age = memberPassive.age;
         this.phone = memberPassive.phone;
@@ -71,7 +74,7 @@ public class Competitor extends Member implements /* Comparable<Competitor>, */ 
 
                 Navn: %s
                 Alder: %s
-                Træner: %s
+                Træner: %s-
                 I restance?: %s
                 ---------------------
                 
