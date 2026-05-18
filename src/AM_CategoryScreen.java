@@ -40,14 +40,12 @@ public class AM_CategoryScreen {
 
         System.out.println("TILDEL DISCIPLIN TIL TRÆNER:");
         System.out.println("------------------------------");
-        System.out.println("Vælg træner:");
+        System.out.println("Vælg træner (Indtast ID):");
         RegisterSimplePrinter.printSimplifiedTrainerList();
 
-        for (int i = 0; i < Register.listOfTrainers.size(); i++) {
-            System.out.println(i + " " + Register.listOfTrainers.get(i).getName());
-        }
-        int trainerChoice = Application.scanner.nextInt();
-        System.out.println("Tildel " + Register.listOfTrainers.get(trainerChoice).getName() + "følgende disciplin:");
+
+        String trainerID = Application.scanner.nextLine();
+        System.out.println("Tildel " + RegisterManager.trainerWithID(trainerID).getName() + " til følgende disciplin:");
 
         int counter = 1;
         for (SwimmingCategory category : SwimmingCategory.values()) {
@@ -58,16 +56,16 @@ public class AM_CategoryScreen {
         Application.scanner.nextLine();
 
         if (CategoryChoice == 1) {
-            Register.listOfTrainers.get(trainerChoice).addSwimmingCategory(SwimmingCategory.BUTTERFLY);
+            RegisterManager.trainerWithID(trainerID).addSwimmingCategory(SwimmingCategory.BUTTERFLY);
         } else if (CategoryChoice == 2) {
-            Register.listOfTrainers.get(trainerChoice).addSwimmingCategory(SwimmingCategory.CRAWL);
+            RegisterManager.trainerWithID(trainerID).addSwimmingCategory(SwimmingCategory.CRAWL);
         } else if (CategoryChoice == 3) {
-            Register.listOfTrainers.get(trainerChoice).addSwimmingCategory(SwimmingCategory.BACKCRAWL);
+            RegisterManager.trainerWithID(trainerID).addSwimmingCategory(SwimmingCategory.BACKCRAWL);
         } else if (CategoryChoice == 4) {
-            Register.listOfTrainers.get(trainerChoice).addSwimmingCategory(SwimmingCategory.BREASTSTROKE);
+            RegisterManager.trainerWithID(trainerID).addSwimmingCategory(SwimmingCategory.BREASTSTROKE);
         }
 
-        System.out.println("Disciplinen er blevet tildelt " + Register.listOfTrainers.get(trainerChoice).getName());
+        System.out.println("Disciplinen er blevet tildelt " + RegisterManager.trainerWithID(trainerID).getName());
 
     }
 
