@@ -73,10 +73,10 @@ public class RegisterSimplePrinter extends Register {
                         Medlemskab: %s
                         
                         Rekorder i kategorier:
-                        BUTTERFLY: %s
-                        CRAWL: %s
-                        BACKCRAWL: %s
-                        BREASTSTROKE: %s
+                        BUTTERFLY: // IKKE INDFØRT
+                        CRAWL: // IKKE INDFØRT
+                        BACKCRAWL: // IKKE INDFØRT
+                        BREASTSTROKE: // IKKE INDFØRT
                         """,
                         Register.listOfCompetitors.get(i).getName(),
                         Register.listOfCompetitors.get(i).getMemberID(),

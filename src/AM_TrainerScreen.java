@@ -10,7 +10,10 @@ public class AM_TrainerScreen {
 
             System.out.println(trainerScreenString());
 
+            System.out.print("Vælg her: ");
             int trainerInput = Application.scanner.nextInt();
+            System.out.println();
+
             switch (trainerInput) {
 
                 //ADD TRAINER
@@ -26,6 +29,7 @@ public class AM_TrainerScreen {
                 //EDIT TRAINER
                 case 3:
                     editTrainer();
+                    break;
 
                     //SHOW LIST OF TRAINER
                 case 4:
@@ -53,8 +57,14 @@ public class AM_TrainerScreen {
             if (Register.listOfCompetitors.isEmpty()) {
                 System.out.println("Der er ingen Konkurrencesvømmere. \nOpret konkurrencesvømmer først\n");
                 return;
+            }
 
-            } else {
+            if (Register.listOfTrainers.isEmpty()) {
+                System.out.println("Der er ingen Trænere. \nOpret træner først\n");
+                return;
+            }
+
+            else {
                 //LOADBEARING SCANNER
                 Application.scanner.nextLine();
 
@@ -62,26 +72,30 @@ public class AM_TrainerScreen {
                 System.out.println("------------------------------");
                 System.out.println("Vælg træner:");
 
-                for (int i = 0; i < Register.listOfTrainers.size(); i++) {
-                    System.out.println(i + " " + Register.listOfTrainers.get(i).getName());
-                }
-                int trainerChoice = Application.scanner.nextInt();
+                RegisterSimplePrinter.printSimplifiedTrainerList();
+                System.out.print("Vælg her (indtast ID): ");
 
-                System.out.println("Tildel " + Register.listOfTrainers.get(trainerChoice).getName() + "til svømmer:");
+                String trainerID = Application.scanner.nextLine();
 
-                for (int i = 0; i < Register.listOfCompetitors.size(); i++) {
-                    System.out.println(i + " " + Register.listOfCompetitors.get(i).getName());
-                }
-                int swimmerChoice = Application.scanner.nextInt();
-                String swimmerName = Register.listOfCompetitors.get(swimmerChoice).getName();
+                System.out.println("Tildel " + RegisterManager.trainerWithID(trainerID).getName() + " til svømmer.");
+                System.out.println("Vælg svømmer:");
+                RegisterSimplePrinter.printSimplifiedCompetitorList();
 
-                Register.listOfCompetitors.get(swimmerChoice).addTrainer(Register.listOfTrainers.get(trainerChoice));
+                System.out.print("Vælg her (indtast ID): ");
+                String swimmerID = Application.scanner.nextLine();
 
-                System.out.println(Register.listOfTrainers.get(trainerChoice).getName() + " er tildelt som træner til " +
-                        swimmerName);
+                Competitor thisCompetitor = (Competitor) RegisterManager.memberWithID(swimmerID);
+                thisCompetitor.addTrainer(RegisterManager.trainerWithID(trainerID));
+
+                System.out.println("Hej");
+
+                // Ved godt det ligner chat. Men det er hjemmelavet spaghetti
+                System.out.println(RegisterManager.trainerWithID(trainerID).getName() + " er tildelt som træner på " + RegisterManager.memberWithID(swimmerID).getName());
+                System.out.println();
             }
+            break;
         }
-
+        return;
     }
 
     public static void createTrainer() {
@@ -116,7 +130,7 @@ public class AM_TrainerScreen {
         }
 
         Trainer trainer = new Trainer(name, age, phone, gender);
-        System.out.println("Træneren " + name + " er oprettet i systemet");
+        System.out.println("Træneren " + name + " er oprettet i systemet\n");
     }
 
     public static void deleteTrainer() {
@@ -125,14 +139,13 @@ public class AM_TrainerScreen {
             System.out.println("Der er ingen trænere at slette lige nu");
         } else {
 
-            Application.scanner.nextLine();
-
             System.out.println("SLET TRÆNER");
             System.out.println("------------------------------");
-            System.out.println("Vælg træner at slette (indtast ID)");
+            System.out.println("Vælg træner at slette:");
 
             RegisterSimplePrinter.printSimplifiedTrainerList();
 
+            System.out.println("Vælg her (indtast ID): ");
             String ID = Application.scanner.nextLine();
             String name = String.join(" ", RegisterManager.trainerWithID(ID).getName());
 
@@ -140,7 +153,7 @@ public class AM_TrainerScreen {
             String answer = Application.scanner.nextLine();
             if (answer.equalsIgnoreCase("ja")) {
                 RegisterManager.removeTrainer(RegisterManager.trainerWithID(ID));
-                System.out.println(name + " er blevet slettet fra systemet");
+                System.out.println(name + " er blevet slettet fra systemet\n");
             }
         }
     }
@@ -152,20 +165,24 @@ public class AM_TrainerScreen {
 
         System.out.println("REDIGER TRÆNER");
         System.out.println("------------------------------");
-        System.out.println("Vælg træner at Redigere (indtast ID)");
+        System.out.println("Vælg træner at Redigere: ");
 
         RegisterSimplePrinter.printSimplifiedTrainerList();
+
+        System.out.print("Vælg her (indtast ID): ");
         String ID = Application.scanner.nextLine();
+        System.out.println();
 
         System.out.printf("""
                 Ændr:
-                1. navn
-                2. alder
-                3. tlf
-                4. køn
+                1. Navn
+                2. Alder
+                3. Telefonnummer
+                4. Køn
                 0. Tilbage til menu
                 """);
 
+        System.out.print("Vælg her: ");
         int choice = Application.scanner.nextInt();
         Application.scanner.nextLine();
 
@@ -173,24 +190,28 @@ public class AM_TrainerScreen {
 
             //NAME
             case 1:
-                System.out.println("Indtast nyt navn:");
+                System.out.print("Indtast nyt navn: ");
                 String name = Application.scanner.nextLine();
                 RegisterManager.trainerWithID(ID).setName(name);
+                System.out.println("Navn ændret\n");
                 break;
 
             //AGE
             case 2:
-                System.out.println("Indtast ny alder:");
+                System.out.print("Indtast ny alder: ");
                 int age = Application.scanner.nextInt();
                 Application.scanner.nextLine();
                 RegisterManager.trainerWithID(ID).setAge(age);
+                System.out.println("Alder ændret\n");
                 break;
 
             //PHONE
             case 3:
-                System.out.println("Indtast nyt tlfnummer:");
+                System.out.print("Indtast nyt telefonnummer: ");
                 String phone = Application.scanner.nextLine();
                 RegisterManager.trainerWithID(ID).setPhone(phone);
+                System.out.println("Telefonnummer ændret\n");
+
                 break;
 
             //GENDER
@@ -208,6 +229,7 @@ public class AM_TrainerScreen {
                     gender = Gender.AGENDER;
                 }
                 RegisterManager.trainerWithID(ID).setGender(gender);
+                System.out.println("Køn ændret\n");
                 break;
 
                 //BACK TO MENU
@@ -224,7 +246,7 @@ public class AM_TrainerScreen {
                 TRÆNERE
                 1. Opret træner
                 2. Slet træner
-                3. Rediger trænerinformation
+                3. Rediger træner
                 4. Vis liste af trænere
                 5. Tilknyt træner til svømmer
                 0. Tilbage til menu

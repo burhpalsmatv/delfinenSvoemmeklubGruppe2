@@ -4,7 +4,7 @@ import java.util.ArrayList;
 public class Competitor extends Member implements /* Comparable<Competitor>, */ Serializable {
     private static final long serialVersionUID = 4L;
 
-    ArrayList<Trainer> trainersAssigned;
+    ArrayList<Trainer> trainersAssigned = new ArrayList<>();
     int[] PR_butterfly = {0, 0};
     int[] PR_crawl = {0, 0};
     int[] PR_back_crawl = {0, 0};
@@ -23,11 +23,11 @@ public class Competitor extends Member implements /* Comparable<Competitor>, */ 
         this.memberID = memberCasual.memberID;
 
         // Competitor unique variables
-        ArrayList<Trainer> trainersAssigned = new ArrayList<>();
-        this.PR_butterfly = null;
-        this.PR_crawl = null;
-        this.PR_back_crawl = null;
-        this.PR_breast = null;
+        this.trainersAssigned = new ArrayList<>();
+        this.PR_butterfly = new int[]{0,0};
+        this.PR_crawl = new int[]{0,0};
+        this.PR_back_crawl = new int[]{0,0};
+        this.PR_breast = new int[]{0,0};
 
         //
         Register.listOfCasualMembers.remove(memberCasual);
@@ -50,11 +50,11 @@ public class Competitor extends Member implements /* Comparable<Competitor>, */ 
         this.memberID = memberPassive.memberID;
 
         // Competitor unique variables
-        ArrayList<Trainer> trainersAssigned = new ArrayList<>();
-        this.PR_butterfly = null;
-        this.PR_crawl = null;
-        this.PR_back_crawl = null;
-        this.PR_breast = null;
+        this.trainersAssigned = new ArrayList<>();
+        this.PR_butterfly = new int[]{0,0};
+        this.PR_crawl = new int[]{0,0};
+        this.PR_back_crawl = new int[]{0,0};
+        this.PR_breast = new int[]{0,0};
 
         //
         Register.listOfPassiveMembers.remove(memberPassive);

@@ -9,15 +9,15 @@ public class Main {
         try {
             File.loadFiles();
         } catch (IOException | ClassNotFoundException e) {
-            System.out.println("Der er ingen gemt data endnu. \n");;
+            System.out.println("Der er ingen gemt data endnu. \n");
         }
 
         Application.mainApp();
 
         try {
             File.saveFiles();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        } catch (IOException ex) {
+            System.out.println("Noget gik galt med at gemme data.");;
         }
 
     }
