@@ -5,10 +5,10 @@ public class Competitor extends Member implements /* Comparable<Competitor>, */ 
     private static final long serialVersionUID = 3L;
 
     ArrayList<Trainer> trainersAssigned;
-    String PR_butterfly; // MIDLERTIDIG INDTIL FIKS
-    String PR_crawl; // MIDLERTIDIG INDTIL FIKS
-    String PR_back_crawl; // MIDLERTIDIG INDTIL FIKS
-    String PR_breast; // MIDLERTIDIG INDTIL FIKS
+    int[] PR_butterfly = {0, 0};
+    int[] PR_crawl = {0, 0};
+    int[] PR_back_crawl = {0, 0};
+    int[] PR_breast = {0, 0};
 
     // Fra Casual Member
     public Competitor(MemberCasual memberCasual) {
@@ -86,19 +86,19 @@ public class Competitor extends Member implements /* Comparable<Competitor>, */ 
         return this.trainersAssigned;
     }
 
-    public String getPR_butterfly() {
+    public int[] getPR_butterfly() {
         return this.PR_butterfly;
     }
 
-    public String getPR_crawl() {
+    public int[] getPR_crawl() {
         return this.PR_crawl;
     }
 
-    public String getPR_back_crawl() {
+    public int[] getPR_back_crawl() {
         return this.PR_back_crawl;
     }
 
-    public String getPR_breast() {
+    public int[] getPR_breast() {
         return this.PR_breast;
     }
 
@@ -115,19 +115,23 @@ public class Competitor extends Member implements /* Comparable<Competitor>, */ 
         this.trainersAssigned.remove(trainer);
     }
 
-    public void setPR_butterfly(String PR_butterfly) {
-        this.PR_butterfly = PR_butterfly;
+    public void setPR_butterfly(int minutes, int seconds) {
+        this.PR_butterfly[0] = minutes;
+        this.PR_butterfly[1] = seconds;
     }
 
-    public void setPR_crawl(String PR_crawl) {
-        this.PR_crawl = PR_crawl;
+    public void setPR_crawl(int minutes, int seconds) {
+        this.PR_crawl[0] = minutes;
+        this.PR_crawl[1] = seconds;
     }
 
-    public void setPR_back_crawl(String PR_back_crawl) {
-        this.PR_back_crawl = PR_back_crawl;
+    public void setPR_back_crawl(int minutes, int seconds) {
+        this.PR_back_crawl[0] = minutes;
+        this.PR_back_crawl[1] = seconds;
     }
 
-    public void setPR_breast(String PR_breast) {
-        this.PR_breast = PR_breast;
+    public void setPR_breast(int minutes, int seconds) {
+        this.PR_breast[0] = minutes;
+        this.PR_breast[1] = seconds;
     }
 }
