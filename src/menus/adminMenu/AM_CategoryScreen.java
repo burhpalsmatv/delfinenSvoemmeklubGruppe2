@@ -5,6 +5,8 @@ import menus.Application;
 import register.RegisterManager;
 import register.RegisterSimplePrinter;
 
+import static menus.Application.scanner;
+
 public class AM_CategoryScreen {
 
     public static void categoryScreen(){
@@ -12,7 +14,9 @@ public class AM_CategoryScreen {
         boolean inCategoryScreen = true;
         System.out.println(categoryScreenString());
 
+
         while (inCategoryScreen) {
+
 
             int catInput = Application.scanner.nextInt();
             switch (catInput) {
@@ -47,6 +51,12 @@ public class AM_CategoryScreen {
         System.out.println("------------------------------");
         System.out.println("Vælg træner (Indtast ID):");
         RegisterSimplePrinter.printSimplifiedTrainerList();
+
+        while (!scanner.hasNextInt()) {
+            System.out.println("indtast et tal");
+            scanner.next();
+        }
+        // check om det står det rigtig sted
 
 
         String trainerID = Application.scanner.nextLine();

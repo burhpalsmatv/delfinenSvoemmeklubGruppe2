@@ -3,6 +3,8 @@ package menus.treasurerMenu;
 import enums.Membership;
 import menus.Application;
 
+import static menus.Application.scanner;
+
 public class Treasurer_PricesScreen {
 
     public static void pricingMenu() {
@@ -10,6 +12,13 @@ public class Treasurer_PricesScreen {
         System.out.println(pricesMenuString());
 
         while(inPricingMenu) {
+
+            while (!scanner.hasNextInt()) {
+                System.out.println("indtast et tal");
+                scanner.next();
+            }
+            // check om det står det rigtig sted
+
             int priceInput = Application.scanner.nextInt();
 
             switch (priceInput) {

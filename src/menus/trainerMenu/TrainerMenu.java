@@ -3,6 +3,8 @@ package menus.trainerMenu;
 import menus.Application;
 import register.*;
 
+import static menus.Application.scanner;
+
 public class TrainerMenu {
     //FOR METHODS RELATING TO THE TRAINERS SCREEN
 
@@ -13,6 +15,13 @@ public class TrainerMenu {
         while (trainerLoggedIn) {
 
             System.out.println(trainerScreenString());
+
+            while (!scanner.hasNextInt()) {
+                System.out.println("indtast et tal");
+                scanner.next();
+            }
+            // check om det står det rigtig sted
+
             int input = Application.scanner.nextInt();
 
             switch(input) {

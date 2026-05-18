@@ -2,8 +2,11 @@ package menus.trainerMenu;
 
 import enums.SwimmingCategory;
 import menus.Application;
+import org.w3c.dom.ls.LSOutput;
 import register.Register;
 import register.RegisterSimplePrinter;
+
+import static menus.Application.scanner;
 
 public class TrainerMenu_TrainingResultScreen {
 
@@ -14,6 +17,12 @@ public class TrainerMenu_TrainingResultScreen {
 
         while (inResultScreen) {
             int resultInput = Application.scanner.nextInt();
+
+            while (!scanner.hasNextInt()) {
+                System.out.println("indtast et tal");
+                scanner.next();
+            }
+            // check om det står det rigtig sted
 
             switch(resultInput) {
 

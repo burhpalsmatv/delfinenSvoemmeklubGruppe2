@@ -7,14 +7,24 @@ import register.RegisterSimplePrinter;
 
 import java.time.LocalDate;
 
+import static menus.Application.scanner;
+
 public class AM_CompetitionScreen {
 
     public static void competitionScreen(){
 
         boolean inCompetitionScreen = true;
 
+
         while (inCompetitionScreen) {
             System.out.println(competitionScreenString());
+
+            while (!scanner.hasNextInt()) {
+                System.out.println("indtast et tal");
+                scanner.next();
+            }
+            // check om det står det rigtig sted
+
             int compInput = Application.scanner.nextInt();
 
             switch(compInput) {

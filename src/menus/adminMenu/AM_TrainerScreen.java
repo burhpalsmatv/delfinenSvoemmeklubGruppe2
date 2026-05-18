@@ -6,6 +6,8 @@ import menus.*;
 import register.*;
 import menus.trainerMenu.Trainer;
 
+import static menus.Application.scanner;
+
 public class AM_TrainerScreen {
 
     public static void trainerScreen(){
@@ -17,6 +19,13 @@ public class AM_TrainerScreen {
             System.out.println(trainerScreenString());
 
             System.out.print("Vælg her: ");
+
+            while (!scanner.hasNextInt()) {
+                System.out.println("indtast et tal");
+                scanner.next();
+            }
+            // check om det står det rigtig sted
+
             int trainerInput = Application.scanner.nextInt();
             System.out.println();
 
