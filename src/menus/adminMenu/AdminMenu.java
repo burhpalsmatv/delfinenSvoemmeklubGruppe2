@@ -2,6 +2,8 @@ package menus.adminMenu;
 
 import menus.Application;
 
+import static menus.Application.scanner;
+
 public class AdminMenu {
     //FOR METHODS RELATING TO THE ADMINISTRATORS SCREEN
 
@@ -14,8 +16,14 @@ public class AdminMenu {
             System.out.println(adminScreenString());
             System.out.print("Vælg her: ");
 
-            int input = Application.scanner.nextInt();
+            while (!scanner.hasNextInt()) {
+                System.out.println("indtast et tal");
+                scanner.next();
+            }
+
+            int input = scanner.nextInt();
             System.out.println();
+
 
             switch(input) {
 
@@ -47,6 +55,7 @@ public class AdminMenu {
                 //LOG OUT
                 case 0:
                     adminLoggedIn = false;
+
             }
         }
     }

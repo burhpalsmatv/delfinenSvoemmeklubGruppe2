@@ -5,16 +5,26 @@ import members.*;
 import menus.Application;
 import register.*;
 
+import static menus.Application.scanner;
+
 public class AM_MemberScreen {
 
     public static void memberScreen(){
 
         boolean inMemberScreen = true;
 
+
         while(inMemberScreen) {
 
             System.out.println(memberScreenString());
             System.out.print("Vælg: ");
+
+            while (!scanner.hasNextInt()) {
+                System.out.println("indtast et tal");
+                scanner.next();
+            }
+            // check om det står det rigtig sted
+
             int memberInput = Application.scanner.nextInt();
 
             switch (memberInput) {

@@ -2,6 +2,8 @@ package menus.treasurerMenu;
 import register.*;
 import menus.Application;
 
+import static menus.Application.scanner;
+
 
 public class Treasurer_QuotaMenu {
 
@@ -10,6 +12,13 @@ public class Treasurer_QuotaMenu {
         System.out.println(quotaMenuString());
 
         while(inQuotaMenu) {
+
+            while (!scanner.hasNextInt()) {
+                System.out.println("indtast et tal");
+                scanner.next();
+            }
+            // check om det står det rigtig sted
+
             int quotaInput = Application.scanner.nextInt();
             Application.scanner.nextLine();
 

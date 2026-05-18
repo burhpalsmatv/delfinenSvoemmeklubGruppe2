@@ -2,6 +2,8 @@ package menus.treasurerMenu;
 import register.*;
 import menus.Application;
 
+import static menus.Application.scanner;
+
 
 public class TreasurerMenu {
     //FOR METHODS RELATING TO THE TREASURER SCREEN
@@ -13,6 +15,13 @@ public class TreasurerMenu {
         while (treasurerLoggedIn) {
 
             System.out.println(treasurerScreenString());
+
+            while (!scanner.hasNextInt()) {
+                System.out.println("indtast et tal");
+                scanner.next();
+            }
+            // check om det står det rigtig sted
+
             int input = Application.scanner.nextInt();
 
             switch(input) {
