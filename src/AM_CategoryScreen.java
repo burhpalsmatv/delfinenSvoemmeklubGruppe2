@@ -5,11 +5,14 @@ public class AM_CategoryScreen {
     public static void categoryScreen(){
 
         boolean inCategoryScreen = true;
-        System.out.println(categoryScreenString());
 
         while (inCategoryScreen) {
 
+            System.out.println(categoryScreenString());
+
+            System.out.print("Vælg her: ");
             int catInput = Application.scanner.nextInt();
+
             switch (catInput) {
 
                 //SHOW LIST OF CATEGORIES
@@ -24,6 +27,7 @@ public class AM_CategoryScreen {
 
                 //SEE TOP 5 SWIMMERS IN EACH CATEGORY
                 case 3:
+                    // ADD CODE HER EMMA !!! 4
                     break;
 
                 //LOG OUT
@@ -35,23 +39,31 @@ public class AM_CategoryScreen {
 
     public static void assignCategoryToTrainer() {
 
+        if (Register.listOfTrainers.isEmpty()) {
+            System.out.println("Der er ingen trænere lige nu. Opret træner først");
+            return;
+        }
+
         //LOADBEARING SCANNER NEXTLINE
         Application.scanner.nextLine();
 
         System.out.println("TILDEL DISCIPLIN TIL TRÆNER:");
         System.out.println("------------------------------");
-        System.out.println("Vælg træner (Indtast ID):");
+        System.out.println("Vælg træner:");
+
         RegisterSimplePrinter.printSimplifiedTrainerList();
-
-
+        System.out.print("Vælg her (Indtast ID): ");
         String trainerID = Application.scanner.nextLine();
+
         System.out.println("Tildel " + RegisterManager.trainerWithID(trainerID).getName() + " til følgende disciplin:");
 
         int counter = 1;
         for (SwimmingCategory category : SwimmingCategory.values()) {
-            System.out.println(counter + " " + category);
+            System.out.println(counter + ": " + category);
             counter ++;
         }
+
+        System.out.print("Vælg her: ");
         int CategoryChoice = Application.scanner.nextInt();
         Application.scanner.nextLine();
 
@@ -65,15 +77,17 @@ public class AM_CategoryScreen {
             RegisterManager.trainerWithID(trainerID).addSwimmingCategory(SwimmingCategory.BREASTSTROKE);
         }
 
-        System.out.println("Disciplinen er blevet tildelt " + RegisterManager.trainerWithID(trainerID).getName());
-
+        System.out.println("Disciplinen er blevet tildelt til " + RegisterManager.trainerWithID(trainerID).getName());
+        System.out.println();
     }
 
     public static void showCategoryList() {
 
+        System.out.println("Svømmediscipliner:");
         for (SwimmingCategory category : SwimmingCategory.values()) {
             System.out.println(category);
         }
+        System.out.println();
 
     }
 

@@ -16,7 +16,6 @@ public class RegisterSimplePrinter extends Register {
                         Register.listOfMembers.get(i).getMemberID(),
                         Register.listOfMembers.get(i).getMembership(),
                         Register.listOfMembers.get(i).getMemberType());
-
                 System.out.println(text);
 
             }
@@ -63,7 +62,7 @@ public class RegisterSimplePrinter extends Register {
 
     public static void printSimplifiedCompetitorList() {
         if (Register.listOfCompetitors.isEmpty()) {
-            System.out.println("Der er ingen konkurrenter lige nu\n");
+            System.out.println("Der er ingen konkurrencesvømmere lige nu\n");
         } else {
             for (int i = 0; i < Register.listOfCompetitors.size(); i++) {
                 String text = "";
@@ -118,16 +117,18 @@ public class RegisterSimplePrinter extends Register {
 
     public static void printSimplifiedCompetitionsList() {
         if (Register.listOfCompetitions.isEmpty()) {
-            System.out.println("Der er ingen konkurrencer lige nu\n");
+            System.out.println("Der er ingen stævner lige nu\n");
         } else {
             for (int i = 0; i < Register.listOfCompetitions.size(); i++) {
                 String text = "";
                 text += String.format("""
                         Titel: %s
                         Dato: %s
+                        Stævne-ID: %s
                         """,
                         Register.listOfCompetitions.get(i).getTitle(),
-                        Register.listOfCompetitions.get(i).getDate());
+                        Register.listOfCompetitions.get(i).getDate(),
+                        Register.listOfCompetitions.get(i).getCompetitionID());
 
                 System.out.println(text);
             }

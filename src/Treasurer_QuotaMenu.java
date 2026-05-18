@@ -2,9 +2,12 @@ public class Treasurer_QuotaMenu {
 
     public static void quotaMenu() {
         boolean inQuotaMenu = true;
-        System.out.println(quotaMenuString());
 
         while(inQuotaMenu) {
+
+            System.out.println(quotaMenuString());
+
+            System.out.print("Vælg her: ");
             int quotaInput = Application.scanner.nextInt();
             Application.scanner.nextLine();
 

@@ -11,7 +11,7 @@ public class MemberCasual extends Member implements Serializable {
         this.age = age;
         this.phone = phone;
         this.gender = gender;
-        this.inArrear = false;
+        this.inArrear = true;
         this.membership = setMembershipByAge(this);
         this.memberID = IDgenerator.generateMemberID();
 

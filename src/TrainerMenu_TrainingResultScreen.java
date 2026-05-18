@@ -3,9 +3,11 @@ public class TrainerMenu_TrainingResultScreen {
     public static void trainingResultScreen() {
 
         boolean inResultScreen = true;
-        System.out.println(trainingResultsScreenString());
 
         while (inResultScreen) {
+            System.out.println(trainingResultsScreenString());
+
+            System.out.print("Vælg her: ");
             int resultInput = Application.scanner.nextInt();
 
             switch(resultInput) {

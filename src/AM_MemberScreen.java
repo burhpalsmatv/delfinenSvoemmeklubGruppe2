@@ -11,7 +11,8 @@ public class AM_MemberScreen {
         while(inMemberScreen) {
 
             System.out.println(memberScreenString());
-            System.out.print("Vælg: ");
+
+            System.out.print("Vælg her: ");
             int memberInput = Application.scanner.nextInt();
 
             switch (memberInput) {
@@ -141,6 +142,7 @@ public class AM_MemberScreen {
                             3. Telefonnummer
                             4. Køn
                             5. Medlemstype (Passiv, Normalt, Konkurrencesvømmer)
+                            6. Betalingsstatus
                             0. Tilbage til menu
                             """);
 
@@ -199,6 +201,32 @@ public class AM_MemberScreen {
                         //MEMBERSHIP
                         case 5:
                             membershipChanger(ID);
+                            return;
+
+                        case 6:
+                            // Formatter senere.. Kæmpe tekst
+                            System.out.println("Navn: " + RegisterManager.memberWithID(ID).getName());
+                            System.out.println("Medlems-ID: " + RegisterManager.memberWithID(ID).getMemberID());
+                            System.out.println("Betalingsstatus: " + RegisterManager.memberWithID(ID).getPaymentStatusAsText());
+                            System.out.println("Medlemsskab: " + RegisterManager.memberWithID(ID).getMembership());
+                            System.out.println("Medlemstype: " + RegisterManager.memberWithID(ID).getMemberType());
+                            System.out.println();
+
+                            System.out.println("Ændr betalingsstatus: ");
+                            System.out.println("1: Betalt");
+                            System.out.println("2: Ikke betalt");
+
+                            System.out.print("Vælg her: ");
+                            int Choice = Application.scanner.nextInt();
+                            Application.scanner.nextLine();
+
+                            if (Choice == 1) {
+                                RegisterManager.memberWithID(ID).setInArrear(false);
+                            } else if (Choice == 2) {
+                                RegisterManager.memberWithID(ID).setInArrear(true);
+                            }
+
+                            System.out.println("\nBetalingsstatus er nu ændret.\n");
                             return;
 
                         //BACK TO MENU

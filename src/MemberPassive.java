@@ -12,7 +12,7 @@ public class MemberPassive extends Member implements Serializable {
         this.age = age;
         this.phone = phone;
         this.gender = gender;
-        this.inArrear = false;
+        this.inArrear = true;
         this.membership = Membership.PASSIVE;
         this.memberID = IDgenerator.generateMemberID();
 

@@ -8,18 +8,31 @@ public class TrainerMenu {
         while (trainerLoggedIn) {
 
             System.out.println(trainerScreenString());
+
+            System.out.print("Vælg her: ");
             int input = Application.scanner.nextInt();
+            Application.scanner.nextLine();
 
             switch(input) {
 
                 //LIST OF COMPETITIONS:
                 case 1:
-                    RegisterSimplePrinter.printSimplifiedCompetitionsList();
-                break;
+                    // Lav bedre printing af Competitors på Competition. Evt Antal af Competitors
+                    for (int i = 0; i < Register.listOfCompetitions.size(); i++) {
+                        System.out.println(Register.listOfCompetitions.get(i));
+                        System.out.println("Deltagere: ");
+                        for (Competitor competitor : Register.listOfCompetitions.get(i).competitors) {
+                            System.out.println(competitor.getName());
+                            System.out.println(competitor.getMemberID());
+                            System.out.println();
+                        }
+
+                    }
+                    break;
 
                 //LIST OF COMPETITORS
                 case 2:
-                       RegisterSimplePrinter.printSimplifiedCompetitorList();
+                    RegisterSimplePrinter.printSimplifiedCompetitorList();
                     break;
 
                 //ADD SWIMMER TO COMPETITION
@@ -43,43 +56,49 @@ public class TrainerMenu {
 
     public static String trainerScreenString(){
         return String.format("""
-                "-----------------------------"
-                "Træner menu"
+                -----------------------------
+                Træner menu
                 1. Liste af stævner
                 2. Vis liste af konkurrencesvømmere
                 3. Tilføj svømmer til stævne
                 4. Træningsresultater
                 0. Log ud
-                
                 """);
     }
 
     public static void addCompetitorToCompetition() {
 
-        //Loadbearing scanner nextline
-        System.out.print("Vælg her: ");
-        Application.scanner.nextLine();
+
         if (Register.listOfCompetitors.isEmpty()) {
-            System.out.println("Der er ingen konkurrencesvømmere lige nu. Opret først.");
+            System.out.println("Der er ingen konkurrencesvømmere lige nu.");
             return;
         }
-        else {
 
             System.out.println("Vælg konkurrencesvømmer:");
             RegisterSimplePrinter.printSimplifiedCompetitorList();
-            int CompetitorChoice = Application.scanner.nextInt();
-            Application.scanner.nextLine();
+            System.out.println("------------------------");
 
-            System.out.println("Tilføj " + Register.listOfCompetitors.get(CompetitorChoice).getName() +
+            System.out.print("Vælg her (indtast ID): ");
+            String CompetitorChoice = Application.scanner.nextLine();
+
+            System.out.println("Tilføj " + RegisterManager.memberWithID(CompetitorChoice).getName() +
                     " til stævne:");
 
             RegisterSimplePrinter.printSimplifiedCompetitionsList();
-            int CompetitionChoice = Application.scanner.nextInt();
-            Register.listOfCompetitions.get(CompetitionChoice).addCompetitor(Register.listOfCompetitors.get(CompetitorChoice));
 
-            System.out.println(Register.listOfCompetitors.get(CompetitorChoice).getName() + " er tilføjet til "
-                    + Register.listOfCompetitions.get(CompetitionChoice).getTitle());
+            System.out.print("Vælg her (indtast ID): ");
+            String CompetitionChoice = Application.scanner.nextLine();
 
-        }
+            if (RegisterManager.memberWithID(CompetitorChoice) instanceof Competitor) { // se om kan optimeres senere
+                    RegisterManager.competitionWithID(CompetitionChoice).addCompetitor((Competitor) RegisterManager.memberWithID(CompetitorChoice));
+                }
+            else {
+                System.out.println("Du skal indtaste en konkurrencesvømmer.");
+                return;
+            }
+            System.out.println(RegisterManager.memberWithID(CompetitorChoice).getName() + " er tilføjet til\nTitel: "
+                    + RegisterManager.competitionWithID(CompetitionChoice).getTitle() + "\nDato: " +
+                    RegisterManager.competitionWithID(CompetitionChoice).getDate());
+            System.out.println();
     }
 }

@@ -47,7 +47,13 @@ public abstract class Member implements Serializable {
     }
 
     public String getPaymentStatusAsText() {
-        return this.inArrear ? "Betalt" : "Ikke betalt";
+        if (this.inArrear == false) {
+            return "Betalt";
+        }
+        else if (this.inArrear == true) {
+            return "Ikke betalt";
+        }
+        return "Noget gik galt";
     }
 
     public String getMemberType() {

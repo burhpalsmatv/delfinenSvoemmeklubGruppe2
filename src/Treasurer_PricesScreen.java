@@ -2,10 +2,13 @@ public class Treasurer_PricesScreen {
 
     public static void pricingMenu() {
         boolean inPricingMenu = true;
-        System.out.println(pricesMenuString());
 
         while(inPricingMenu) {
+            System.out.println(pricesMenuString());
+
+            System.out.print("Vælg her: ");
             int priceInput = Application.scanner.nextInt();
+            Application.scanner.nextLine();
 
             switch (priceInput) {
 
@@ -17,7 +20,6 @@ public class Treasurer_PricesScreen {
                     //CHANGE PRICES
                 case 2:
                     changePrices();
-                    break;
 
                     //LOG OUT
                 case 0:
@@ -32,16 +34,21 @@ public class Treasurer_PricesScreen {
     }
 
     private static void changePrices() {
-        System.out.println("Indtast et tal (1:JUNIOR, 2:SENIOR, 3:PASSIVE):");
+        System.out.println("Indtast et tal (1: JUNIOR, 2: SENIOR, 3: PASSIVE):");
+
+        System.out.print("Vælg her: ");
         int choosenMembership = Application.scanner.nextInt();
+        Application.scanner.nextLine();
+
         Membership membership = Membership.values()[choosenMembership - 1];
 
-        System.out.println("Indtast ny pris: ");
+        System.out.print("Indtast ny pris: ");
         int newPrice = Application.scanner.nextInt();
+        Application.scanner.nextLine();
 
         membership.setPrice(newPrice);
 
-        System.out.println("Prisen for " + choosenMembership + " er nu ændret");
+        System.out.println("Prisen er nu ændret til " + newPrice + " kr.");
     }
 
     public static String pricesMenuString() {
