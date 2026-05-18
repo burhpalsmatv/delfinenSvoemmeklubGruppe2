@@ -267,6 +267,7 @@ public class AM_MemberScreen {
             }
 
             else {
+                System.out.println("Vælg mellem 1 eller 2");
                 return;
             }
 
@@ -290,10 +291,11 @@ public class AM_MemberScreen {
             }
 
             if (choice == 2) {
-                new MemberPassive((MemberCasual) RegisterManager.memberWithID(ID));
+                new Competitor((MemberCasual) RegisterManager.memberWithID(ID));
             }
 
             else {
+                System.out.println("Vælg mellem 1 eller 2");
                 return;
             }
 
@@ -321,11 +323,12 @@ public class AM_MemberScreen {
             }
 
             else {
-                return;
-            }
+                System.out.println("Vælg mellem 1 eller 2");
+                return;            }
         }
 
         System.out.println("Medlemstypen er nu ændret");
+        return;
 
     }
 
