@@ -80,12 +80,12 @@ public class RegisterSimplePrinter extends Register {
                         """,
                         Register.listOfCompetitors.get(i).getName(),
                         Register.listOfCompetitors.get(i).getMemberID(),
-                        Register.listOfCompetitors.get(i).getMembership());
+                        Register.listOfCompetitors.get(i).getMembership(),
 
-                        Register.listOfCompetitors.get(i).getPR_butterfly();
-                        Register.listOfCompetitors.get(i).getPR_crawl();
-                        Register.listOfCompetitors.get(i).getPR_back_crawl();
-                        Register.listOfCompetitors.get(i).getPR_breast();
+                        Register.listOfCompetitors.get(i).getPR_butterfly(),
+                        Register.listOfCompetitors.get(i).getPR_crawl(),
+                        Register.listOfCompetitors.get(i).getPR_back_crawl(),
+                        Register.listOfCompetitors.get(i).getPR_breast());
 
 
                 System.out.println(text);

@@ -23,7 +23,7 @@ public class Competitor extends Member implements /* Comparable<Competitor>, */ 
         this.memberID = memberCasual.memberID;
 
         // Competitor unique variables
-        ArrayList<Trainer> trainersAssigned = new ArrayList<>();
+        this.trainersAssigned = new ArrayList<>();
         this.PR_butterfly = null;
         this.PR_crawl = null;
         this.PR_back_crawl = null;
