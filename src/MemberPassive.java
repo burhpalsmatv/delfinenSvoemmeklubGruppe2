@@ -1,8 +1,9 @@
 public class MemberPassive extends Member {
-    final static String memberType = "Passive";
 
     // Fra oprettelsen
     public MemberPassive(String name, int age, String phone, Gender gender) {
+        this.memberType = "Passiv";
+
         this.name = name;
         this.age = age;
         this.phone = phone;
@@ -17,6 +18,8 @@ public class MemberPassive extends Member {
 
     // Fra Casual Member
     public MemberPassive(MemberCasual memberCasual) {
+        this.memberType = "Passiv";
+
         this.name = memberCasual.name;
         this.age = memberCasual.age;
         this.phone = memberCasual.phone;
@@ -35,6 +38,8 @@ public class MemberPassive extends Member {
 
     // Fra competitor
     public MemberPassive(Competitor competitor) {
+        this.memberType = "Passiv";
+
         this.name = competitor.name;
         this.age = competitor.age;
         this.phone = competitor.phone;

@@ -2,19 +2,11 @@ import java.io.Serializable;
 
 public class MemberCasual extends Member implements Serializable {
     private static final long serialVersionUID = 5L; // Til serialization. Niks pille
-    final static String memberType = "Casual";
-
-    /* Custom MemberID for TESTING
-    public Member(String name, String memberID) {
-        this.name = name;
-        //
-        this.memberID = memberID;
-        Register.listOfMembers.add(this);
-    }
-    */
 
     // Fra oprettelse
     public MemberCasual(String name, int age, String phone, Gender gender) {
+        this.memberType = "Normal svømmer";
+
         this.name = name;
         this.age = age;
         this.phone = phone;
@@ -29,6 +21,8 @@ public class MemberCasual extends Member implements Serializable {
 
     // Fra Passive Member
     public MemberCasual(MemberPassive memberPassive) {
+        this.memberType = "Normal svømmer";
+
         this.name = memberPassive.name;
         this.age = memberPassive.age;
         this.phone = memberPassive.phone;
@@ -48,6 +42,8 @@ public class MemberCasual extends Member implements Serializable {
 
     // Fra Competitor
     public MemberCasual(Competitor competitor) {
+        this.memberType = "Normal svømmer";
+
         this.name = competitor.name;
         this.age = competitor.age;
         this.phone = competitor.phone;

@@ -10,10 +10,12 @@ public class RegisterSimplePrinter extends Register {
                         Navn: %s
                         Medlems-ID: %s
                         Medlemskab: %s
+                        Medlemstype: %s
                         """,
                         Register.listOfMembers.get(i).getName(),
                         Register.listOfMembers.get(i).getMemberID(),
-                        Register.listOfMembers.get(i).getMembership());
+                        Register.listOfMembers.get(i).getMembership(),
+                        Register.listOfMembers.get(i).getMemberType());
 
                 System.out.println(text);
 
