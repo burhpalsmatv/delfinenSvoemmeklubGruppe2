@@ -60,25 +60,26 @@ public class AM_TrainerScreen {
 
                 System.out.println("TILDEL TRÆNER TIL SVØMMER:");
                 System.out.println("------------------------------");
-                System.out.println("Vælg træner:");
+                System.out.println("Vælg træner (Indtast ID):");
+                RegisterSimplePrinter.printSimplifiedTrainerList();
 
-                for (int i = 0; i < Register.listOfTrainers.size(); i++) {
-                    System.out.println(i + " " + Register.listOfTrainers.get(i).getName());
-                }
-                int trainerChoice = Application.scanner.nextInt();
 
-                System.out.println("Tildel " + Register.listOfTrainers.get(trainerChoice).getName() + "til svømmer:");
+                String trainerID = Application.scanner.nextLine();
 
-                for (int i = 0; i < Register.listOfCompetitors.size(); i++) {
-                    System.out.println(i + " " + Register.listOfCompetitors.get(i).getName());
-                }
-                int swimmerChoice = Application.scanner.nextInt();
-                String swimmerName = Register.listOfCompetitors.get(swimmerChoice).getName();
+                System.out.println("Tildel " + RegisterManager.trainerWithID(trainerID).getName() + " til svømmer:");
 
-                Register.listOfCompetitors.get(swimmerChoice).addTrainer(Register.listOfTrainers.get(trainerChoice));
+                System.out.println("Vælg svømmer (Indtast ID): ");
+                RegisterSimplePrinter.printSimplifiedCompetitorList();
 
-                System.out.println(Register.listOfTrainers.get(trainerChoice).getName() + " er tildelt som træner til " +
+                String swimmerID = Application.scanner.nextLine();
+                String swimmerName = RegisterManager.competitorWithID(swimmerID).getName();
+
+                RegisterManager.competitorWithID(swimmerID).addTrainer(RegisterManager.trainerWithID(trainerID));
+
+                System.out.println(RegisterManager.trainerWithID(trainerID).getName() + " er tildelt som træner til " +
                         swimmerName);
+
+                return;
             }
         }
 
