@@ -3,6 +3,7 @@ import java.util.ArrayList;
 
 public class File {
 // skal gemmes som .csv filer // bufferedwriter&reader?
+
     public File() {}
 
     public static void saveFiles() throws IOException {
@@ -13,12 +14,12 @@ public class File {
 
             // Passive members
             ObjectOutputStream savePassiveMember = new ObjectOutputStream(new FileOutputStream("listOfPassiveMembers.ser"));
-            saveMember.writeObject(Register.listOfPassiveMembers);
+            savePassiveMember.writeObject(Register.listOfPassiveMembers);
             savePassiveMember.close();
 
             // Casual members
             ObjectOutputStream saveCasualMember = new ObjectOutputStream(new FileOutputStream("listOfCasualMembers.ser"));
-            saveMember.writeObject(Register.listOfCasualMembers);
+            saveCasualMember.writeObject(Register.listOfCasualMembers);
             saveCasualMember.close();
 
             // Competitors members
@@ -50,8 +51,8 @@ public class File {
 
             //Used Competition IDs
             ObjectOutputStream saveUsedCompetitionIDs = new ObjectOutputStream(new FileOutputStream("listOfUsedCompetitionIDs.ser"));
-            saveCompetition.writeObject(Register.listOfUsedCompetitionIDs);
-            saveCompetition.close();
+            saveUsedCompetitionIDs.writeObject(Register.listOfUsedCompetitionIDs);
+            saveUsedCompetitionIDs.close();
     }
 
     public static void loadFiles() throws IOException, ClassNotFoundException {
