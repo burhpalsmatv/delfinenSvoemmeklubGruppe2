@@ -1,7 +1,7 @@
 import java.io.Serializable;
 
 public class MemberCasual extends Member implements Serializable {
-    private static final long serialVersionUID = 5L; // Til serialization. Niks pille
+    private static final long serialVersionUID = 2L; // Til serialization. Niks pille
 
     // Fra oprettelse
     public MemberCasual(String name, int age, String phone, Gender gender) {
