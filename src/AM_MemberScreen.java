@@ -101,7 +101,8 @@ public class AM_MemberScreen {
 
     public static void editMember() {
 
-        while (true) {
+        boolean editMemberRunning = true;
+        while (editMemberRunning) {
             if (Register.listOfMembers.isEmpty()) {
                 System.out.println("Der er ingen medlemmer at redigere lige nu\n");
                 return;
@@ -198,7 +199,7 @@ public class AM_MemberScreen {
 
                         //BACK TO MENU
                     case 0:
-                        break;
+                        editMemberRunning = false;
                 }
             }
         }
