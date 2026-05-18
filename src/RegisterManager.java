@@ -48,6 +48,15 @@ public class RegisterManager extends Register {
         return null;
     }
 
+    public static Competitor competitorWithID(String memberID) {
+        for (Member competitor : Register.listOfCompetitors) {
+            if (competitor.getMemberID().equals(memberID)) {
+                return (Competitor) competitor;
+            }
+        }
+        return null;
+    }
+
     // With Name AND Phone together
     public static Member memberWithNamePhone(String name, String phone) {
         for (Member member : Register.listOfMembers) {

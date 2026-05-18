@@ -70,7 +70,8 @@ public class AM_TrainerScreen {
 
                 System.out.println("TILDEL TRÆNER TIL SVØMMER:");
                 System.out.println("------------------------------");
-                System.out.println("Vælg træner:");
+                System.out.println("Vælg træner (Indtast ID):");
+                RegisterSimplePrinter.printSimplifiedTrainerList();
 
                 RegisterSimplePrinter.printSimplifiedTrainerList();
                 System.out.print("Vælg her (indtast ID): ");
