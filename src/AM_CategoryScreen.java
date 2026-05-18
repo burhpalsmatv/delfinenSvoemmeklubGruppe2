@@ -47,7 +47,7 @@ public class AM_CategoryScreen {
             System.out.println(i + " " + Register.listOfTrainers.get(i).getName());
         }
         int trainerChoice = Application.scanner.nextInt();
-        System.out.println("Tildel " + Register.listOfTrainers.get(trainerChoice).getName() + "følgende disciplin:");
+        System.out.println("Tildel " + Register.listOfTrainers.get(trainerChoice).getName() + " følgende disciplin:");
 
         int counter = 1;
         for (SwimmingCategory category : SwimmingCategory.values()) {
