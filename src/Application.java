@@ -5,6 +5,13 @@ public class Application {
     // My best friend the scanner
     public static final Scanner scanner = new Scanner(System.in);
 
+    //Comparator(s)
+    public static final Comparator comparatorButterfly = new SortByButterflyResult();
+    public static final Comparator comparatorCrawl = new SortByCrawlResult();
+    public static final Comparator comparatorBackCrawl = new SortByBackCrawlResult();
+    public static final Comparator comparatorBreast = new SortByBreastResult();
+
+
     public static void mainApp() {
 
     Boolean applicationRunning = true;
