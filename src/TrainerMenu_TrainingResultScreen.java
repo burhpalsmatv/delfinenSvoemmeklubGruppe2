@@ -53,22 +53,68 @@ public class TrainerMenu_TrainingResultScreen {
         Application.scanner.nextLine();
 
         if (CategoryChoice == 1) {
-            System.out.println("Indtast svømmerens rekord for BUTTERFLY i formatet: minutter.sekunder (eks. 2.35)");
-            String result = Application.scanner.nextLine();
-            Register.listOfCompetitors.get(CompetitorChoice).setPR_butterfly(result);
+            System.out.println("Indtast svømmerens rekord for BUTTERFLY i formatet: minutter + sekunder:");
+            System.out.println("Minutter:");
+            int minutes = Application.scanner.nextInt();
+            Application.scanner.nextLine();
+            System.out.println("Sekunder:");
+            int seconds = Application.scanner.nextInt();
+
+            Register.listOfCompetitors.get(CompetitorChoice).setPR_butterfly(minutes, seconds);
+
         } else if (CategoryChoice == 2) {
-            System.out.println("Indtast svømmerens tid for CRAWL i formatet: minutter.sekunder (eks. 2.35)");
-            String result = Application.scanner.nextLine();
-            Register.listOfCompetitors.get(CompetitorChoice).setPR_crawl(result);
+            System.out.println("Indtast svømmerens tid for CRAWL i formatet: minutter + sekunder:");
+            System.out.println("Minutter:");
+            int minutes = Application.scanner.nextInt();
+            Application.scanner.nextLine();
+            System.out.println("Sekunder:");
+            int seconds = Application.scanner.nextInt();
+
+            Register.listOfCompetitors.get(CompetitorChoice).setPR_crawl(minutes, seconds);
         } else if (CategoryChoice == 3) {
-            System.out.println("Indtast svømmerens tid for BACKCRAWL i formatet: minutter.sekunder (eks. 2.35)");
-            String result = Application.scanner.nextLine();
-            Register.listOfCompetitors.get(CompetitorChoice).setPR_back_crawl(result);
+            System.out.println("Indtast svømmerens tid for BACKCRAWL i formatet: minutter + sekunder:");
+            System.out.println("Minutter:");
+            int minutes = Application.scanner.nextInt();
+            Application.scanner.nextLine();
+            System.out.println("Sekunder:");
+            int seconds = Application.scanner.nextInt();
+
+            Register.listOfCompetitors.get(CompetitorChoice).setPR_back_crawl(minutes, seconds);
         } else if (CategoryChoice == 4) {
-            System.out.println("Indtast svømmerens tid for BREASTSTROKE i formatet: minutter.sekunder (eks. 2.35)");
-            String result = Application.scanner.nextLine();
-            Register.listOfCompetitors.get(CompetitorChoice).setPR_breast(result);
+            System.out.println("Indtast svømmerens tid for BREASTSTROKE i formatet: minutter + sekunder:");
+            System.out.println("Minutter:");
+            int minutes = Application.scanner.nextInt();
+            Application.scanner.nextLine();
+            System.out.println("Sekunder:");
+            int seconds = Application.scanner.nextInt();
+
+            Register.listOfCompetitors.get(CompetitorChoice).setPR_breast(minutes, seconds);
         }
+    }
+
+    public static void showResultsBasedOnCategory() {
+        //LOADBEARING SCANNER NEXTLINE
+        Application.scanner.nextLine();
+
+        System.out.println("RESULTATER BASERET PÅ DISCIPLIN");
+        System.out.println("------------------------------");
+        System.out.println("Vælg disciplin: 1. Butterfly, 2. Crawl, 3. Backcrawl, 4. Brystsvømning");
+        RegisterSimplePrinter.printSimplifiedTrainerList();
+
+        int CategoryChoice = Application.scanner.nextInt();
+        Application.scanner.nextLine();
+
+        if (CategoryChoice == 1) {
+            //BUTTERFLY);
+        } else if (CategoryChoice == 2) {
+            //CRAWL);
+        } else if (CategoryChoice == 3) {
+            //BACKCRAWL);
+        } else if (CategoryChoice == 4) {
+            //BREASTSTROKE);
+        }
+
+
     }
 
     public static String trainingResultsScreenString() {
