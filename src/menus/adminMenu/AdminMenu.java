@@ -47,11 +47,6 @@ public class AdminMenu {
                     AM_CompetitionScreen.competitionScreen();
                     break;
 
-                //NEW LOGIN
-                case 5:
-                    //ADD CODE HERE FOR CREATING NEW LOGIN
-                    //IDK MAN THIS SHIT MIGHT BE FUCKED
-
                 //LOG OUT
                 case 0:
                     adminLoggedIn = false;
@@ -69,7 +64,6 @@ public class AdminMenu {
                 2. Trænere
                 3. Svømmediscipliner
                 4. Stævner
-                5. Opret nyt login
                 0. Log ud
                 """);
     }

@@ -9,9 +9,12 @@ public class Treasurer_QuotaMenu {
 
     public static void quotaMenu() {
         boolean inQuotaMenu = true;
-        System.out.println(quotaMenuString());
 
         while(inQuotaMenu) {
+
+            System.out.println(quotaMenuString());
+
+            System.out.print("Vælg her: ");
 
             while (!scanner.hasNextInt()) {
                 System.out.println("indtast et tal");

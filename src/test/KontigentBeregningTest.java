@@ -15,7 +15,7 @@ public class KontigentBeregningTest {
         //Arrange
         int expected = 1000;
         //Act
-        int actual = PaymentManager.getExpectedQuota(Register.getListOfMembers());
+        double actual = PaymentManager.getExpectedQuota(Register.getListOfMembers());
         //Assert
         Assertions.assertEquals(expected, actual);
     }
@@ -25,7 +25,7 @@ public class KontigentBeregningTest {
         //Arrange
         int expected = 0;
         //Act
-        int actual = PaymentManager.getActualQuota(Register.getListOfMembers());
+        double actual = PaymentManager.getActualQuota(Register.getListOfMembers());
         //Assert
         Assertions.assertEquals(expected, actual);
     }

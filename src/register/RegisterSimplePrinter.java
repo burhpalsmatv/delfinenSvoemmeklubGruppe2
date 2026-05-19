@@ -18,7 +18,6 @@ public class RegisterSimplePrinter extends Register {
                         Register.listOfMembers.get(i).getMemberID(),
                         Register.listOfMembers.get(i).getMembership(),
                         Register.listOfMembers.get(i).getMemberType());
-
                 System.out.println(text);
 
             }
@@ -65,7 +64,7 @@ public class RegisterSimplePrinter extends Register {
 
     public static void printSimplifiedCompetitorList() {
         if (Register.listOfCompetitors.isEmpty()) {
-            System.out.println("Der er ingen konkurrenter lige nu\n");
+            System.out.println("Der er ingen konkurrencesvømmere lige nu\n");
         } else {
             for (int i = 0; i < Register.listOfCompetitors.size(); i++) {
                 String text = "";
@@ -75,19 +74,19 @@ public class RegisterSimplePrinter extends Register {
                         Medlemskab: %s
                         
                         Rekorder i kategorier:
-                        BUTTERFLY: // IKKE INDFØRT
-                        CRAWL: // IKKE INDFØRT
-                        BACKCRAWL: // IKKE INDFØRT
-                        BREASTSTROKE: // IKKE INDFØRT
+                        BUTTERFLY: %s
+                        CRAWL: %s
+                        BACKCRAWL: %s
+                        BREASTSTROKE: %s
                         """,
                         Register.listOfCompetitors.get(i).getName(),
                         Register.listOfCompetitors.get(i).getMemberID(),
                         Register.listOfCompetitors.get(i).getMembership(),
 
-                        Register.listOfCompetitors.get(i).getPR_butterfly(),
-                        Register.listOfCompetitors.get(i).getPR_crawl(),
-                        Register.listOfCompetitors.get(i).getPR_back_crawl(),
-                        Register.listOfCompetitors.get(i).getPR_breast());
+                        printPR(Register.listOfCompetitors.get(i).getPR_butterfly()),
+                        printPR(Register.listOfCompetitors.get(i).getPR_crawl()),
+                        printPR(Register.listOfCompetitors.get(i).getPR_back_crawl()),
+                        printPR(Register.listOfCompetitors.get(i).getPR_breast()));
 
 
                 System.out.println(text);
@@ -96,7 +95,13 @@ public class RegisterSimplePrinter extends Register {
         }
     }
 
-
+    public static String printPR(int[] pr) {
+        String string = "";
+        string += String.valueOf((pr)[0]);
+        string += ".";
+        string += String.valueOf((pr)[1]);
+        return string;
+    }
 
     public static void printSimplifiedTrainerList() {
         if (Register.listOfTrainers.isEmpty()) {
@@ -120,16 +125,18 @@ public class RegisterSimplePrinter extends Register {
 
     public static void printSimplifiedCompetitionsList() {
         if (Register.listOfCompetitions.isEmpty()) {
-            System.out.println("Der er ingen konkurrencer lige nu\n");
+            System.out.println("Der er ingen stævner lige nu\n");
         } else {
             for (int i = 0; i < Register.listOfCompetitions.size(); i++) {
                 String text = "";
                 text += String.format("""
                         Titel: %s
                         Dato: %s
+                        Stævne-ID: %s
                         """,
                         Register.listOfCompetitions.get(i).getTitle(),
-                        Register.listOfCompetitions.get(i).getDate());
+                        Register.listOfCompetitions.get(i).getDate(),
+                        Register.listOfCompetitions.get(i).getCompetitionID());
 
                 System.out.println(text);
             }

@@ -103,8 +103,6 @@ public class AM_TrainerScreen {
                 Competitor thisCompetitor = (Competitor) RegisterManager.memberWithID(swimmerID);
                 thisCompetitor.addTrainer(RegisterManager.trainerWithID(trainerID));
 
-                System.out.println("Hej");
-
                 // Ved godt det ligner chat. Men det er hjemmelavet spaghetti
                 System.out.println(RegisterManager.trainerWithID(trainerID).getName() + " er tildelt som træner på " + RegisterManager.memberWithID(swimmerID).getName());
                 System.out.println();
@@ -153,7 +151,8 @@ public class AM_TrainerScreen {
         //LOAD BEARING SCANNER NEXTLINE
         if (Register.listOfTrainers.isEmpty()) {
             System.out.println("Der er ingen trænere at slette lige nu");
-        } else {
+            return;
+        }
 
             System.out.println("SLET TRÆNER");
             System.out.println("------------------------------");
@@ -170,12 +169,16 @@ public class AM_TrainerScreen {
             if (answer.equalsIgnoreCase("ja")) {
                 RegisterManager.removeTrainer(RegisterManager.trainerWithID(ID));
                 System.out.println(name + " er blevet slettet fra systemet\n");
-            }
+
         }
     }
 
     public static void editTrainer() {
 
+        if (Register.listOfTrainers.isEmpty()) {
+            System.out.println("Der er ingen trænere at redigere.");
+            return;
+        }
         //LOAD BEARING SCANNER NEXTLINE
         Application.scanner.nextLine();
 

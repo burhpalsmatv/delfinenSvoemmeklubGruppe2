@@ -16,6 +16,8 @@ public class TreasurerMenu {
 
             System.out.println(treasurerScreenString());
 
+            System.out.print("Vælg her: ");
+
             while (!scanner.hasNextInt()) {
                 System.out.println("indtast et tal");
                 scanner.next();
@@ -23,17 +25,27 @@ public class TreasurerMenu {
             // check om det står det rigtig sted
 
             int input = Application.scanner.nextInt();
+            Application.scanner.nextLine();
 
             switch(input) {
 
                 //SHOW MEMBERS PAYMENT STATUS
                 case 1:
-                    System.out.println(PaymentManager.showMembersPaymentStatus(Register.getListOfMembers()));
+                    System.out.print(PaymentManager.showMembersPaymentStatus(Register.getListOfMembers()));
                     break;
 
                 //MEMBERS IN ARREAR
                 case 2:
                     System.out.println(PaymentManager.getMembersInArrear(Register.getListOfMembers()));
+                    for (int i = 0; i < PaymentManager.getMembersInArrear(Register.getListOfMembers()).size(); i++) {
+                        System.out.println("Navn: " + PaymentManager.getMembersInArrear(Register.getListOfMembers()).get(i).getName());
+                        System.out.println("Medlems-ID: " + PaymentManager.getMembersInArrear(Register.getListOfMembers()).get(i).getMemberID());
+                        System.out.println("Medlemskab: " + PaymentManager.getMembersInArrear(Register.getListOfMembers()).get(i).getMembership());
+                        System.out.println("Medlemstype: " + PaymentManager.getMembersInArrear(Register.getListOfMembers()).get(i).getMemberType());
+                        System.out.println("Betalingsstatus: " + PaymentManager.getMembersInArrear(Register.getListOfMembers()).get(i).getPaymentStatusAsText());
+                        System.out.println();
+                    }
+
                     break;
 
                 //PRICES

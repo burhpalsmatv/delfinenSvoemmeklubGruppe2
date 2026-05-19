@@ -2,6 +2,7 @@ package menus.trainerMenu;
 
 import menus.Application;
 import register.*;
+import members.*;
 
 import static menus.Application.scanner;
 
@@ -16,6 +17,8 @@ public class TrainerMenu {
 
             System.out.println(trainerScreenString());
 
+            System.out.print("Vælg her: ");
+
             while (!scanner.hasNextInt()) {
                 System.out.println("indtast et tal");
                 scanner.next();
@@ -23,17 +26,28 @@ public class TrainerMenu {
             // check om det står det rigtig sted
 
             int input = Application.scanner.nextInt();
+            Application.scanner.nextLine();
 
             switch(input) {
 
                 //LIST OF COMPETITIONS:
                 case 1:
-                    RegisterSimplePrinter.printSimplifiedCompetitionsList();
-                break;
+                    // Lav bedre printing af Competitors på Competition. Evt Antal af Competitors
+                    for (int i = 0; i < Register.listOfCompetitions.size(); i++) {
+                        System.out.println(Register.listOfCompetitions.get(i));
+                        System.out.println("Deltagere: ");
+                        for (Competitor competitor : Register.listOfCompetitions.get(i).competitors) {
+                            System.out.println(competitor.getName());
+                            System.out.println(competitor.getMemberID());
+                            System.out.println();
+                        }
+
+                    }
+                    break;
 
                 //LIST OF COMPETITORS
                 case 2:
-                       RegisterSimplePrinter.printSimplifiedCompetitorList();
+                    RegisterSimplePrinter.printSimplifiedCompetitorList();
                     break;
 
                 //ADD SWIMMER TO COMPETITION

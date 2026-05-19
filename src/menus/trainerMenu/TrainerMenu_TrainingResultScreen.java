@@ -1,34 +1,29 @@
 package menus.trainerMenu;
+import members.Competitor;
+import menus.*;
+import register.*;
+import enums.*;
 
-import enums.SwimmingCategory;
-import menus.Application;
-import org.w3c.dom.ls.LSOutput;
-import register.Register;
-import register.RegisterSimplePrinter;
-
-import static menus.Application.scanner;
+import java.util.Arrays;
+import java.util.Objects;
 
 public class TrainerMenu_TrainingResultScreen {
 
     public static void trainingResultScreen() {
 
         boolean inResultScreen = true;
-        System.out.println(trainingResultsScreenString());
 
         while (inResultScreen) {
-            int resultInput = Application.scanner.nextInt();
+            System.out.println(trainingResultsScreenString());
 
-            while (!scanner.hasNextInt()) {
-                System.out.println("indtast et tal");
-                scanner.next();
-            }
-            // check om det står det rigtig sted
+            System.out.print("Vælg her: ");
+            int resultInput = Application.scanner.nextInt();
 
             switch(resultInput) {
 
                 //RESULTS BASED ON CATEGORY
                 case 1:
-                    // ADD CODE
+                    showResultsBasedOnCategory();
 
                     //MEMBER RESULTS (TOP 5?)
                 case 2:
@@ -39,7 +34,7 @@ public class TrainerMenu_TrainingResultScreen {
                     assignResultToCompetitor();
                     break;
 
-                    //LOGOUT
+                //LOGOUT
                 case 0:
                     inResultScreen = false;
             }
@@ -55,28 +50,35 @@ public class TrainerMenu_TrainingResultScreen {
         System.out.println("Vælg svømmer:");
 
         RegisterSimplePrinter.printSimplifiedCompetitorList();
-        int CompetitorChoice = Application.scanner.nextInt();
-        Application.scanner.nextLine();
 
-        System.out.println("Vælg disciplin for resultat: (0 for at gå tilbage til menu)");
+        System.out.print("Vælg her (indtast ID): ");
+        String CompetitorChoice = Application.scanner.nextLine();
 
+        System.out.println("Vælg disciplin for resultat: ");
         int counter = 1;
         for (SwimmingCategory category : SwimmingCategory.values()) {
             System.out.println(counter + " " + category);
             counter ++;
         }
+
+        System.out.print("Vælg her: ");
         int CategoryChoice = Application.scanner.nextInt();
         Application.scanner.nextLine();
 
+        Competitor chosen = RegisterManager.competitorWithID(CompetitorChoice);
+
         if (CategoryChoice == 1) {
             System.out.println("Indtast svømmerens rekord for BUTTERFLY i formatet: minutter + sekunder:");
-            System.out.println("Minutter:");
+
+            System.out.print("Minutter: ");
             int minutes = Application.scanner.nextInt();
             Application.scanner.nextLine();
-            System.out.println("Sekunder:");
-            int seconds = Application.scanner.nextInt();
 
-            Register.getListOfCompetitors().get(CompetitorChoice).setPR_butterfly(minutes, seconds);
+            System.out.print("Sekunder: ");
+            int seconds = Application.scanner.nextInt();
+            Application.scanner.nextLine();
+
+            chosen.setPR_butterfly(minutes, seconds);
 
         } else if (CategoryChoice == 2) {
             System.out.println("Indtast svømmerens tid for CRAWL i formatet: minutter + sekunder:");
@@ -86,7 +88,8 @@ public class TrainerMenu_TrainingResultScreen {
             System.out.println("Sekunder:");
             int seconds = Application.scanner.nextInt();
 
-            Register.getListOfCompetitors().get(CompetitorChoice).setPR_crawl(minutes, seconds);
+            chosen.setPR_crawl(minutes, seconds);
+
         } else if (CategoryChoice == 3) {
             System.out.println("Indtast svømmerens tid for BACKCRAWL i formatet: minutter + sekunder:");
             System.out.println("Minutter:");
@@ -95,7 +98,8 @@ public class TrainerMenu_TrainingResultScreen {
             System.out.println("Sekunder:");
             int seconds = Application.scanner.nextInt();
 
-            Register.getListOfCompetitors().get(CompetitorChoice).setPR_back_crawl(minutes, seconds);
+            chosen.setPR_back_crawl(minutes, seconds);
+
         } else if (CategoryChoice == 4) {
             System.out.println("Indtast svømmerens tid for BREASTSTROKE i formatet: minutter + sekunder:");
             System.out.println("Minutter:");
@@ -104,7 +108,7 @@ public class TrainerMenu_TrainingResultScreen {
             System.out.println("Sekunder:");
             int seconds = Application.scanner.nextInt();
 
-            Register.getListOfCompetitors().get(CompetitorChoice).setPR_breast(minutes, seconds);
+            chosen.setPR_breast(minutes, seconds);
         }
     }
 

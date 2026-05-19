@@ -22,17 +22,19 @@ public class RegisterManager extends Register {
         if (Register.listOfCompetitors.contains(memberWithID(member.getMemberID()))) {
             Register.listOfCompetitors.remove(memberWithID(member.getMemberID()));
         }
-        Register.listOfUsedMemberIDs.remove(memberWithID(member.getMemberID()));
+        Register.listOfUsedMemberIDs.remove(memberWithID(member.getMemberID()).getMemberID());
         Register.listOfMembers.remove(memberWithID(member.getMemberID()));
     }
 
     // Finders
+    // Find måde at ??? return specifikt objekt så du ik kommer til at cast Passive Member til Competitor
     public static Member memberWithID(String memberID) {
         for (Member member : Register.listOfMembers) {
             if (member.getMemberID().equals(memberID)) {
                 return member;
             }
         }
+        System.out.println("Kan ikke finde member med ID " + memberID);
         return null;
     }
 
@@ -55,9 +57,9 @@ public class RegisterManager extends Register {
     }
 
     public static Competitor competitorWithID(String memberID) {
-        for (Member competitor : Register.listOfCompetitors) {
+        for (Competitor competitor : Register.listOfCompetitors) {
             if (competitor.getMemberID().equals(memberID)) {
-                return (Competitor) competitor;
+                return competitor;
             }
         }
         return null;

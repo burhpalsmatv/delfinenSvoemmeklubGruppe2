@@ -5,6 +5,7 @@ import members.IDgenerator;
 import register.Register;
 
 import java.io.Serializable;
+import java.sql.Array;
 import java.time.LocalDate;
 import java.util.ArrayList;
 
@@ -15,10 +16,10 @@ public class Competition implements Serializable {
     private LocalDate date;
     String competitionID;
 
-    private ArrayList<Competitor> competitors = new ArrayList<>();
-    private boolean ended = false;
+    public ArrayList<Competitor> competitors = new ArrayList<>();
 
     public Competition(String title, LocalDate date) {
+        this.competitors = new ArrayList<>();
         this.title = title;
         this.date = date;
         this.competitionID = IDgenerator.generateCompetitionID();
