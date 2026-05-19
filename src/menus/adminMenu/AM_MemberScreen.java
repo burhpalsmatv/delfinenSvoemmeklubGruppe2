@@ -288,71 +288,73 @@ public class AM_MemberScreen {
 
     public static void membershipChanger(String ID) {
 
-        if (Register.getListOfPassiveMembers().contains(RegisterManager.memberWithID(ID))) {
+        if(Register.getListOfMembers().contains(RegisterManager.memberWithID(ID))) {
+            if (Register.getListOfPassiveMembers().contains(RegisterManager.memberWithID(ID))) {
 
-            System.out.printf("""
-                    Skift fra Passivt medlem til:
-                    1. Standard medlem
-                    2. Konkurrencesvømmer
-                    0. Afbryd
-                    
-                    """);
+                System.out.printf("""
+                        Skift fra Passivt medlem til:
+                        1. Standard medlem
+                        2. Konkurrencesvømmer
+                        0. Afbryd
+                        
+                        """);
 
-            System.out.print("Vælg her: ");
-            int choice = Application.scanner.nextInt();
-            Application.scanner.nextLine();
+                System.out.print("Vælg her: ");
+                int choice = Application.scanner.nextInt();
+                Application.scanner.nextLine();
 
-            if (choice == 1) {
-                new MemberCasual((MemberPassive) RegisterManager.memberWithID(ID));
+                if (choice == 1) {
+                    new MemberCasual((MemberPassive) RegisterManager.memberWithID(ID));
 
-            }
+                }
 
-            if (choice == 2) {
-                new Competitor((MemberPassive) RegisterManager.memberWithID(ID));
-            }
+                if (choice == 2) {
+                    new Competitor((MemberPassive) RegisterManager.memberWithID(ID));
+                }
 
-        } else if (Register.getListOfCasualMembers().contains(RegisterManager.memberWithID(ID))) {
+            } else if (Register.getListOfCasualMembers().contains(RegisterManager.memberWithID(ID))) {
 
-            System.out.printf("""
-                    Skift fra Standard medlem til:
-                    1. Passivt medlem
-                    2. Konkurrencesvømmer
-                    0. Afbryd
-                    
-                    """);
+                System.out.printf("""
+                        Skift fra Standard medlem til:
+                        1. Passivt medlem
+                        2. Konkurrencesvømmer
+                        0. Afbryd
+                        
+                        """);
 
-            System.out.print("Vælg her: ");
-            int choice = Application.scanner.nextInt();
-            Application.scanner.nextLine();
+                System.out.print("Vælg her: ");
+                int choice = Application.scanner.nextInt();
+                Application.scanner.nextLine();
 
-            if (choice == 1) {
-                new MemberPassive((MemberCasual) RegisterManager.memberWithID(ID));
-            }
+                if (choice == 1) {
+                    new MemberPassive((MemberCasual) RegisterManager.memberWithID(ID));
+                }
 
-            if (choice == 2) {
-                new Competitor((MemberCasual) RegisterManager.memberWithID(ID));
-            }
+                if (choice == 2) {
+                    new Competitor((MemberCasual) RegisterManager.memberWithID(ID));
+                }
 
-        } else if (Register.getListOfCompetitors().contains(RegisterManager.memberWithID(ID))) {
+            } else if (Register.getListOfCompetitors().contains(RegisterManager.competitorWithID(ID))) {
 
-            System.out.printf("""
-                    Skift fra Konkurrencesvømmer til:
-                    1. Passivt medlem
-                    2. Standard medlem
-                    0. Afbryd
-                    
-                    """);
+                System.out.printf("""
+                        Skift fra Konkurrencesvømmer til:
+                        1. Passivt medlem
+                        2. Standard medlem
+                        0. Afbryd
+                        
+                        """);
 
-            System.out.print("Vælg her: ");
-            int choice = Application.scanner.nextInt();
-            Application.scanner.nextLine();
+                System.out.print("Vælg her: ");
+                int choice = Application.scanner.nextInt();
+                Application.scanner.nextLine();
 
-            if (choice == 1) {
-                new MemberPassive((Competitor) RegisterManager.memberWithID(ID));
-            }
+                if (choice == 1) {
+                    new MemberPassive((Competitor) RegisterManager.memberWithID(ID));
+                }
 
-            if (choice == 2) {
-                new MemberCasual((Competitor) RegisterManager.memberWithID(ID));
+                if (choice == 2) {
+                    new MemberCasual((Competitor) RegisterManager.memberWithID(ID));
+                }
             }
         }
         System.out.println("Medlemstypen er nu ændret \n");
