@@ -20,6 +20,5 @@ public class Main {
         } catch (IOException ex) {
             System.out.println("Noget gik galt med at gemme data.");;
         }
-
     }
 }

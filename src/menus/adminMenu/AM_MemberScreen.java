@@ -2,10 +2,11 @@ package menus.adminMenu;
 
 import enums.Gender;
 import members.*;
-import menus.Application;
 import register.*;
-
-import static menus.Application.scanner;
+import java.util.ArrayList;
+import java.util.Scanner;
+import menus.*;
+import register.RegisterSimplePrinter;
 
 public class AM_MemberScreen {
 
@@ -14,20 +15,11 @@ public class AM_MemberScreen {
 
         boolean inMemberScreen = true;
 
-
         while(inMemberScreen) {
 
             System.out.println(memberScreenString());
 
             System.out.print("Vælg her: ");
-            System.out.print("Vælg: ");
-
-            while (!scanner.hasNextInt()) {
-                System.out.println("indtast et tal");
-                scanner.next();
-            }
-            // check om det står det rigtig sted
-
             int memberInput = Application.scanner.nextInt();
 
             switch (memberInput) {
@@ -40,9 +32,9 @@ public class AM_MemberScreen {
                 //EDIT MEMBER INFO
                 case 2:
                     editMember();
-                        break;
+                    break;
 
-                    //DELETE MEMBER
+                //DELETE MEMBER
                 case 3:
                     deleteMember();
                     break;
@@ -139,13 +131,13 @@ public class AM_MemberScreen {
                     String ID = "";
 
                     while (true) {
-                            System.out.print("Indtast her (memberID): ");
-                            ID = Application.scanner.nextLine();
-                            if (!Register.getListOfMembers().contains(RegisterManager.memberWithID(ID))) {
-                                System.out.println("Kan ikke finde medlem med ID " + ID + " i medlemsliste. \nPrøv igen.\n");
-                            } else {
-                                break;
-                            }
+                        System.out.print("Indtast her (memberID): ");
+                        ID = Application.scanner.nextLine();
+                        if (!Register.getListOfMembers().contains(RegisterManager.memberWithID(ID))) {
+                            System.out.println("Kan ikke finde medlem med ID " + ID + " i medlemsliste. \nPrøv igen.\n");
+                        } else {
+                            break;
+                        }
 
                     }
 
@@ -255,43 +247,41 @@ public class AM_MemberScreen {
 
     public static void deleteMember() {
 
-    while (true) {
-        if (Register.getListOfMembers().isEmpty()) {
-            System.out.println("Der er ingen medlemmer at slette\n");
-            return;
-        }
-        else {
-            //LOAD BEARING SCANNER NEXTLINE
-            Application.scanner.nextLine();
-
-            System.out.println("SLET MEDLEM");
-            System.out.println("------------------------------");
-            System.out.println("Vælg medlem at slette:");
-
-            RegisterSimplePrinter.printSimplifiedMemberList();
-
-            System.out.print("Vælg her (indtast memberID): ");
-            String ID = Application.scanner.nextLine();
-
-            String name = String.join(" ", RegisterManager.memberWithID(ID).getName());
-
-
-            System.out.print("Er du sikker på at du vil slette " + name + "? \n(ja/nej): ");
-            String answer = Application.scanner.nextLine();
-            if (answer.equalsIgnoreCase("ja")) {
-                RegisterManager.removeMember(RegisterManager.memberWithID(ID));
-                System.out.println(name + " er blevet slettet fra systemet\n");
+        while (true) {
+            if (Register.getListOfMembers().isEmpty()) {
+                System.out.println("Der er ingen medlemmer at slette\n");
                 return;
             }
             else {
-                System.out.println("Okay så :(\n");
-                return;
+                //LOAD BEARING SCANNER NEXTLINE
+                Application.scanner.nextLine();
 
+                System.out.println("SLET MEDLEM");
+                System.out.println("------------------------------");
+                System.out.println("Vælg medlem at slette:");
+
+                RegisterSimplePrinter.printSimplifiedMemberList();
+
+                System.out.print("Vælg her (indtast memberID): ");
+                String ID = Application.scanner.nextLine();
+
+                String name = String.join(" ", RegisterManager.memberWithID(ID).getName());
+
+
+                System.out.print("Er du sikker på at du vil slette " + name + "? \n(ja/nej): ");
+                String answer = Application.scanner.nextLine();
+                if (answer.equalsIgnoreCase("ja")) {
+                    RegisterManager.removeMember(RegisterManager.memberWithID(ID));
+                    System.out.println(name + " er blevet slettet fra systemet\n");
+                    return;
+                }
+                else {
+                    System.out.println("Okay så :(\n");
+                    return;
+
+                }
             }
         }
-    }
-
-
     }
 
     // MEMBERSHIP CHANGER - NEEDS FUNCTIONALITY FROM REGISTER TO WORK
@@ -365,8 +355,6 @@ public class AM_MemberScreen {
                 new MemberCasual((Competitor) RegisterManager.memberWithID(ID));
             }
         }
-
-
         System.out.println("Medlemstypen er nu ændret \n");
 
     }

@@ -5,7 +5,10 @@ import register.*;
 import enums.*;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.Objects;
+
+import static register.RegisterSimplePrinter.printPR;
 
 public class TrainerMenu_TrainingResultScreen {
 
@@ -126,6 +129,26 @@ public class TrainerMenu_TrainingResultScreen {
 
         if (CategoryChoice == 1) {
             //BUTTERFLY);
+
+            for (int i = 0; i < 5; i++) {
+                String text = "";
+                text += String.format("""
+                        Navn: %s
+                        Medlems-ID: %s
+                        Medlemskab: %s
+                        Butterfly rekord: %s
+                        """,
+                        Register.getListOfCompetitors().get(i).getName(),
+                        Register.getListOfCompetitors().get(i).getMemberID(),
+                        Register.getListOfCompetitors().get(i).getMembership(),
+                        printPR(Register.getListOfCompetitors().get(i).getPR_butterfly()));
+
+                System.out.println(text);
+
+            }
+
+        Collections.sort(Register.getListOfCompetitors(), Application.comparatorButterfly);
+
         } else if (CategoryChoice == 2) {
             //CRAWL);
         } else if (CategoryChoice == 3) {

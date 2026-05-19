@@ -29,7 +29,7 @@ public class RegisterManager extends Register {
     // Finders
     // Find måde at ??? return specifikt objekt så du ik kommer til at cast Passive Member til Competitor
     public static Member memberWithID(String memberID) {
-        for (Member member : Register.listOfMembers) {
+        for (Member member : Register.getListOfMembers()) {
             if (member.getMemberID().equals(memberID)) {
                 return member;
             }
