@@ -27,13 +27,9 @@ public class TrainerMenu_TrainingResultScreen {
                 //RESULTS BASED ON CATEGORY
                 case 1:
                     showResultsBasedOnCategory();
+                    break;
 
-                    //MEMBER RESULTS (TOP 5?)
                 case 2:
-                    // ADD CODE
-
-                    //ENTER RESULT FOR MEMBER
-                case 3:
                     assignResultToCompetitor();
                     break;
 
@@ -122,15 +118,15 @@ public class TrainerMenu_TrainingResultScreen {
         System.out.println("RESULTATER BASERET PÅ DISCIPLIN");
         System.out.println("------------------------------");
         System.out.println("Vælg disciplin: 1. Butterfly, 2. Crawl, 3. Backcrawl, 4. Brystsvømning");
-        RegisterSimplePrinter.printSimplifiedTrainerList();
 
         int CategoryChoice = Application.scanner.nextInt();
         Application.scanner.nextLine();
 
         if (CategoryChoice == 1) {
             //BUTTERFLY);
+            Collections.sort(Register.getListOfCompetitors(), Application.comparatorButterfly);
 
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < Register.getListOfCompetitors().size(); i++) {
                 String text = "";
                 text += String.format("""
                         Navn: %s
@@ -144,28 +140,72 @@ public class TrainerMenu_TrainingResultScreen {
                         printPR(Register.getListOfCompetitors().get(i).getPR_butterfly()));
 
                 System.out.println(text);
-
             }
-
-        Collections.sort(Register.getListOfCompetitors(), Application.comparatorButterfly);
-
         } else if (CategoryChoice == 2) {
             //CRAWL);
+            Collections.sort(Register.getListOfCompetitors(), Application.comparatorCrawl);
+
+            for (int i = 0; i < Register.getListOfCompetitors().size(); i++) {
+                String text = "";
+                text += String.format("""
+                        Navn: %s
+                        Medlems-ID: %s
+                        Medlemskab: %s
+                        Crawl rekord: %s
+                        """,
+                        Register.getListOfCompetitors().get(i).getName(),
+                        Register.getListOfCompetitors().get(i).getMemberID(),
+                        Register.getListOfCompetitors().get(i).getMembership(),
+                        printPR(Register.getListOfCompetitors().get(i).getPR_crawl()));
+
+                System.out.println(text);
+            }
         } else if (CategoryChoice == 3) {
             //BACKCRAWL);
+            Collections.sort(Register.getListOfCompetitors(), Application.comparatorBackCrawl);
+
+            for (int i = 0; i < Register.getListOfCompetitors().size(); i++) {
+                String text = "";
+                text += String.format("""
+                        Navn: %s
+                        Medlems-ID: %s
+                        Medlemskab: %s
+                        Backcrawl rekord: %s
+                        """,
+                        Register.getListOfCompetitors().get(i).getName(),
+                        Register.getListOfCompetitors().get(i).getMemberID(),
+                        Register.getListOfCompetitors().get(i).getMembership(),
+                        printPR(Register.getListOfCompetitors().get(i).getPR_back_crawl()));
+
+                System.out.println(text);
+            }
         } else if (CategoryChoice == 4) {
             //BREASTSTROKE);
+            Collections.sort(Register.getListOfCompetitors(), Application.comparatorBreast);
+
+            for (int i = 0; i < Register.getListOfCompetitors().size(); i++) {
+                String text = "";
+                text += String.format("""
+                        Navn: %s
+                        Medlems-ID: %s
+                        Medlemskab: %s
+                        Brystsvømning rekord: %s
+                        """,
+                        Register.getListOfCompetitors().get(i).getName(),
+                        Register.getListOfCompetitors().get(i).getMemberID(),
+                        Register.getListOfCompetitors().get(i).getMembership(),
+                        printPR(Register.getListOfCompetitors().get(i).getPR_breast()));
+
+                System.out.println(text);
+            }
         }
-
-
     }
 
     public static String trainingResultsScreenString() {
         return String.format("""
                 TRÆNINGSRESULTATER
-                1. Vis resultater baseret på disciplin
-                2. Vis medlems resultater
-                3. Indtast træningsresultat for medlem
+                1. Vis top 5 resultater baseret på disciplin
+                2. Indtast træningsresultat for medlem
                 0. Tilbage til menu
                 """);
     }
